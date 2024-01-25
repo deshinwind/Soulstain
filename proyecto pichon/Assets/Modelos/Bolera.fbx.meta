@@ -3,12 +3,117 @@ guid: bdc67153c07a2be4abdd78529075af9e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 50020e50890d1f74dac086a8d59cd2db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 2460e2b445070d54d95129371b2fd897, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barras
+    second: {fileID: 2100000, guid: cff320656c724744895ffcec34ea1324, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barrera
+    second: {fileID: 2100000, guid: aa8a655e32271b948b28591db99a5cc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bola2
+    second: {fileID: 2100000, guid: 5cc0e70d4d73b4443ada2e761dabc386, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bolo 1
+    second: {fileID: 2100000, guid: 4c3eae20f0a3a8e4fb4a958c5b5eec89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bolo 2
+    second: {fileID: 2100000, guid: 0c681e55017308145abbe7feff7445a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: maquina
+    second: {fileID: 2100000, guid: c8fbfb96b11ce334b9eafc6d264bc695, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mesa
+    second: {fileID: 2100000, guid: 0f5979545aef89844a5fa4c997d5d141, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 97ce62a21a365884da56d14a50bdb5ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal2
+    second: {fileID: 2100000, guid: 352646977a8b8054fa19b908b03c6f09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: moqueta
+    second: {fileID: 2100000, guid: a25aee7bba529574a917d79d47010a81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oscuridad
+    second: {fileID: 2100000, guid: 4ff3eb0e1f8bf324886aa74a1ad0b23e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel frontal
+    second: {fileID: 2100000, guid: 2823e88967922304fadf5873e144e3ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pantalla
+    second: {fileID: 2100000, guid: 5af5608f15db0a84aa6e6660dc27d799, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pantalla negra
+    second: {fileID: 2100000, guid: 7094c5033473382419d9fca4459f5ee4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paredes
+    second: {fileID: 2100000, guid: 9d481031120fa1d43885592a575635cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pista
+    second: {fileID: 2100000, guid: 0dc5669c28a9410429223c7bcfb1384e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suelo
+    second: {fileID: 2100000, guid: 4ffdd3f75c5805c4394ef5039a859893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suleo carriles
+    second: {fileID: 2100000, guid: 73f3aa634ab8d494a8babeeec064f99b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teles
+    second: {fileID: 2100000, guid: 637d4587087fbd3428ab07c0020e1314, type: 2}
   materials:
-    materialImportMode: 2
-    materialName: 0
-    materialSearch: 1
-    materialLocation: 1
+    materialImportMode: 1
+    materialName: 1
+    materialSearch: 0
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

@@ -82,7 +82,7 @@ public class ControladorBolos : MonoBehaviour
         if (other.CompareTag("Bola"))
         {
             //ESPERAR UNOS SEGUNDOS PARA QUE SE CAIGAN LOS BOLOS
-            Invoke("BajarBrazo", 0.5f);
+            Invoke("BajarBrazo", 1f);
             Invoke("ContarBolos", 5f);
             Invoke("RecogerBolos", 6f);
             Invoke("AñadirVoces", 6f);
@@ -177,7 +177,7 @@ public class ControladorBolos : MonoBehaviour
             bolo[i].transform.localScale = prefavBolos[i].transform.localScale;
         }
         bolosCreados = true;
-        Invoke("ActivarCielo", 1f);
+        Invoke("ActivarCielo", 3f);
     }
 
     private void ActivarCielo()

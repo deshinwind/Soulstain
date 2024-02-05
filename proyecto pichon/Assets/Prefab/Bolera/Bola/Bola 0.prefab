@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2245438833443457808}
   - component: {fileID: 927693144809421525}
   m_Layer: 0
-  m_Name: Bola
+  m_Name: Bola 0
   m_TagString: Bola
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1930673542829122292, guid: bdc67153c07a2be4abdd78529075af9e, type: 3}
+  - {fileID: 2100000, guid: d944959f85aef3141a832fda3c1b3157, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6590358189199795338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 

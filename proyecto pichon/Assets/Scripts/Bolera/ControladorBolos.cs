@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class ControladorBolos : MonoBehaviour
 {
     public GameObject brazo;
     public GameObject bola;
-    public GameObject prefabBola;
+    public GameObject[] prefabBola;
     public GameObject[] bolo;
     public GameObject[] prefavBolos;
     public GameObject cielo;
@@ -32,12 +33,15 @@ public class ControladorBolos : MonoBehaviour
     public float subeBrazo = 0.518f;
     public float bajaBrazo = 1.21f;
 
+    public bool bolaLanzada;
+
     private void Start()
     {
         brazoBajado = false;
         recogerBolos = false;
         colocandoBolos = false;
         bolosCreados = false;
+        bolaLanzada = false;
 
         grupoVoces = new List<GameObject>();
     }
@@ -81,6 +85,7 @@ public class ControladorBolos : MonoBehaviour
     {
         if (other.CompareTag("Bola"))
         {
+            bolaLanzada = true;
             //ESPERAR UNOS SEGUNDOS PARA QUE SE CAIGAN LOS BOLOS
             Invoke("BajarBrazo", 1f);
             Invoke("ContarBolos", 5f);
@@ -156,10 +161,12 @@ public class ControladorBolos : MonoBehaviour
     private void DevolverBola()
     {
         //INSTANCIAR EL PREFAV DE LA BOLA
-        bola = Instantiate(prefabBola);
-        bola.transform.position = prefabBola.transform.position;
-        bola.transform.rotation = prefabBola.transform.rotation;
-        bola.transform.localScale = prefabBola.transform.localScale;
+        int n = Random.Range(1, 2);
+
+        bola = Instantiate(prefabBola[n]);
+        bola.transform.position = prefabBola[n].transform.position;
+        bola.transform.rotation = prefabBola[n].transform.rotation;
+        bola.transform.localScale = prefabBola[n].transform.localScale;
     }
 
     private void ColocarBolos()
@@ -198,6 +205,10 @@ public class ControladorBolos : MonoBehaviour
         Debug.Log("Bolos en pie: " + controlador.bolosEnPie);
         Debug.Log("Puntuacion Maxima: " + controlador.bolosMaxPosibles);
         Debug.Log("Ronda: " + controlador.ronda);
+
+        bolaLanzada = false;
+
+        bola.GetComponent<XRGrabInteractable>().enabled = true;
         //ACTIVAR LA ANIMACOIN DE SUBIR EL BRAZO PARA QUE SE PUEDAN COLOCAR LOS BOLOS Y VOLVER A JUGAR
     }
 }

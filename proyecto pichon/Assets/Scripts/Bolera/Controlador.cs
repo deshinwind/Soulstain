@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controlador : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class Controlador : MonoBehaviour
 
     void Update()
     {
-        if(ronda > 10 || bolosMaxPosibles < 75)
+        if (ronda > 10 || bolosMaxPosibles < 75)
         {
             //FIN DE LA PARTIDA
+            SceneManager.LoadScene("Plato");
         }
     }
 }

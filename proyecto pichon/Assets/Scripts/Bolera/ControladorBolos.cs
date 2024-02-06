@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
@@ -21,6 +22,8 @@ public class ControladorBolos : MonoBehaviour
     public List<GameObject> grupoVoces;
 
     public Controlador controlador;
+
+    public Marcador marcador;
 
     public bool brazoBajado;
     public bool recogerBolos;
@@ -123,6 +126,7 @@ public class ControladorBolos : MonoBehaviour
         }
         controlador.bolosMaxPosibles -= controlador.bolosEnPie;
         controlador.ronda++;
+        marcador.ActualizarMarcador();
     }
 
     private void BajarBrazo()
@@ -161,7 +165,7 @@ public class ControladorBolos : MonoBehaviour
     private void DevolverBola()
     {
         //INSTANCIAR EL PREFAV DE LA BOLA
-        int n = Random.Range(1, 2);
+        int n = Random.Range(0, 1);
 
         bola = Instantiate(prefabBola[n]);
         bola.transform.position = prefabBola[n].transform.position;

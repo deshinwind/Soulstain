@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Partida : MonoBehaviour
@@ -8,14 +9,22 @@ public class Partida : MonoBehaviour
     public List<GameObject> manoJugador;
     public List<GameObject> manoDealer;
 
+    public GameObject[] paredes;
+
     public AlmacenCartas almacen;
 
     public int puntosJugador;
     public int puntosDealer;
 
-    public float speed;
+    public float speedCartas;
+    public float speedParedes;
     public float angulo;
     public float posicion;
+
+    public float zJugador;
+    public float zDealer;
+
+    public float mov, y;
 
     //BOTONES
     public GameObject otraCarta;
@@ -37,16 +46,27 @@ public class Partida : MonoBehaviour
         //EL NUMERO MAXIMO DE CARTAS QUE PUEDE TENER UNA PERSONA ES DE 12 (4 AS, 4 2 Y 3 3)
         for (int i = 0; i < manoJugador.Count; i++)
         {
-            manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion, manoJugador[i].transform.position.y, 1f), speed);
-            manoJugador[i].transform.rotation = Quaternion.Lerp(manoJugador[i].transform.rotation, new Quaternion(manoJugador[i].transform.rotation.x, manoJugador[i].transform.rotation.y, angulo, manoJugador[i].transform.rotation.w), speed);
+            manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion, manoJugador[i].transform.position.y, zJugador), speedCartas);
+            manoJugador[i].transform.rotation = Quaternion.Lerp(manoJugador[i].transform.rotation, new Quaternion(manoJugador[i].transform.rotation.x, manoJugador[i].transform.rotation.y, angulo, manoJugador[i].transform.rotation.w), speedCartas);
         }
 
         for (int i = 0; i < manoDealer.Count; i++)
         {
-            manoDealer[i].transform.position = Vector3.Lerp(manoDealer[i].transform.position, new Vector3(i * posicion, manoDealer[i].transform.position.y, 1f), speed);
-            manoDealer[i].transform.rotation = Quaternion.Lerp(manoDealer[i].transform.rotation, new Quaternion(manoDealer[i].transform.rotation.x, manoDealer[i].transform.rotation.y, angulo, manoDealer[i].transform.rotation.w), speed);
+            manoDealer[i].transform.position = Vector3.Lerp(manoDealer[i].transform.position, new Vector3(i * posicion, manoDealer[i].transform.position.y, zDealer), speedCartas);
+            manoDealer[i].transform.rotation = Quaternion.Lerp(manoDealer[i].transform.rotation, new Quaternion(manoDealer[i].transform.rotation.x, manoDealer[i].transform.rotation.y, angulo, manoDealer[i].transform.rotation.w), speedCartas);
 
         }
+
+        paredes[0].transform.position = Vector3.Lerp(paredes[0].transform.position, new Vector3(0, y, -mov), speedParedes);
+        paredes[1].transform.position = Vector3.Lerp(paredes[1].transform.position, new Vector3(-mov, y, 0), speedParedes);
+        paredes[2].transform.position = Vector3.Lerp(paredes[2].transform.position, new Vector3(mov, y, 0), speedParedes);
+        paredes[3].transform.position = Vector3.Lerp(paredes[3].transform.position, new Vector3(0, y, mov), speedParedes);
+
+        //paredes[4].transform.position = Vector3.Lerp(paredes[4].transform.position, new Vector3(0, paredes[4].transform.position.y, -mov), speedParedes);
+        //paredes[5].transform.position = Vector3.Lerp(paredes[5].transform.position, new Vector3(0, paredes[5].transform.position.y, -mov), speedParedes);
+        //paredes[6].transform.position = Vector3.Lerp(paredes[6].transform.position, new Vector3(0, paredes[6].transform.position.y, -mov), speedParedes);
+        //paredes[7].transform.position = Vector3.Lerp(paredes[7].transform.position, new Vector3(0, paredes[7].transform.position.y, -mov), speedParedes);
+
         /*foreach (var carta in manoJugador)
         {
             carta.transform.position = Vector3.Lerp(carta.transform.position, new Vector3(carta.transform.position.x * posicion * 0.1f, carta.transform.position.y, 1f), speed);
@@ -57,6 +77,7 @@ public class Partida : MonoBehaviour
 
     public void IniciarRonda()
     {
+        Debug.Log("-------NUEVA RONDA-------");
         //REPARTIMOS LAS CARTAS INICIALES TANTO AL DEALER COMO AL JUGADOR
         AñadirCarta(manoJugador);
         AñadirCarta(manoJugador);
@@ -65,9 +86,13 @@ public class Partida : MonoBehaviour
         //ESTA CARTA ES BOCA ABAJO
         AñadirCarta(manoDealer);
 
-        //LE PREGUNTAMOS AL JUGADOR SI DESEA ROBAR UNA CARTA O PLANTARSE
-        otraCarta.SetActive(true);
-        plantarse.SetActive(true);
+        //CONTAMOS LOS PUNTOS QUE TIENE EL JUGADOR Y LE PREGUNTAMOS SI QUIERE COGER OTRA CARTA O PLANTARSE
+        ComprobarPuntosJugador();
+
+        //*********************************************//
+        //ESTO A LO MEJOR SE PUEDE QUITAR MAS A DELANTE//
+        //*********************************************//
+        ComprobarPuntosDealer();
     }
 
     public void AñadirCarta(List<GameObject> mano)
@@ -146,6 +171,7 @@ public class Partida : MonoBehaviour
         else
         {
             //SE COMPARAN LOS PUNTOS PARA VER QUIEN GANA
+            
             if (puntosDealer > puntosJugador)
             {
                 //GANA EL DEALER
@@ -170,14 +196,21 @@ public class Partida : MonoBehaviour
         if (jugadorGana)
         {
             Debug.Log("Gana el jugador");
+            mov += 0.66f;
         }
         else
         {
             Debug.Log("Gana el dealer");
+            mov -= 0.33f;
         }
         Debug.Log("Puntos jugador: " + puntosJugador + " Puntos dealer: " + puntosDealer);
 
-        IniciarRonda();
+
+        //HACER LA ANIMACION DE CAMBIO DE ESCENA, MOSTRANDO LA CONVERSACION PERTINENTE
+        if (mov >= 4.4 || mov <= 1.4)
+            SceneManager.LoadScene("Plato");
+        else
+            IniciarRonda();
     }
 
     public void OtraCarta()

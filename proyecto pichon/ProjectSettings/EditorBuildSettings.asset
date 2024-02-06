@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/BlackJack.unity
+    guid: 907403c0d99ecd641bd06f6d01a846e1
+  - enabled: 1
+    path: Assets/Scenes/Plato.unity
+    guid: 2887b9140e02d19459e11b382be8d2b6
+  - enabled: 1
+    path: Assets/Scenes/Bolera.unity
+    guid: 56d2ce50ed53cef44ac758b87a54b0ca
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b98b7f8efcac7ec4db7fbceb86d9ee2b,
       type: 2}

@@ -21,15 +21,6 @@ public class AlmacenCartas : MonoBehaviour
         LlenarMazo();
     }*/
 
-    private void Update()
-    {
-        if (mazo.Count == 0)
-        {
-            mazo.Clear();
-            LlenarMazo();
-        }
-    }
-
     public void LlenarMazo()
     {
         for (int i = 0; i < 52; i++)
@@ -46,7 +37,7 @@ public class AlmacenCartas : MonoBehaviour
 
         mazo.RemoveAt(numero);
 
-        //HACER LA ANIMACION PARA QUE LA CARTA VAYA DESDE EL PUN TO EN EL QUE SE HA CREADO HASTA LA POSICION QUE LE CORRESPONDE
+        //HACER LA ANIMACION PARA QUE LA CARTA VAYA DESDE EL PUNTO EN EL QUE SE HA CREADO HASTA LA POSICION QUE LE CORRESPONDE
         //DEPENDIENDO DE SI LA CARTA ES PARA EL DEALER O PARA EL JUGADOR Y DEPENDIENDO DEL NUMERO DE CARTAS QUE TENGA EN LA MANO
 
         return cartaNueva;
@@ -54,6 +45,14 @@ public class AlmacenCartas : MonoBehaviour
 
     public GameObject InstanciarCarta()
     {
+
+        //COMPROBAMOS SI QUEDAN CARCAS EN EL MAZO. EN CASO DE NO QUEDAR CARTAS LLENAMOS EL MAZO
+        if (mazo.Count == 0)
+        {
+            mazo.Clear();
+            LlenarMazo();
+        }
+
         GameObject cartaNueva = Instantiate(prefabCarta);
 
         cartaNueva.transform.position = prefabCarta.transform.position;

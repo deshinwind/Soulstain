@@ -15,6 +15,6 @@ public class Marcador : MonoBehaviour
 
         marcador[11].text = controlador.bolosMaxPosibles.ToString();
 
-        marcador[controlador.ronda - 2].text = controlador.bolosEnPie.ToString();
+        marcador[controlador.ronda - 2].text = controlador.bolosRonda.ToString();
     }
 }

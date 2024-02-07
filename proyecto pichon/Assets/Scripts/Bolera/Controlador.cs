@@ -9,6 +9,7 @@ public class Controlador : MonoBehaviour
     public int bolosTotales;
     public int bolosMaxPosibles;
     public int bolosEnPie;
+    public int bolosRonda;
 
     void Start()
     {

@@ -103,27 +103,31 @@ public class ControladorBolos : MonoBehaviour
     private void ContarBolos()
     {
         controlador.bolosEnPie = 0;
+        controlador.bolosRonda = 0;
+
         for(int i = 0; i < bolo.Length; i++)
         {
+            Debug.Log(bolo[i] == null);
             if (bolo[i] != null)
             {
                 if (bolo[i].GetComponent<RayCastBolos>().ComprobarBolo()) //Comprueba si el bolo está mirando al cielo
                 {
                     controlador.bolosEnPie++;
-                    Debug.Log("BE:" + controlador.bolosEnPie);
+                    //Debug.Log("BE:" + controlador.bolosEnPie);
                 }
                 else
                 {
-                    controlador.bolosTotales++;
-                    Debug.Log("BT:" + controlador.bolosTotales);
+                    controlador.bolosRonda++;
+                    //Debug.Log("BT:" + controlador.bolosTotales);
                 }
             }
             else
             {
-                controlador.bolosTotales++;
-                Debug.Log("BT:" + controlador.bolosTotales);
+                controlador.bolosRonda++;
+                //Debug.Log("BT:" + controlador.bolosTotales);
             }
         }
+        controlador.bolosTotales += controlador.bolosRonda;
         controlador.bolosMaxPosibles -= controlador.bolosEnPie;
         controlador.ronda++;
         marcador.ActualizarMarcador();
@@ -164,6 +168,9 @@ public class ControladorBolos : MonoBehaviour
 
     private void DevolverBola()
     {
+        if (bola != null)
+            Destroy(bola);
+
         //INSTANCIAR EL PREFAV DE LA BOLA
         int n = Random.Range(0, 1);
 
@@ -175,6 +182,8 @@ public class ControladorBolos : MonoBehaviour
 
     private void ColocarBolos()
     {
+        DestruirBolosRestantes();
+
         colocandoBolos = true;
         bolosCreados = false;
         cielo.GetComponent<BoxCollider>().enabled = false;
@@ -189,6 +198,17 @@ public class ControladorBolos : MonoBehaviour
         }
         bolosCreados = true;
         Invoke("ActivarCielo", 3f);
+    }
+
+    public void DestruirBolosRestantes()
+    {
+        foreach (var bolo in bolo)
+        {
+            if (bolo != null)
+            {
+                Destroy(bolo);
+            }
+        }
     }
 
     private void ActivarCielo()

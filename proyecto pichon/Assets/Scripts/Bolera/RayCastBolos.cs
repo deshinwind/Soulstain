@@ -6,16 +6,23 @@ public class RayCastBolos : MonoBehaviour
 {
     private void Update()
     {
-        //RaycastHit hite;
+        RaycastHit hite;
 
         Ray raye = new Ray(transform.position, transform.up);
         Debug.DrawRay(raye.origin, raye.direction * 30f, Color.green);
 
-        /*if (Physics.Raycast(raye, out hite))
+        if (Physics.Raycast(raye, out hite))
         {
-            hite.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log(hite.transform.gameObject.name);
-        }*/
+            if (hite.transform.gameObject.name.Equals("Cielo"))
+            {
+                gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+                Debug.Log(hite.transform.gameObject.name);
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
     }
 
     public bool ComprobarBolo()

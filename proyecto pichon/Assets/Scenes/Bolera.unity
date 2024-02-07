@@ -392,16 +392,16 @@ MonoBehaviour:
   - {fileID: 490302137}
   - {fileID: 490302136}
   prefavBolos:
-  - {fileID: 677004994935253425, guid: 03c1d3bcda057a34ba6a67bcea72749d, type: 3}
-  - {fileID: 4254833871121992028, guid: 3557a635607b1344484c7d1c499e95e2, type: 3}
-  - {fileID: 7130913567706985100, guid: 3b58d650fa5fd7446be06f30066903fd, type: 3}
-  - {fileID: 6869206967436194406, guid: 09061cfaa27b9754f8e902ad5a391755, type: 3}
-  - {fileID: 5551515338027858010, guid: 1e48610ef6e5ea64781e2b32a42b53eb, type: 3}
-  - {fileID: 3469105717234573881, guid: 9b1b167cdfff8da4bb6a30f334e7947c, type: 3}
-  - {fileID: 1237400325162360486, guid: 9202acd7fa7c0884c92ca3dabb6a021e, type: 3}
-  - {fileID: 823893097604647940, guid: be1fed851794b7d4f93d9d3ae03efe7e, type: 3}
-  - {fileID: 7655396081083734138, guid: 0816b9deb9f80f14fbb6d8485381532d, type: 3}
-  - {fileID: 3437109508943817037, guid: 25d931bef81b0554b9abaa6156b0be37, type: 3}
+  - {fileID: 5114416306760580348, guid: 95ae6b76b46cd434b9a6a87ff0b0b632, type: 3}
+  - {fileID: 6893128792806585458, guid: d830234cd0f216148820a951998b7086, type: 3}
+  - {fileID: 4070341836691530128, guid: 0135ccbe5ffc0984aa2daf957d918a84, type: 3}
+  - {fileID: 1419951928993389971, guid: d84011ea23501044d8006d89dca15167, type: 3}
+  - {fileID: 9146322377459295454, guid: a9c16839c37175940aaf74de5069a138, type: 3}
+  - {fileID: 3307854815949096174, guid: e0d5a93d60124bf4db62fcfe531be00c, type: 3}
+  - {fileID: 8287589528410155711, guid: 15bce040d2055d241ab0ac6f9971819e, type: 3}
+  - {fileID: 1556908236036597840, guid: 8de60df3ab743a043850844d43a9398c, type: 3}
+  - {fileID: 5541759333717013188, guid: eea71a83275b55541a9e5201aa95e5ce, type: 3}
+  - {fileID: 2127941598707147344, guid: 66b86e2a78eec99459a8a3c9f209957c, type: 3}
   cielo: {fileID: 579040784}
   voces: {fileID: 7992391277881585667, guid: 5cc3491b7adce7641af6f045becd935b, type: 3}
   grupoVoces: []
@@ -2878,7 +2878,7 @@ Transform:
   m_GameObject: {fileID: 579040784}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.712, y: 1.4726481, z: 2.959}
+  m_LocalPosition: {x: 19.17, y: 1.4726481, z: 2.959}
   m_LocalScale: {x: 1.2393, y: 0.050001, z: 2.0828}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3157,6 +3157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfceb45b309d7f4aab455968fa0bbda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlador: {fileID: 216281542}
 --- !u!1 &604094772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -238367862466213480, guid: bdc67153c07a2be4abdd78529075af9e,

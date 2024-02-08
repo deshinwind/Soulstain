@@ -768,7 +768,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374203530}
-  - component: {fileID: 374203529}
+  - component: {fileID: 374203532}
+  - component: {fileID: 374203533}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -776,23 +777,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &374203529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374203528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 402508db3cf3f97479b6a49b561f757a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texto: {fileID: 712418095}
-  lineas:
-  - GuluGulu es muy interesante
-  vector: {x: 0, y: 0, z: 0}
-  speed: 0.01
 --- !u!4 &374203530
 Transform:
   m_ObjectHideFlags: 0
@@ -808,6 +792,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374203532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374203528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6be3067e181bc48b3c36a46b52a4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogText: {fileID: 712418095}
+  delay: 0.75
+--- !u!114 &374203533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374203528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc5f603f83a1b84b87685051cb1cefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - Hola javier
+  - Tengo una cosa que decirte
+  - Puto
+  dialogueManager: {fileID: 374203532}
+  wait: 2
 --- !u!1001 &492158727
 PrefabInstance:
   m_ObjectHideFlags: 0

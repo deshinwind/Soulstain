@@ -9,11 +9,14 @@ public class Marcador : MonoBehaviour
 
     public Controlador controlador;
 
+    public string puntosMaximos = "Puntos Maximos: ";
+    public string puntosTotales = "Puntos Totales: ";
+
     public void ActualizarMarcador()
     {
-        marcador[10].text = controlador.bolosTotales.ToString();
+        marcador[10].text = puntosTotales + controlador.bolosTotales.ToString();
 
-        marcador[11].text = controlador.bolosMaxPosibles.ToString();
+        marcador[11].text = puntosMaximos + controlador.bolosMaxPosibles.ToString();
 
         marcador[controlador.ronda - 2].text = controlador.bolosRonda.ToString();
     }

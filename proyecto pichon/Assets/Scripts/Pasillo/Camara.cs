@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using System.Runtime.CompilerServices;
 
 public class Camara : MonoBehaviour
 {
     public TMP_Text distanceText;
-
+   
     public Transform[] Object1;
     public Transform Object2;
     public int distancia = 5;
@@ -37,8 +38,7 @@ public class Camara : MonoBehaviour
                 end_pos = new Vector3(camara.transform.position.x, camara.transform.position.y, 0);
                 camara.transform.position = Vector3.Lerp(start_pos, end_pos, 0.05f);
             }
-        }
-
-        
+        }  
     }
+   
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9062324161304162138}
   - component: {fileID: 4889341522109464403}
   - component: {fileID: 4717583762656398757}
+  - component: {fileID: 6535758484322931678}
   m_Layer: 0
   m_Name: 6 rombos
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2549933796510108761}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.022918738, y: -0.8025827, z: 6.134024}
-  m_LocalScale: {x: 2.7941406, y: 60.000004, z: 90}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0.6427876, w: 0.7660445}
+  m_LocalPosition: {x: -0.434, y: 1.0427, z: -0.5303}
+  m_LocalScale: {x: 0.21, y: 4.509437, z: 6.7641554}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80}
 --- !u!33 &4889341522109464403
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6535758484322931678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549933796510108761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73255aebffe472740b3b215231b9ad10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valor: 0
+  palo: 

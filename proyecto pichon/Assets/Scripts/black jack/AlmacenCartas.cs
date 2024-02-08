@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AlmacenCartas : MonoBehaviour
 {
-    public GameObject prefabCarta;
+    //public GameObject prefabCarta;
 
-    public List<(int, string, Material)> mazo;
+    public List<(int, string, GameObject)> mazo;
 
     public List<int> valor;
     public List<string> palo;
-    public List<Material> material;
+    public List<GameObject> prefabCartas;
 
     private int numero;
 
@@ -25,7 +25,7 @@ public class AlmacenCartas : MonoBehaviour
     {
         for (int i = 0; i < 52; i++)
         {
-            mazo.Add((valor[i % 13], palo[i / 13], material[i]));
+            mazo.Add((valor[i % 13], palo[i / 13], prefabCartas[i]));
         }
     }
 
@@ -53,15 +53,15 @@ public class AlmacenCartas : MonoBehaviour
             LlenarMazo();
         }
 
-        GameObject cartaNueva = Instantiate(prefabCarta);
+        GameObject cartaNueva = Instantiate(mazo[numero].Item3);
 
-        cartaNueva.transform.position = prefabCarta.transform.position;
-        cartaNueva.transform.rotation = prefabCarta.transform.rotation;
-        cartaNueva.transform.localScale = prefabCarta.transform.localScale;
+        cartaNueva.transform.position = mazo[numero].Item3.transform.position;
+        cartaNueva.transform.rotation = mazo[numero].Item3.transform.rotation;
+        cartaNueva.transform.localScale = mazo[numero].Item3.transform.localScale;
 
         cartaNueva.GetComponent<Carta>().valor = mazo[numero].Item1;
         cartaNueva.GetComponent<Carta>().palo = mazo[numero].Item2;
-        cartaNueva.GetComponent<MeshRenderer>().material = mazo[numero].Item3;
+        //cartaNueva.GetComponent<MeshRenderer>().material = mazo[numero].Item3.GetComponent<Material>();
 
         return cartaNueva;
     }

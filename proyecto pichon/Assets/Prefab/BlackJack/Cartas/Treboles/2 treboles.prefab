@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5484465859139462468}
   - component: {fileID: 296240041699081219}
   - component: {fileID: 4352741738856198272}
+  - component: {fileID: -5614940409723042754}
   m_Layer: 0
   m_Name: 2 treboles
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4713620366383725970}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.022918738, y: -3.134881, z: 12.374025}
-  m_LocalScale: {x: 2.7941406, y: 60.000004, z: 90}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0.6427876, w: 0.7660445}
+  m_LocalPosition: {x: -0.434, y: 1.0427, z: -0.5303}
+  m_LocalScale: {x: 0.21, y: 4.509437, z: 6.7641554}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80}
 --- !u!33 &296240041699081219
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5614940409723042754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713620366383725970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73255aebffe472740b3b215231b9ad10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valor: 0
+  palo: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5648847816240176548}
   - component: {fileID: 8295230743063251752}
   - component: {fileID: 4740389044121852568}
+  - component: {fileID: -8895397329736848725}
   m_Layer: 0
   m_Name: A picas
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6159371614374093211}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.022918738, y: 1.4169375, z: 13.934025}
-  m_LocalScale: {x: 2.7941406, y: 60.000004, z: 90}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0.6427876, w: 0.7660445}
+  m_LocalPosition: {x: -0.434, y: 1.0427, z: -0.5303}
+  m_LocalScale: {x: 0.21, y: 4.509437, z: 6.7641554}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80}
 --- !u!33 &8295230743063251752
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-8895397329736848725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159371614374093211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73255aebffe472740b3b215231b9ad10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valor: 0
+  palo: 

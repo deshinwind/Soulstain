@@ -32,7 +32,7 @@ public class Partida : MonoBehaviour
 
     private void Start()
     {
-        almacen.mazo = new List<(int, string, Material)>();
+        almacen.mazo = new List<(int, string, GameObject)>();
         almacen.LlenarMazo();
 
         manoJugador = new List<GameObject>();

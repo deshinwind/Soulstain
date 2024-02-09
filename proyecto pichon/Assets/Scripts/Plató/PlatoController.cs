@@ -54,6 +54,8 @@ public class PlatoController : MonoBehaviour
         panelSolido.SetActive(false);
         //SEGUIR EL BLOC DE NOTAS DE SOULSTAIN
 
+
+
         //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
         dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
     }

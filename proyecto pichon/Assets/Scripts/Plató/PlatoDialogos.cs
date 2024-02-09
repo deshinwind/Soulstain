@@ -29,6 +29,7 @@ public class PlatoDialogos : MonoBehaviour
 
     private bool isShowingText = false;
     private bool isWaiting = false;
+    public bool pause = false;
 
     private void Start()
     {
@@ -71,42 +72,46 @@ public class PlatoDialogos : MonoBehaviour
 
     private void Update()
     {
-        if (currentText != null)
+        if (!pause)
         {
-            if (!currentText.Equals(""))
+            if (currentText != null)
             {
-                if (isShowingText)
+                if (!currentText.Equals(""))
                 {
-                    timer += Time.deltaTime;
-                    if (timer > delay)
+                    if (isShowingText)
                     {
-                        dialogText.text += currentText[currentLetterIndex];
-                        currentLetterIndex++;
-                        if (currentLetterIndex >= currentText.Length)
+                        timer += Time.deltaTime;
+                        if (timer > delay)
                         {
-                            isShowingText = false;
-                            isWaiting = true;
+                            dialogText.text += currentText[currentLetterIndex];
+                            currentLetterIndex++;
+                            if (currentLetterIndex >= currentText.Length)
+                            {
+                                isShowingText = false;
+                                isWaiting = true;
+                            }
+                            timer = 0;
                         }
-                        timer = 0;
+                    }
+                    else if (isWaiting)
+                    {
+                        timer += Time.deltaTime;
+                        if (timer >= pauseBetween)
+                        {
+                            isWaiting = false;
+                            ShowNextDialogue();
+                        }
                     }
                 }
-                else if (isWaiting)
+                else
                 {
                     timer += Time.deltaTime;
                     if (timer >= pauseBetween)
                     {
                         isWaiting = false;
+                        pause = true;
                         ShowNextDialogue();
                     }
-                }
-            }
-            else
-            {
-                timer += Time.deltaTime;
-                if (timer >= pauseBetween)
-                {
-                    isWaiting = false;
-                    ShowNextDialogue();
                 }
             }
         }

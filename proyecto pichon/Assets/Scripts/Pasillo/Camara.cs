@@ -41,9 +41,9 @@ public class Camara : MonoBehaviour
             }
         }  
 
-        if(DetachFromPanelEvent aunmentar)
-                time+= Time.deltaTime;
-        else {}
+        //if(DetachFromPanelEvent aunmentar)
+        //        time+= Time.deltaTime;
+        //else {}
    
     }
    

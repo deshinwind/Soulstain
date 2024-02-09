@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DestruirCamara : MonoBehaviour
 {
-    public Transform Bate;
+    public GameObject Bate;
 
     public GameObject player;
     // Start is called before the first frame update
@@ -23,8 +23,11 @@ public class DestruirCamara : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("mesa"))
         {
-            if (Bate.GetComponent<XRGrabInteractable>().isSelected == true)
+            if (Bate.GetComponent<XRGrabInteractable>())
             {
+                //Colisionar solo cuando tengas el bate lo tenga el jugador
+                //collision
+                Destroy(this.gameObject);
 
             }
         }

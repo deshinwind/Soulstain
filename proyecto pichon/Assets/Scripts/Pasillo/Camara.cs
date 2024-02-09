@@ -9,8 +9,8 @@ public class Camara : MonoBehaviour
 {
     public TMP_Text distanceText;
    
-    public Transform[] Object1;
-    public Transform Object2;
+    public Transform[] Camaras;
+    public Transform player;
     public int distancia = 5;
 
     Vector3 start_pos;
@@ -27,18 +27,24 @@ public class Camara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var camara in Object1)
+        foreach (var camara in Camaras)
         {
             //Debug.Log(Vector3.Distance(camara.position, Object2.position));
             //distanceText.text = (camara.position - Object2.position).magnitude.ToString();
 
-            if ((camara.position - Object2.position).magnitude < distancia)
+            if ((camara.position - player.position).magnitude < distancia)
             {
                 start_pos = camara.transform.position;
                 end_pos = new Vector3(camara.transform.position.x, camara.transform.position.y, 0);
                 camara.transform.position = Vector3.Lerp(start_pos, end_pos, 0.05f);
+                camara.GetChild(0).gameObject.SetActive(true);
             }
         }  
+
+        if(DetachFromPanelEvent aunmentar)
+                time+= Time.deltaTime;
+        else {}
+   
     }
    
 }

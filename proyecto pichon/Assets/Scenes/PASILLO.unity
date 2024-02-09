@@ -2220,7 +2220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dd937a86873ef42b8e66edb9d2850b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bate: {fileID: 587524511}
+  Bate: {fileID: 587524506}
   player: {fileID: 1925663462}
 --- !u!4 &1123774121 stripped
 Transform:

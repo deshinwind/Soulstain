@@ -961,6 +961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435077838}
   - component: {fileID: 1435077839}
+  - component: {fileID: 1435077841}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -996,10 +997,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelSolido: {fileID: 1553173847}
-  panelDialogos: {fileID: 1607442111}
-  player: {fileID: 0}
+  player: {fileID: 1570251848}
   alphaPanel: {x: 0, y: 0, z: 0}
-  controlador: 0
+  dontDestroy: {fileID: 443681975}
+  platoDialogo: {fileID: 1435077841}
+  wait: 2
+  primerDialogo:
+  - Este es el dialogo de la primera vez
+  - Si es tu primera vez
+  - Enhorabuena por primera vez
+  segundoDialogo:
+  - Este es el dialogo de la segunda vez
+  - Si es tu segunda vez
+  - Enhorabuena por segunda vez
+  tercerDialogo:
+  - Este es el dialogo de la tercera vez
+  - Si es tu tercera vez
+  - Enhorabuena por tercera vez
+--- !u!114 &1435077841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435077835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25f4b37c67c4624d9acf0f112e5a8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogText: {fileID: 421965609}
+  delay: 0.1
+  encenderLuz: 0
+  alphaPanel: {x: 0, y: 0, z: 0}
+  panelDialogo: {fileID: 1607442111}
+  player: {fileID: 1570251848}
 --- !u!1 &1553173847
 GameObject:
   m_ObjectHideFlags: 0

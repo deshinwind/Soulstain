@@ -7,13 +7,20 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PlatoController : MonoBehaviour
 {
     public GameObject panelSolido;
-    public GameObject panelDialogos;
 
     public GameObject player;
 
     public Vector3 alphaPanel;
 
     public GameObject dontDestroy;
+
+    public PlatoDialogos platoDialogo;
+
+    public float wait = 2f;
+
+    public List<string> primerDialogo = new List<string>();
+    public List<string> segundoDialogo = new List<string>();
+    public List<string> tercerDialogo = new List<string>();
 
     private void Start()
     {
@@ -22,13 +29,13 @@ public class PlatoController : MonoBehaviour
         switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
         {
             case 0:
-                PrimeraVezEnPlato();
+                Invoke("PrimeraVezEnPlato", 5f);
                 break;
             case 1:
-                SegundaVezEnPlato();
+                Invoke("SegundaVezEnPlato", 5f);
                 break;
             case 2:
-                TerceraVezEnPlato();
+                Invoke("TerceraVezEnPlato", 5f);
                 break;
         }
     }
@@ -41,9 +48,14 @@ public class PlatoController : MonoBehaviour
 
     public void PrimeraVezEnPlato()
     {
+        platoDialogo.panelDialogo.SetActive(true);
+        platoDialogo.StartDialogue(primerDialogo, wait);
         player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
         panelSolido.SetActive(false);
         //SEGUIR EL BLOC DE NOTAS DE SOULSTAIN
+
+        //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
+        dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
     }
 
     public void SegundaVezEnPlato()
@@ -58,6 +70,9 @@ public class PlatoController : MonoBehaviour
         //QUE EL MIEDO SIGA CON LA MIRADA AL PERSONAJE
         //CUANDO EL JUGADOR SE ACERCA LO SUFICIENTE AL MIEDO, CAMBIAS DE REPENTE (SIN TRANSICION) A LA ESCENA DE LA BOLERA
         //EL JUGADOR APAREZCA EN LA BOLERA MIRANDO LA PANTALLA EN LA QUE ESTÁ EL MIEDO
+
+        //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
+        dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
     }
 
     public void TerceraVezEnPlato()

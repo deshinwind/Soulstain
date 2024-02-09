@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using UnityEngine.Analytics;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine;
 
-public class PlatoDialogo : MonoBehaviour
+public class PlatoDialogos : MonoBehaviour
 {
     public TMP_Text dialogText;
 
@@ -16,7 +13,7 @@ public class PlatoDialogo : MonoBehaviour
 
     public Vector3 alphaPanel;
 
-    public GameObject panelSolido;
+    public GameObject panelDialogo;
 
     public GameObject player;
 
@@ -50,14 +47,13 @@ public class PlatoDialogo : MonoBehaviour
     {
         if (currentDialog < dialogList.Count)
         {
-            if (dialogList[currentDialog].Equals(""))
+            /*if (dialogList[currentDialog].Equals(""))
             {
                 encenderLuz = true;
-                Invoke("DesactivarPanel", 2f);
                 player.GetComponent<ContinuousMoveProviderBase>().enabled = true;
                 player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
                 //A PARTIR DE AQUI EL JUGADOR PUEDE MOVERSE
-            }
+            }*/
 
             currentText = dialogList[currentDialog];
             dialogText.text = "";
@@ -73,31 +69,38 @@ public class PlatoDialogo : MonoBehaviour
         }
     }
 
-    public void DesactivarPanel()
-    {
-        panelSolido.gameObject.SetActive(false);
-    }
-
     private void Update()
     {
-        if (!currentText.Equals(""))
+        if (currentText != null)
         {
-            if (isShowingText)
+            if (!currentText.Equals(""))
             {
-                timer += Time.deltaTime;
-                if (timer > delay)
+                if (isShowingText)
                 {
-                    dialogText.text += currentText[currentLetterIndex];
-                    currentLetterIndex++;
-                    if (currentLetterIndex >= currentText.Length)
+                    timer += Time.deltaTime;
+                    if (timer > delay)
                     {
-                        isShowingText = false;
-                        isWaiting = true;
+                        dialogText.text += currentText[currentLetterIndex];
+                        currentLetterIndex++;
+                        if (currentLetterIndex >= currentText.Length)
+                        {
+                            isShowingText = false;
+                            isWaiting = true;
+                        }
+                        timer = 0;
                     }
-                    timer = 0;
+                }
+                else if (isWaiting)
+                {
+                    timer += Time.deltaTime;
+                    if (timer >= pauseBetween)
+                    {
+                        isWaiting = false;
+                        ShowNextDialogue();
+                    }
                 }
             }
-            else if (isWaiting)
+            else
             {
                 timer += Time.deltaTime;
                 if (timer >= pauseBetween)
@@ -107,23 +110,10 @@ public class PlatoDialogo : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            timer += Time.deltaTime;
-            if (timer >= pauseBetween)
-            {
-                isWaiting = false;
-                ShowNextDialogue();
-            }
-        }
     }
 
     private void LateUpdate()
     {
-        if (encenderLuz)
-        {
-            alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(0f, 0f, 0f), 0.001f);
-            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanel.x);
-        }
+
     }
 }

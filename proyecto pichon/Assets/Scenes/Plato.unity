@@ -310,7 +310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628892726}
-  - component: {fileID: 628892727}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -333,39 +332,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &628892727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628892724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9187b54c45303c549b7b91474cd94951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogos: {fileID: 1393126750}
-  negro: {fileID: 334098659}
-  lineas:
-  - "\xBFRecuerdas como te miraba?"
-  - ansia, deseo, fiereza.
-  - Desde el momento en el que te vi,
-  - "supe que eras el que quer\xEDa. "
-  - "Quer\xEDa comerte, tenerte, abrazarte"
-  - 'y convertirnos en uno solo. '
-  - Siempre juntos...
-  - 
-  - "Ya basta de hablar de m\xED"
-  - "dejemos este infinito que nos ba\xF1a"
-  - y pasemos a lo que realmente importa
-  indice: 0
-  aux: 0
-  encenderLuz: 0
-  speed: 0.05
-  divisor: 50
-  vector: {x: 0, y: 0, z: 0}
-  normal: {x: 0, y: 0, z: 0}
 --- !u!1 &638935613
 GameObject:
   m_ObjectHideFlags: 0

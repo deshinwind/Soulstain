@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class DialogueManager : MonoBehaviour
     private bool isWaiting = false;
 
 
+    public Vector3 alphaPanel;
+    public bool encenderLuz;
+    public GameObject panel;
+
+    private void Start()
+    {
+        alphaPanel = new Vector3 (1, 0, 0);
+    }
+
     public void StartDialogue(List<string> dialogs, float pauseDuration)
     {
         dialogList = dialogs;
@@ -30,6 +40,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentDialog < dialogList.Count)
         {
+            if (dialogList[currentDialog].Equals(""))
+            {
+                encenderLuz = true;
+            }
+                
             currentText = dialogList[currentDialog];
             dialogText.text = "";
             currentLetterIndex = 0;
@@ -46,22 +61,34 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (isShowingText)
+        if (!currentText.Equals(""))
         {
-            timer += Time.deltaTime;
-            if (timer > delay)
+            if (isShowingText)
             {
-                dialogText.text += currentText[currentLetterIndex];
-                currentLetterIndex++;
-                if (currentLetterIndex >= currentText.Length)
+                timer += Time.deltaTime;
+                if (timer > delay)
                 {
-                    isShowingText = false;
-                    isWaiting = true;
+                    dialogText.text += currentText[currentLetterIndex];
+                    currentLetterIndex++;
+                    if (currentLetterIndex >= currentText.Length)
+                    {
+                        isShowingText = false;
+                        isWaiting = true;
+                    }
+                    timer = 0;
                 }
-                timer = 0;
+            }
+            else if (isWaiting)
+            {
+                timer += Time.deltaTime;
+                if (timer >= pauseBetween)
+                {
+                    isWaiting = false;
+                    ShowNextDialogue();
+                }
             }
         }
-        else if (isWaiting)
+        else
         {
             timer += Time.deltaTime;
             if (timer >= pauseBetween)
@@ -69,6 +96,15 @@ public class DialogueManager : MonoBehaviour
                 isWaiting = false;
                 ShowNextDialogue();
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (encenderLuz)
+        {
+            alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(0f, 0f, 0f), 0.001f);
+            panel.GetComponent<Image>().color = new Color(panel.GetComponent<Image>().color.r, panel.GetComponent<Image>().color.g, panel.GetComponent<Image>().color.b, alphaPanel.x);
         }
     }
 }

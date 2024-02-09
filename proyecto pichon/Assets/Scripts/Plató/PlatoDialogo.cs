@@ -6,16 +6,16 @@ using UnityEngine.UI;
 using UnityEngine.Analytics;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class DialogueManager : MonoBehaviour
+public class PlatoDialogo : MonoBehaviour
 {
     public TMP_Text dialogText;
-    
+
     public float delay = 0.1f;
 
     public bool encenderLuz;
 
     public Vector3 alphaPanel;
-    
+
     public GameObject panelSolido;
 
     public GameObject player;
@@ -27,15 +27,15 @@ public class DialogueManager : MonoBehaviour
 
     private int currentLetterIndex = 0;
     private int currentDialog = 0;
-    
+
     private string currentText;
-    
+
     private bool isShowingText = false;
     private bool isWaiting = false;
 
     private void Start()
     {
-        alphaPanel = new Vector3 (1, 0, 0);
+        alphaPanel = new Vector3(1, 0, 0);
     }
 
     public void StartDialogue(List<string> dialogs, float pauseDuration)
@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
                 player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
                 //A PARTIR DE AQUI EL JUGADOR PUEDE MOVERSE
             }
-                
+
             currentText = dialogList[currentDialog];
             dialogText.text = "";
             currentLetterIndex = 0;

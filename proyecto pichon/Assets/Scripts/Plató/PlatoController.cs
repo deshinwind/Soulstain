@@ -13,7 +13,7 @@ public class PlatoController : MonoBehaviour
     public GameObject player;
     public GameObject claustrofobia;
     public GameObject techo;
-    public bool letras;
+    public bool letras = true;
     public bool latiendo;
     public AudioClip latido;
 
@@ -98,6 +98,8 @@ public class PlatoController : MonoBehaviour
         //}
         if (Physics.Raycast(rayCast.ray, out rayCast.hit))
         {
+            Debug.Log(rayCast.hit.transform.gameObject.name.Equals("Claustrofobia"));
+            Debug.Log(letras);
             if (rayCast.hit.transform.gameObject.name.Equals("Techo"))
             {
                 if (platoDialogos.pause && !claustrofobia.activeSelf)
@@ -109,7 +111,7 @@ public class PlatoController : MonoBehaviour
                     //EMPIEZA A HACERSE LA SALA PEQUEÑA POCO A POCO
                     salaPequeña = true;
                 }
-                Debug.Log(rayCast.hit.transform.gameObject.name);
+                //Debug.Log(rayCast.hit.transform.gameObject.name);
             }
             else if (rayCast.hit.transform.gameObject.name.Equals("Claustrofobia") && letras)
             {
@@ -134,10 +136,11 @@ public class PlatoController : MonoBehaviour
             {
                 panelSolido.GetComponent<Image>().color = Color.black;
                 panelSolido.gameObject.SetActive(true);
-                Invoke("PrimeraTransicion", 5f);
+                Invoke("PrimeraTransicion", 3f);
             }
-            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.05f);
-            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelWhite.x);
+            //PONER EL EFECTO DE POSPROCESADO PARA QUE PAREZCA QUE ESTÁ CERRANDO LOS OJOS EL JUGADOR
+            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.01f);
+            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelBlack.x);
         }
     }
 

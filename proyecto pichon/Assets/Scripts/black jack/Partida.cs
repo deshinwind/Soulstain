@@ -37,7 +37,7 @@ public class Partida : MonoBehaviour
 
     public Vector3 rotacion;
 
-    //BOTONES
+    //BOTONES TEMPORALES
     public GameObject otraCarta;
     public GameObject plantarse;
 
@@ -84,7 +84,7 @@ public class Partida : MonoBehaviour
         {
             for (int i = 0; i < giroJugador; i++)
             {
-                manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion, manoJugador[i].transform.position.y, zJugador), speedCartas);
+                manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion - 0.3f, manoJugador[i].transform.position.y, zJugador), speedCartas);
 
                 manoJugador[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
 
@@ -115,17 +115,10 @@ public class Partida : MonoBehaviour
             }
         }
 
-        paredes[0].transform.position = Vector3.Lerp(paredes[0].transform.position, new Vector3(0, y, -mov), speedParedes);
+        paredes[0].transform.position = Vector3.Lerp(paredes[0].transform.position, new Vector3(0, y, mov), speedParedes);
         paredes[1].transform.position = Vector3.Lerp(paredes[1].transform.position, new Vector3(-mov, y, 0), speedParedes);
         paredes[2].transform.position = Vector3.Lerp(paredes[2].transform.position, new Vector3(mov, y, 0), speedParedes);
-        paredes[3].transform.position = Vector3.Lerp(paredes[3].transform.position, new Vector3(0, y, mov), speedParedes);
-
-
-        //MOVIMIENTO DE LA PUERTA Y EL CARTEL (DE MOMENTO FUNCIONA MAL)
-        //paredes[4].transform.position = Vector3.Lerp(paredes[4].transform.position, new Vector3(0, paredes[4].transform.position.y, -mov), speedParedes);
-        //paredes[5].transform.position = Vector3.Lerp(paredes[5].transform.position, new Vector3(0, paredes[5].transform.position.y, -mov), speedParedes);
-        //paredes[6].transform.position = Vector3.Lerp(paredes[6].transform.position, new Vector3(0, paredes[6].transform.position.y, -mov), speedParedes);
-        //paredes[7].transform.position = Vector3.Lerp(paredes[7].transform.position, new Vector3(0, paredes[7].transform.position.y, -mov), speedParedes);
+        paredes[3].transform.position = Vector3.Lerp(paredes[3].transform.position, new Vector3(0, y, -mov), speedParedes);
 
         /*foreach (var carta in manoJugador)
         {
@@ -264,12 +257,12 @@ public class Partida : MonoBehaviour
         if (jugadorGana)
         {
             Debug.Log("Gana el jugador");
-            mov += 0.66f;
+            mov -= 0.8f;
         }
         else
         {
             Debug.Log("Gana el dealer");
-            mov -= 0.33f;
+            mov += 0.4f;
         }
     }
 
@@ -289,7 +282,7 @@ public class Partida : MonoBehaviour
 
 
         //HACER LA ANIMACION DE CAMBIO DE ESCENA, MOSTRANDO LA CONVERSACION PERTINENTE
-        //if (mov >= 4.4 || mov <= 1.4)
+        //if (mov >= 2.8 || mov <= 0f)
             //SceneManager.LoadScene("Plato");
         //else
             IniciarRonda();

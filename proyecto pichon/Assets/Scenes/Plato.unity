@@ -1206,24 +1206,25 @@ MonoBehaviour:
   player: {fileID: 1570251848}
   claustrofobia: {fileID: 190883305}
   techo: {fileID: 1391405769}
-  letras: 0
+  letras: 1
   latiendo: 0
   latido: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
   speed: 0.00005
   "salaPeque\xF1a": 0
-  alphaPanel: {x: 0, y: 0, z: 0}
+  alphaPanelWhite: {x: 1, y: 1, z: 1}
+  alphaPanelBlack: {x: 0, y: 0, z: 0}
   dontDestroy: {fileID: 443681975}
   platoDialogo: {fileID: 1435077841}
   rayCast: {fileID: 649266365}
   wait: 2
   primerDialogo:
-  - Este es el dialogo de la primera vez
-  - Si es tu primera vez
-  - Enhorabuena por primera vez
+  - Ey
   - 
+  - BJ
+  - 
+  - Enhorabuena por primera vez
   - "Es bueno que haya gente por aqu\xED"
   - "Hace que este sitio no se sienta tan vac\xEDo"
-  - 
   - Hay que ver lo que hace uno por amor
   - Y todo para que al final
   - Volvamos a estar solos...

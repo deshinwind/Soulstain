@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlatoController : MonoBehaviour
 {
     public GameObject panelSolido;
-
+    public PlatoDialogos platoDialogos;
+    public GameObject panelLetras;
     public GameObject player;
+    public GameObject claustrofobia;
+    public GameObject techo;
+    public bool letras;
+    public bool latiendo;
+    public AudioClip latido;
 
-    public Vector3 alphaPanel;
+    public float speed;
+
+    public bool salaPequeña = false;
+
+    public Vector3 alphaPanelWhite = new Vector3(1f, 1f, 1f);
+    public Vector3 alphaPanelBlack = new Vector3(0f, 0f, 0f);
 
     public GameObject dontDestroy;
 
     public PlatoDialogos platoDialogo;
+
+    public PlatoRayCast rayCast;
 
     public float wait = 2f;
 
@@ -24,7 +38,6 @@ public class PlatoController : MonoBehaviour
 
     private void Start()
     {
-        alphaPanel = new Vector3(1f, 1f, 1f);
 
         switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
         {
@@ -40,10 +53,29 @@ public class PlatoController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
+        {
+            case 0:
+                PrimeraComprobacion();
+                break;
+            case 1:
+                SegundaComprobacion();
+                break;
+            case 2:
+                TerceraComprobacion();
+                break;
+        }
+    }
+
     private void LateUpdate()
     {
-        alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(0f, 0f, 0f), 0.01f);
-        panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanel.x);
+        if (!claustrofobia.activeSelf)
+        {
+            alphaPanelWhite = Vector3.Lerp(alphaPanelWhite, new Vector3(0f, 0f, 0f), 0.05f);
+            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelWhite.x);
+        }
     }
 
     public void PrimeraVezEnPlato()
@@ -53,11 +85,72 @@ public class PlatoController : MonoBehaviour
         player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
         panelSolido.SetActive(false);
         //SEGUIR EL BLOC DE NOTAS DE SOULSTAIN
+    }
 
+    public void PrimeraComprobacion()
+    {
+        rayCast.CastRay();
+        //QUITAR COMENTARIO CUANDO PONGA AUDIO
+        //if (latiendo)
+        //{
+        //SUBIR EL VOLUMEN DEL AUDIOSOURCE
+        //latido.volume += 0.1f;
+        //}
+        if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+        {
+            if (rayCast.hit.transform.gameObject.name.Equals("Techo"))
+            {
+                if (platoDialogos.pause && !claustrofobia.activeSelf)
+                {
+                    rayCast.hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+                    platoDialogos.pause = false;
+                    claustrofobia.SetActive(true);
 
+                    //EMPIEZA A HACERSE LA SALA PEQUEÑA POCO A POCO
+                    salaPequeña = true;
+                }
+                Debug.Log(rayCast.hit.transform.gameObject.name);
+            }
+            else if (rayCast.hit.transform.gameObject.name.Equals("Claustrofobia") && letras)
+            {
+                panelLetras.SetActive(true);
+                Invoke("DesactivarLetras", 2f);
 
-        //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
+                //QUITAR COMENTARIO CUANDO PONGA AUDIO
+                //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
+                //latiendo = true;
+                //latido.Play();
+            }
+        }
+
+        if (salaPequeña && claustrofobia.activeSelf)
+        {
+            techo.transform.position = Vector3.Lerp(techo.transform.position, new Vector3(techo.transform.position.x, 3f, techo.transform.position.z), speed);
+        }
+
+        if (platoDialogos.pause && claustrofobia.activeSelf)
+        {
+            if (!panelSolido.activeSelf)
+            {
+                panelSolido.GetComponent<Image>().color = Color.black;
+                panelSolido.gameObject.SetActive(true);
+                Invoke("PrimeraTransicion", 5f);
+            }
+            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.05f);
+            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelWhite.x);
+        }
+    }
+
+    public void DesactivarLetras()
+    {
+        panelLetras.SetActive(false);
+        letras = false;
+    }
+
+    public void PrimeraTransicion()
+    {
         dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
+        SceneManager.LoadScene("BlackJack");
     }
 
     public void SegundaVezEnPlato()
@@ -77,8 +170,18 @@ public class PlatoController : MonoBehaviour
         dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
     }
 
+    public void SegundaComprobacion()
+    {
+        rayCast.CastRay();
+    }
+
     public void TerceraVezEnPlato()
     {
 
+    }
+
+    public void TerceraComprobacion()
+    {
+        rayCast.CastRay();
     }
 }

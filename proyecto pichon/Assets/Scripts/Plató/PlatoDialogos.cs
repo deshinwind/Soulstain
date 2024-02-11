@@ -9,12 +9,9 @@ public class PlatoDialogos : MonoBehaviour
 
     public float delay = 0.1f;
 
-    public bool encenderLuz;
-
     public Vector3 alphaPanel;
 
     public GameObject panelDialogo;
-
     public GameObject player;
 
     private float pauseBetween = 1f;

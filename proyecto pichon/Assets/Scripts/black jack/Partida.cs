@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Partida : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Partida : MonoBehaviour
     public GameObject[] paredes;
 
     public AlmacenCartas almacen;
+
+    public DialogueController dialogueController;
 
     public int puntosJugador;
     public int puntosDealer;
@@ -34,10 +37,15 @@ public class Partida : MonoBehaviour
     public bool leToca;
     public bool jugadorGana;
     public bool desvelar;
+    public bool primeraVez;
 
     public bool rondaEnJuego = false;
 
     public Vector3 rotacion;
+
+    //BOTONES DEFINITIVOS
+    public GameObject botonOtra;
+    public GameObject botonPlantarse;
 
     //BOTONES TEMPORALES
     public GameObject otraCarta;
@@ -195,6 +203,9 @@ public class Partida : MonoBehaviour
             //PREGUNTAR SI QUIERE OTRA CARTA O SI SE QUIERE PLANTAR
             otraCarta.SetActive(true);
             plantarse.SetActive(true);
+
+            botonOtra.GetComponent<XRSimpleInteractable>().enabled = true;
+            botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = true;
         }
         else if (puntosJugador == 21)
         {
@@ -220,6 +231,9 @@ public class Partida : MonoBehaviour
         {
             otraCarta.SetActive(false);
             plantarse.SetActive(false);
+
+            botonOtra.GetComponent<XRSimpleInteractable>().enabled = false;
+            botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = false;
         }
 
         //LEVANTAR LA SEGUNDA CARTA DEL DEALER PARA QUE VEA
@@ -262,15 +276,22 @@ public class Partida : MonoBehaviour
 
     public void TamañoParedes()
     {
-        if (jugadorGana)
+        if (primeraVez)
         {
-            Debug.Log("Gana el jugador");
-            mov -= 0.8f;
+            primeraVez = false;
         }
         else
         {
-            Debug.Log("Gana el dealer");
-            mov += 0.4f;
+            if (jugadorGana)
+            {
+                Debug.Log("Gana el jugador");
+                mov -= 0.8f;
+            }
+            else
+            {
+                Debug.Log("Gana el dealer");
+                mov += 0.4f;
+            }
         }
     }
 
@@ -301,6 +322,9 @@ public class Partida : MonoBehaviour
     {
         otraCarta.SetActive(false);
         plantarse.SetActive(false);
+
+        botonOtra.GetComponent<XRSimpleInteractable>().enabled = false;
+        botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = false;
 
         //DARLE OTRA CARTA AL JUGADOR Y COMPROBAR PUNTOS
         AñadirCarta(manoJugador);

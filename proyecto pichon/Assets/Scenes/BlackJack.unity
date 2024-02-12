@@ -698,7 +698,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386592307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &561177288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,6 +1726,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7145914792092871560, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3000536706405723687, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1429869730901412500, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6
+      objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
         type: 3}
       propertyPath: m_Name
@@ -1740,6 +1755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pared 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 7344669759857201713, guid: b7ec28fb2a8f0fa418f31da9b3dd4024,
         type: 3}
@@ -3278,7 +3298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617968729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
@@ -4138,6 +4158,7 @@ MonoBehaviour:
   - {fileID: 785990399}
   - {fileID: 288710987}
   almacen: {fileID: 87144367}
+  dialogueController: {fileID: 1983425435}
   puntosJugador: 0
   puntosDealer: 0
   speedCartas: 0.05
@@ -4155,7 +4176,10 @@ MonoBehaviour:
   leToca: 0
   jugadorGana: 0
   desvelar: 0
+  rondaEnJuego: 0
   rotacion: {x: 0, y: 0, z: 0}
+  botonOtra: {fileID: 1617968729}
+  botonPlantarse: {fileID: 386592307}
   otraCarta: {fileID: 930054359}
   plantarse: {fileID: 104458078}
 --- !u!4 &1983425433
@@ -4187,14 +4211,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 561177287}
   panelSolido: {fileID: 1495219594}
+  partida: {fileID: 1983425432}
   dialogueController: {fileID: 1983425435}
+  ronda: 0
   alphaPanelBlack: {x: 1, y: 1, z: 1}
   fundidoNegro: 1
+  tutorial: 0
+  finDeTutorial: 0
   wait: 2
-  primerDialogo:
-  - Este es el dialogo 1
+  dialogoTutorial:
+  - Parrafo 1
   - 
-  - Cosas
+  - Parrafo 2
+  - (Se reparten las cartas del jugador)
+  - 
+  - Parrafo3
+  - (Se reparten las cartas del dealer)
+  - Parrafo 4
+  - Parrafo 5
+  - 
+  - Parrafo 6
+  - (Empieza la ronda del tutorial)
+  dialogoPrimeraRonda: []
 --- !u!114 &1983425435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4292,7 +4330,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 33
   m_TargetDisplay: 0
 --- !u!224 &2000820829
 RectTransform:

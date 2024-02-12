@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -9,15 +10,22 @@ public class ControladorBJ : MonoBehaviour
     public GameObject player;
     public GameObject panelSolido;
 
+    public Partida partida;
+
     public DialogueController dialogueController;
+
+    public int ronda = 0;
 
     public Vector3 alphaPanelBlack = new Vector3(1f, 1f, 1f);
 
     public bool fundidoNegro = true;
+    public bool tutorial = false;
+    public bool finDeTutorial = false;
 
     public float wait = 2f;
 
-    public List<string> primerDialogo = new List<string>();
+    public List<string> dialogoTutorial = new List<string>();
+    public List<string> dialogoPrimeraRonda = new List<string>();
 
 
     //EL JUGADOR NO PUEDE MOVERSE DEL SITIO
@@ -25,13 +33,42 @@ public class ControladorBJ : MonoBehaviour
 
     private void Start()
     {
+        partida.puntosJugador = 0;
         Invoke("ActivarRotacionPersonaje", 2f);
         Invoke("IniciarDialogos", 7f);
     }
 
     private void Update()
     {
-        
+        //switch para rondas
+        if (!finDeTutorial)
+        {
+            if (dialogueController.pause && partida.manoJugador.Count == 0)
+            {
+                partida.rondaEnJuego = true;
+                dialogueController.pause = false;
+                NuevaCartaJugador();
+                Invoke("NuevaCartaJugador", 3f);
+            }
+            if (dialogueController.pause && partida.manoJugador.Count == 2 && partida.manoDealer.Count == 0)
+            {
+                dialogueController.pause = false;
+                NuevaCartaDealer();
+                Invoke("NuevaCartaDealer", 3f);
+            }
+            if (dialogueController.pause && partida.manoDealer.Count == 2)
+            {
+                dialogueController.pause = false;
+                partida.ComprobarPuntosJugador();
+
+                //*********************************************//
+                //ESTO A LO MEJOR SE PUEDE QUITAR MAS A DELANTE//
+                //*********************************************//
+                partida.ComprobarPuntosDealer();
+                finDeTutorial = true;
+                //ronda++;
+            }
+        }
     }
 
     private void LateUpdate()
@@ -42,6 +79,10 @@ public class ControladorBJ : MonoBehaviour
             //METER EL EFECTO DE LOS OJOS ABRIENDO
             alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(0f, 0f, 0f), 0.05f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelBlack.x);
+        }
+        else if (panelSolido.activeSelf)
+        {
+            panelSolido.gameObject.SetActive(false);
         }
     }
 
@@ -55,14 +96,27 @@ public class ControladorBJ : MonoBehaviour
     {
         //LINEA DE LA CLAUSTROFOBIA
         dialogueController.panelDialogo.SetActive(true);
-        dialogueController.StartDialogue(primerDialogo, wait);
+        dialogueController.StartDialogue(dialogoTutorial, wait);
 
         //TERMINA LA LINEA DE LA CLAUSTROFOBIA Y SE EMPIEZAN A REPARTIR LAS CARTAS
-
     }
 
+    public void InicioTutorial()
+    {
+        tutorial = true;
+        NuevaCartaJugador();
+        Invoke("NuevaCartaJugador", 1.5f);
+    }
 
+    public void NuevaCartaJugador()
+    {
+        partida.AñadirCarta(partida.manoJugador);
+    }
 
+    public void NuevaCartaDealer()
+    {
+        partida.AñadirCarta(partida.manoDealer);
+    }
 
     //TERMINA LA LINEA DE LA CLAUSTROFOBIA Y SE EMPIEZAN A REPARTIR LAS CARTAS
     //DOS LINEAS DE LA CLAUSTROFOBIA MIENTRAS SE REPARTEN LAS CARTAS

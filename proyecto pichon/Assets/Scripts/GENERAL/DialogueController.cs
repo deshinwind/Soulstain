@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlatoDialogos : MonoBehaviour
+public class DialogueController : MonoBehaviour
 {
     public TMP_Text dialogText;
 
@@ -105,10 +105,5 @@ public class PlatoDialogos : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-
     }
 }

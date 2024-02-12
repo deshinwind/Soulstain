@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 1435077838}
   - component: {fileID: 1435077839}
   - component: {fileID: 1435077841}
+  - component: {fileID: 1435077842}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1201,7 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelSolido: {fileID: 1553173847}
-  platoDialogos: {fileID: 1435077841}
+  platoDialogo: {fileID: 1435077842}
   panelLetras: {fileID: 1611121219}
   player: {fileID: 1570251848}
   claustrofobia: {fileID: 190883305}
@@ -1214,11 +1215,10 @@ MonoBehaviour:
   alphaPanelWhite: {x: 1, y: 1, z: 1}
   alphaPanelBlack: {x: 0, y: 0, z: 0}
   dontDestroy: {fileID: 443681975}
-  platoDialogo: {fileID: 1435077841}
   rayCast: {fileID: 649266365}
   wait: 2
   primerDialogo:
-  - Ey
+  - Ey 234234
   - 
   - BJ
   - 
@@ -1245,14 +1245,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435077835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f25f4b37c67c4624d9acf0f112e5a8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 421965609}
   delay: 0.05
-  alphaPanel: {x: 0, y: 0, z: 0}
+  panelDialogo: {fileID: 1607442111}
+  player: {fileID: 1570251848}
+  pause: 0
+--- !u!114 &1435077842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435077835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f101932a4d47a548a8c9c948def7500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogText: {fileID: 421965609}
+  delay: 0.05
   panelDialogo: {fileID: 1607442111}
   player: {fileID: 1570251848}
   pause: 0

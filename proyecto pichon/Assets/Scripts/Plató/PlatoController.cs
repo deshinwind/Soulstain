@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PlatoController : MonoBehaviour
 {
     public GameObject panelSolido;
-    public PlatoDialogos platoDialogos;
+    public DialogueController platoDialogo;
     public GameObject panelLetras;
     public GameObject player;
     public GameObject claustrofobia;
@@ -25,8 +25,6 @@ public class PlatoController : MonoBehaviour
     public Vector3 alphaPanelBlack = new Vector3(0f, 0f, 0f);
 
     public GameObject dontDestroy;
-
-    public PlatoDialogos platoDialogo;
 
     public PlatoRayCast rayCast;
 
@@ -102,10 +100,10 @@ public class PlatoController : MonoBehaviour
             Debug.Log(letras);
             if (rayCast.hit.transform.gameObject.name.Equals("Techo"))
             {
-                if (platoDialogos.pause && !claustrofobia.activeSelf)
+                if (platoDialogo.pause && !claustrofobia.activeSelf)
                 {
                     rayCast.hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-                    platoDialogos.pause = false;
+                    platoDialogo.pause = false;
                     claustrofobia.SetActive(true);
 
                     //EMPIEZA A HACERSE LA SALA PEQUEÑA POCO A POCO
@@ -130,7 +128,7 @@ public class PlatoController : MonoBehaviour
             techo.transform.position = Vector3.Lerp(techo.transform.position, new Vector3(techo.transform.position.x, 3f, techo.transform.position.z), speed);
         }
 
-        if (platoDialogos.pause && claustrofobia.activeSelf)
+        if (platoDialogo.pause && claustrofobia.activeSelf)
         {
             if (!panelSolido.activeSelf)
             {

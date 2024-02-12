@@ -35,6 +35,8 @@ public class Partida : MonoBehaviour
     public bool jugadorGana;
     public bool desvelar;
 
+    public bool rondaEnJuego = false;
+
     public Vector3 rotacion;
 
     //BOTONES TEMPORALES
@@ -51,85 +53,91 @@ public class Partida : MonoBehaviour
 
         rotacion = almacen.mazo[0].Item3.transform.rotation.eulerAngles;
 
-        IniciarRonda();
+        //IniciarRonda();
     }
 
     private void Update()
     {
-        if (timer >= 1f)
+        if (rondaEnJuego)
         {
-            timer = 0;
-        }
+            if (timer >= 1f)
+            {
+                timer = 0;
+            }
 
-        if (timer == 0 && giroJugador < manoJugador.Count)
-        {
-            giroJugador++;
-        }
-        if (timer == 0 && giroJugador == manoJugador.Count && giroDealer < manoDealer.Count)
-        {
-            if (leToca)
-                giroDealer++;
-            else
-                leToca = true;
-        }
+            if (timer == 0 && giroJugador < manoJugador.Count)
+            {
+                giroJugador++;
+            }
+            if (timer == 0 && giroJugador == manoJugador.Count && giroDealer < manoDealer.Count)
+            {
+                if (leToca)
+                    giroDealer++;
+                else
+                    leToca = true;
+            }
 
-        timer += Time.deltaTime;
+            timer += Time.deltaTime;
+        }
     }
 
     private void LateUpdate()
     {
         //EL NUMERO MAXIMO DE CARTAS QUE PUEDE TENER UNA PERSONA ES DE 12 (4 AS, 4 2 Y 3 3)
-
-        if (manoJugador.Count != 0)
+        if (rondaEnJuego)
         {
-            for (int i = 0; i < giroJugador; i++)
+            if (manoJugador.Count != 0)
             {
-                manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion - 0.3f, manoJugador[i].transform.position.y, zJugador), speedCartas);
-
-                manoJugador[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
-
-                //manoJugador[i].transform.rotation = Quaternion.Lerp(manoJugador[i].transform.rotation, new Quaternion(manoJugador[i].transform.rotation.x, manoJugador[i].transform.rotation.y, angulo, manoJugador[i].transform.rotation.w), speedCartas);
-            }
-
-            for (int i = 0; i < giroDealer; i++)
-            {
-                manoDealer[i].transform.position = Vector3.Lerp(manoDealer[i].transform.position, new Vector3(i * posicion, manoDealer[i].transform.position.y, zDealer), speedCartas);
-
-                if (i == 1)
+                for (int i = 0; i < giroJugador; i++)
                 {
-                    if (desvelar)
+                    manoJugador[i].transform.position = Vector3.Lerp(manoJugador[i].transform.position, new Vector3(i * posicion - 0.3f, manoJugador[i].transform.position.y, zJugador), speedCartas);
+
+                    manoJugador[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
+
+                    //manoJugador[i].transform.rotation = Quaternion.Lerp(manoJugador[i].transform.rotation, new Quaternion(manoJugador[i].transform.rotation.x, manoJugador[i].transform.rotation.y, angulo, manoJugador[i].transform.rotation.w), speedCartas);
+                }
+
+                for (int i = 0; i < giroDealer; i++)
+                {
+                    manoDealer[i].transform.position = Vector3.Lerp(manoDealer[i].transform.position, new Vector3(i * posicion, manoDealer[i].transform.position.y, zDealer), speedCartas);
+
+                    if (i == 1)
                     {
-                        manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
+                        if (desvelar)
+                        {
+                            manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
+                        }
+                        else
+                        {
+                            manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, anguloAUX), speedCartas));
+                        }
                     }
                     else
                     {
-                        manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, anguloAUX), speedCartas));
+                        manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
                     }
-                }
-                else
-                {
-                    manoDealer[i].transform.rotation = Quaternion.Euler(Vector3.Lerp(rotacion, new Vector3(rotacion.x, rotacion.y, angulo), speedCartas));
-                }
 
-                //manoDealer[i].transform.rotation = Quaternion.Lerp(manoDealer[i].transform.rotation, new Quaternion(manoDealer[i].transform.rotation.x, manoDealer[i].transform.rotation.y, angulo, manoDealer[i].transform.rotation.w), speedCartas);
+                    //manoDealer[i].transform.rotation = Quaternion.Lerp(manoDealer[i].transform.rotation, new Quaternion(manoDealer[i].transform.rotation.x, manoDealer[i].transform.rotation.y, angulo, manoDealer[i].transform.rotation.w), speedCartas);
+                }
             }
+
+            paredes[0].transform.position = Vector3.Lerp(paredes[0].transform.position, new Vector3(0, y, mov), speedParedes);
+            paredes[1].transform.position = Vector3.Lerp(paredes[1].transform.position, new Vector3(-mov, y, 0), speedParedes);
+            paredes[2].transform.position = Vector3.Lerp(paredes[2].transform.position, new Vector3(mov, y, 0), speedParedes);
+            paredes[3].transform.position = Vector3.Lerp(paredes[3].transform.position, new Vector3(0, y, -mov), speedParedes);
+
+            /*foreach (var carta in manoJugador)
+            {
+                carta.transform.position = Vector3.Lerp(carta.transform.position, new Vector3(carta.transform.position.x * posicion * 0.1f, carta.transform.position.y, 1f), speed);
+                carta.transform.rotation = Quaternion.Lerp(carta.transform.rotation, new Quaternion(carta.transform.rotation.x, carta.transform.rotation.y, angulo, carta.transform.rotation.w), speed);
+            }*/
+            //manoJugador[manoJugador.Count - 1].transform.position = Vector3.Lerp(manoJugador[manoJugador.Count - 1].transform.position, new Vector3(0f, manoJugador[manoJugador.Count - 1].transform.position.y, 1f), speed);
         }
-
-        paredes[0].transform.position = Vector3.Lerp(paredes[0].transform.position, new Vector3(0, y, mov), speedParedes);
-        paredes[1].transform.position = Vector3.Lerp(paredes[1].transform.position, new Vector3(-mov, y, 0), speedParedes);
-        paredes[2].transform.position = Vector3.Lerp(paredes[2].transform.position, new Vector3(mov, y, 0), speedParedes);
-        paredes[3].transform.position = Vector3.Lerp(paredes[3].transform.position, new Vector3(0, y, -mov), speedParedes);
-
-        /*foreach (var carta in manoJugador)
-        {
-            carta.transform.position = Vector3.Lerp(carta.transform.position, new Vector3(carta.transform.position.x * posicion * 0.1f, carta.transform.position.y, 1f), speed);
-            carta.transform.rotation = Quaternion.Lerp(carta.transform.rotation, new Quaternion(carta.transform.rotation.x, carta.transform.rotation.y, angulo, carta.transform.rotation.w), speed);
-        }*/
-        //manoJugador[manoJugador.Count - 1].transform.position = Vector3.Lerp(manoJugador[manoJugador.Count - 1].transform.position, new Vector3(0f, manoJugador[manoJugador.Count - 1].transform.position.y, 1f), speed);
     }
 
     public void IniciarRonda()
     {
+        rondaEnJuego = true;
         desvelar = false;
 
         Debug.Log("-------NUEVA RONDA-------");
@@ -268,6 +276,7 @@ public class Partida : MonoBehaviour
 
     public void FinDeRonda()
     {
+        rondaEnJuego = false;
         giroJugador = 0;
         giroDealer = 0;
         leToca = false;
@@ -285,7 +294,7 @@ public class Partida : MonoBehaviour
         //if (mov >= 2.8 || mov <= 0f)
             //SceneManager.LoadScene("Plato");
         //else
-            IniciarRonda();
+            //IniciarRonda();
     }
 
     public void OtraCarta()

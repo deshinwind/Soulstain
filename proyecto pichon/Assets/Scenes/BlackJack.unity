@@ -4161,10 +4161,10 @@ MonoBehaviour:
   dialogueController: {fileID: 1983425435}
   puntosJugador: 0
   puntosDealer: 0
-  speedCartas: 0.05
+  speedCartas: 0.01
   speedParedes: 0.1
-  angulo: -3333
-  anguloAUX: 277
+  angulo: 19093
+  anguloAUX: 1060
   posicion: 0.1
   zJugador: 0.2
   zDealer: -0.5
@@ -4176,6 +4176,7 @@ MonoBehaviour:
   leToca: 0
   jugadorGana: 0
   desvelar: 0
+  primeraVez: 0
   rondaEnJuego: 0
   rotacion: {x: 0, y: 0, z: 0}
   botonOtra: {fileID: 1617968729}
@@ -4218,21 +4219,42 @@ MonoBehaviour:
   fundidoNegro: 1
   tutorial: 0
   finDeTutorial: 0
-  wait: 2
+  wait: 1.5
   dialogoTutorial:
   - Parrafo 1
-  - 
   - Parrafo 2
+  - 
+  - Parrafo 3
   - (Se reparten las cartas del jugador)
   - 
-  - Parrafo3
+  - Parrafo4
   - (Se reparten las cartas del dealer)
-  - Parrafo 4
   - Parrafo 5
-  - 
   - Parrafo 6
+  - 
+  - Parrafo 7
   - (Empieza la ronda del tutorial)
-  dialogoPrimeraRonda: []
+  dialogoPrimeraRonda:
+  - Parrafo 1
+  - Parrafo 2
+  - Parrafo 3
+  - Parrafo 4
+  primerDialogoDerrota:
+  - Primera parte de la derrota
+  segundoDialogoDerrota:
+  - Segunda parte de la derrota
+  tercerDialogoDerrota:
+  - Tercera parte de la derrota
+  primerDialogoVictoria:
+  - Primera parte de la victoria
+  segundoDialogoVictoria:
+  - Segunda parte de la victoria
+  tercerDialogoVictoria:
+  - Tercera parte de la victoria
+  derrotaFIN:
+  - DERROTA
+  victoriaFIN:
+  - VICTORIA
 --- !u!114 &1983425435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4246,7 +4268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1112941106}
-  delay: 0.1
+  delay: 0.05
   panelDialogo: {fileID: 324761171}
   player: {fileID: 561177287}
   pause: 0

@@ -22,10 +22,24 @@ public class ControladorBJ : MonoBehaviour
     public bool tutorial = false;
     public bool finDeTutorial = false;
 
-    public float wait = 2f;
+    public float wait = 1.5f;
 
     public List<string> dialogoTutorial = new List<string>();
     public List<string> dialogoPrimeraRonda = new List<string>();
+
+    public List<string> primerDialogoDerrota = new List<string>();
+    public List<string> segundoDialogoDerrota = new List<string>();
+    public List<string> tercerDialogoDerrota = new List<string>();
+
+    public List<string> primerDialogoVictoria = new List<string>();
+    public List<string> segundoDialogoVictoria = new List<string>();
+    public List<string> tercerDialogoVictoria = new List<string>();
+
+    public List<string> derrotaFIN = new List<string>();
+    public List<string> victoriaFIN = new List<string>();
+
+    public int victorias = 0;
+    public int derrotas = 0;
 
 
     //EL JUGADOR NO PUEDE MOVERSE DEL SITIO
@@ -66,8 +80,46 @@ public class ControladorBJ : MonoBehaviour
                 //*********************************************//
                 partida.ComprobarPuntosDealer();
                 finDeTutorial = true;
-                //ronda++;
             }
+        }
+        else if (victorias == 3)
+        {
+            dialogueController.StartDialogue(tercerDialogoVictoria, wait);
+        }
+        else if (derrotas == 3)
+        {
+            dialogueController.StartDialogue(tercerDialogoDerrota, wait);
+        }
+        else if (!partida.rondaEnJuego)
+        {
+            partida.rondaEnJuego = true;
+            if (victorias == 0 && derrotas == 0)
+            {
+                dialogueController.StartDialogue(dialogoPrimeraRonda, wait);
+            }
+            else if (partida.jugadorGana)
+            {
+                if (victorias == 1)
+                {
+                    dialogueController.StartDialogue(primerDialogoVictoria, wait);
+                }
+                else if (victorias == 2)
+                {
+                    dialogueController.StartDialogue(segundoDialogoVictoria, wait);
+                }
+            }
+            else
+            {
+                if (derrotas == 1)
+                {
+                    dialogueController.StartDialogue(primerDialogoDerrota, wait);
+                }
+                else if (derrotas == 2)
+                {
+                    dialogueController.StartDialogue(primerDialogoDerrota, wait);
+                }
+            }
+            Invoke("IniciarRonda", 3f);
         }
     }
 
@@ -84,6 +136,11 @@ public class ControladorBJ : MonoBehaviour
         {
             panelSolido.gameObject.SetActive(false);
         }
+    }
+
+    public void IniciarRonda()
+    {
+        partida.IniciarRonda();
     }
 
     public void ActivarRotacionPersonaje()
@@ -118,11 +175,7 @@ public class ControladorBJ : MonoBehaviour
         partida.AñadirCarta(partida.manoDealer);
     }
 
-    //TERMINA LA LINEA DE LA CLAUSTROFOBIA Y SE EMPIEZAN A REPARTIR LAS CARTAS
-    //DOS LINEAS DE LA CLAUSTROFOBIA MIENTRAS SE REPARTEN LAS CARTAS
-    //CUANDO VA A DECIR LA TERCERA LINEA, LAS CARTAS YA SE HAN REPARTIDO (EN ESTA LINEA SE EXPLICA EL FUNCIONAMINETO DEL MINIJUEGO)
-    //OTRAS DOS LINEAS DE LA CLAUSTROFOBIA
-    //SE JUEGA LA PARTIDA DE PRUEBA HASTA QUE TERMINE
+
     //UNA VEZ TERMINADA LA PARTIDA DE PRUEBA, EMPIEZA LA PRIMERA RONDA (AUN SIN REPARTIR LAS CARTAS)
     //LINEA DE CLAUSTROFOBIA
     //SE REPARTEN LAS CARTAS AL TERMINAR LA LINEA

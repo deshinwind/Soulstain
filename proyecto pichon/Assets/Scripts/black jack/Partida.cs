@@ -201,26 +201,31 @@ public class Partida : MonoBehaviour
         if (puntosJugador < 21)
         {
             //PREGUNTAR SI QUIERE OTRA CARTA O SI SE QUIERE PLANTAR
-            otraCarta.SetActive(true);
-            plantarse.SetActive(true);
-
-            botonOtra.GetComponent<XRSimpleInteractable>().enabled = true;
-            botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = true;
+            Invoke("ActivarBotones", 3f);
         }
         else if (puntosJugador == 21)
         {
             //JUGADOR GANA LA RONDA
             jugadorGana = true;
-            Invoke("TamañoParedes", 2f);
-            Invoke("FinDeRonda", 4f);
+            Invoke("TamañoParedes", 5f);
+            Invoke("FinDeRonda", 7f);
         }
         else
         {
             //JUGADOR PIERDE LA RONDA
             jugadorGana = false;
-            Invoke("TamañoParedes", 2f);
-            Invoke("FinDeRonda", 4f);
+            Invoke("TamañoParedes", 5f);
+            Invoke("FinDeRonda", 7f);
         }
+    }
+
+    public void ActivarBotones()
+    {
+        otraCarta.SetActive(true);
+        plantarse.SetActive(true);
+
+        botonOtra.GetComponent<XRSimpleInteractable>().enabled = true;
+        botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = true;
     }
 
     public void Plantarse()
@@ -250,8 +255,8 @@ public class Partida : MonoBehaviour
         {
             //GANA EL JUGADOR
             jugadorGana = true;
-            Invoke("TamañoParedes", 2f);
-            Invoke("FinDeRonda", 4f);
+            Invoke("TamañoParedes", 5f);
+            Invoke("FinDeRonda", 7f);
         }
         else
         {
@@ -261,15 +266,15 @@ public class Partida : MonoBehaviour
             {
                 //GANA EL DEALER
                 jugadorGana = false;
-                Invoke("TamañoParedes", 2f);
-                Invoke("FinDeRonda", 4f);
+                Invoke("TamañoParedes", 5f);
+                Invoke("FinDeRonda", 7f);
             }
             else
             {
                 //GANA EL JUGADOR
                 jugadorGana = true;
-                Invoke("TamañoParedes", 2f);
-                Invoke("FinDeRonda", 4f);
+                Invoke("TamañoParedes", 5f);
+                Invoke("FinDeRonda", 7f);
             }
         }
     }

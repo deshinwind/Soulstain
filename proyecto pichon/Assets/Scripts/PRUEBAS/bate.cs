@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bate : MonoBehaviour
-{
-    public Material mesatext;
+{    
+    
     public bool isgrab = false;
+
+    [Header("Mesa")]
+    public Material mesaMaterial;
     public GameObject mesarota;
+
+    [Header("Camara")]
+    public Material camaraMaterial;
+    public GameObject camaraRota;
+    public cameraFade camefade;
+
+    [Header("Fade")]
     public float fadeDuration = 2f; // Duración de la animación de desvanecimiento
     private float fadeTimer = 0f;
     private bool isBroken = false;
 
     private void Start()
     {
-        Color color = mesatext.color;
-        color.a = 1;
-        mesatext.color = color;
+        Color colormesa = mesaMaterial.color;
+        colormesa.a = 1;
+        mesaMaterial.color = colormesa;
+
+        Color colorcamara = mesaMaterial.color;
+        colorcamara.a = 1;
+        mesaMaterial.color = colorcamara;
     }
     public void agarrao()
     {
@@ -36,9 +50,12 @@ public class bate : MonoBehaviour
             // Calcula la nueva transparencia basada en el tiempo transcurrido
             float alpha = 1 - (fadeTimer / fadeDuration);
             // Establece la transparencia en el material
-            Color color = mesatext.color;
+            Color 
+            color = mesaMaterial.color;
+            color = camaraMaterial.color;
             color.a = alpha;
-            mesatext.color = color;
+            mesaMaterial.color = color;
+            camaraMaterial.color = color;
         }
     }
 
@@ -51,6 +68,14 @@ public class bate : MonoBehaviour
             mesarota = Instantiate(mesarota, collision.transform.position, mesarota.transform.rotation);
             Destroy(mesarota, fadeDuration-1);
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("camara") && isgrab)
+        {
+            isBroken = true;
+            camaraRota = Instantiate(camaraRota, collision.transform.position, camaraRota.transform.rotation);
+            Destroy(camaraRota, 5f);
+            Destroy(collision.gameObject);
+            camefade.Update();
         }
     }
 

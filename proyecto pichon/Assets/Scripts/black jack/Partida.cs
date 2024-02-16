@@ -16,8 +16,11 @@ public class Partida : MonoBehaviour
 
     public DialogueController dialogueController;
 
+    public ControladorBJ controladroBJ;
+
     public int puntosJugador;
     public int puntosDealer;
+    public int numeroRonda = 0;
 
     public float speedCartas;
     public float speedParedes;
@@ -37,7 +40,7 @@ public class Partida : MonoBehaviour
     public bool leToca;
     public bool jugadorGana;
     public bool desvelar;
-    public bool primeraVez;
+    public bool primeraVez = true;
 
     public bool rondaEnJuego = false;
 
@@ -178,7 +181,7 @@ public class Partida : MonoBehaviour
         //*********************************************//
         puntosDealer = 0;
 
-        foreach (var carta in manoDealer)
+        foreach (GameObject carta in manoDealer)
         {
             puntosDealer += carta.GetComponent<Carta>().valor;
         }
@@ -191,7 +194,7 @@ public class Partida : MonoBehaviour
         //*********************************************//
         puntosJugador = 0;
 
-        foreach (var carta in manoJugador)
+        foreach (GameObject carta in manoJugador)
         {
             puntosJugador += carta.GetComponent<Carta>().valor;
         }
@@ -207,6 +210,8 @@ public class Partida : MonoBehaviour
         {
             //JUGADOR GANA LA RONDA
             jugadorGana = true;
+            if (numeroRonda != 0)
+                controladroBJ.victorias++;
             Invoke("TamañoParedes", 5f);
             Invoke("FinDeRonda", 7f);
         }
@@ -214,6 +219,8 @@ public class Partida : MonoBehaviour
         {
             //JUGADOR PIERDE LA RONDA
             jugadorGana = false;
+            if (numeroRonda != 0)
+                controladroBJ.derrotas++;
             Invoke("TamañoParedes", 5f);
             Invoke("FinDeRonda", 7f);
         }
@@ -255,6 +262,8 @@ public class Partida : MonoBehaviour
         {
             //GANA EL JUGADOR
             jugadorGana = true;
+            if (numeroRonda != 0)
+                controladroBJ.victorias++;
             Invoke("TamañoParedes", 5f);
             Invoke("FinDeRonda", 7f);
         }
@@ -266,6 +275,8 @@ public class Partida : MonoBehaviour
             {
                 //GANA EL DEALER
                 jugadorGana = false;
+                if (numeroRonda != 0)
+                    controladroBJ.derrotas++;
                 Invoke("TamañoParedes", 5f);
                 Invoke("FinDeRonda", 7f);
             }
@@ -273,6 +284,8 @@ public class Partida : MonoBehaviour
             {
                 //GANA EL JUGADOR
                 jugadorGana = true;
+                if (numeroRonda != 0)
+                    controladroBJ.victorias++;
                 Invoke("TamañoParedes", 5f);
                 Invoke("FinDeRonda", 7f);
             }
@@ -281,22 +294,43 @@ public class Partida : MonoBehaviour
 
     public void TamañoParedes()
     {
-        if (primeraVez)
-        {
-            primeraVez = false;
-        }
-        else
+        if (numeroRonda != 0)
         {
             if (jugadorGana)
             {
+                switch (controladroBJ.victorias)
+                {
+                    case 1:
+                        mov = 1.2f;
+                        break;
+                    case 2:
+                        mov = 0.6f;
+                        break;
+                    case 3:
+                        mov = 0.0f;
+                        break;
+                }
                 Debug.Log("Gana el jugador");
-                mov -= 0.8f;
+                //mov -= 0.8f;
             }
             else
             {
+                switch (controladroBJ.victorias)
+                {
+                    case 1:
+                        mov = 1.9f;
+                        break;
+                    case 2:
+                        mov = 2.4f;
+                        break;
+                    case 3:
+                        mov = 2.9f;
+                        break;
+                }
                 Debug.Log("Gana el dealer");
-                mov += 0.4f;
+                //mov += 0.4f;
             }
+            Debug.Log(mov);
         }
     }
 
@@ -306,6 +340,7 @@ public class Partida : MonoBehaviour
         giroJugador = 0;
         giroDealer = 0;
         leToca = false;
+        numeroRonda++;
 
         VaciarMano(manoDealer);
         VaciarMano(manoJugador);
@@ -339,7 +374,7 @@ public class Partida : MonoBehaviour
     public void VaciarMano(List<GameObject> mano)
     {
         //DESTRUIMOS LAS CARTAS ANTES DE VACIAR LAS MANOS
-        foreach (var carta in mano)
+        foreach (GameObject carta in mano)
         {
             Destroy(carta);
         }

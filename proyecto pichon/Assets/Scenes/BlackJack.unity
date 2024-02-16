@@ -4159,6 +4159,7 @@ MonoBehaviour:
   - {fileID: 288710987}
   almacen: {fileID: 87144367}
   dialogueController: {fileID: 1983425435}
+  controladroBJ: {fileID: 1983425434}
   puntosJugador: 0
   puntosDealer: 0
   speedCartas: 0.01
@@ -4255,6 +4256,8 @@ MonoBehaviour:
   - DERROTA
   victoriaFIN:
   - VICTORIA
+  victorias: 0
+  derrotas: 0
 --- !u!114 &1983425435
 MonoBehaviour:
   m_ObjectHideFlags: 0

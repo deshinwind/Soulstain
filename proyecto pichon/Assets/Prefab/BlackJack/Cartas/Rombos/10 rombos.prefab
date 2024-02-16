@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8960474364811126114}
   m_Layer: 0
   m_Name: 10 rombos
-  m_TagString: Untagged
+  m_TagString: Carta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

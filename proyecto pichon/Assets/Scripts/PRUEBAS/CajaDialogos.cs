@@ -28,7 +28,7 @@ public class CajaDialogos : MonoBehaviour
 
     public void GuluGulu()
     {
-        foreach (var letra in lineas[0])
+        foreach (char letra in lineas[0])
         {
             Debug.Log(letra); 
             letrica = letra;

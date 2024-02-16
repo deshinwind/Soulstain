@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2954074601768851559}
   m_Layer: 0
   m_Name: Q picas
-  m_TagString: Untagged
+  m_TagString: Carta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2685041003490429874}
   m_Layer: 0
   m_Name: 8 picas
-  m_TagString: Untagged
+  m_TagString: Carta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

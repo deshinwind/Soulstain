@@ -202,7 +202,7 @@ public class ControladorBolos : MonoBehaviour
 
     public void DestruirBolosRestantes()
     {
-        foreach (var bolo in bolo)
+        foreach (GameObject bolo in bolo)
         {
             if (bolo != null)
             {

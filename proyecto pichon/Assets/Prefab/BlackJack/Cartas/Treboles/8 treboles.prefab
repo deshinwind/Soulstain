@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6251850897369496667}
   m_Layer: 0
   m_Name: 8 treboles
-  m_TagString: Untagged
+  m_TagString: Carta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

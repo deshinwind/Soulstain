@@ -963,7 +963,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ccb4d1e4cbd995e48aa2ab9d606f5dc0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3771
+      value: 2.2840998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccb4d1e4cbd995e48aa2ab9d606f5dc0,
         type: 3}
@@ -1015,6 +1015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesa
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ccb4d1e4cbd995e48aa2ab9d606f5dc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1024,6 +1029,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 927647841}
   m_SourcePrefab: {fileID: 100100000, guid: ccb4d1e4cbd995e48aa2ab9d606f5dc0, type: 3}
+--- !u!1 &202463293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 202463294}
+  m_Layer: 0
+  m_Name: attach2bate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &202463294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202463293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.699, z: -1.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1646900246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220742662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8029445378177447055, guid: b495cfeb5dc63324380153db58dd9cfc,
@@ -1346,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.37537
+      value: 2.333
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
         type: 3}
@@ -1395,7 +1431,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1058876731}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 202463294}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
         type: 3}
@@ -1943,6 +1987,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1196918, y: 1.2047436, z: 2.319127}
   m_Center: {x: 0.00074768066, y: -0.2498658, z: -0.0037855506}
+--- !u!1 &1058876730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058876731}
+  m_Layer: 0
+  m_Name: attach1bate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058876731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058876730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.112, z: -1.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1646900246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133782575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,10 +2468,6 @@ MonoBehaviour:
   mesaMaterial: {fileID: 0}
   mesarota: {fileID: 8675580195704243905, guid: 4d76f363f01cc674bab60ace1f307ed2,
     type: 3}
-  camaraMaterial: {fileID: 0}
-  camaraRota: {fileID: 235852054939958066, guid: 2976879e4e6ad254fad29aee630944b0,
-    type: 3}
-  camefade: {fileID: 496197094}
   fadeDuration: 2
 --- !u!65 &1423906100
 BoxCollider:
@@ -2598,14 +2669,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 1646900242}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
+  m_SelectMode: 1
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
@@ -2711,8 +2783,8 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
-  m_SecondaryAttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1058876731}
+  m_SecondaryAttachTransform: {fileID: 202463294}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
@@ -2777,10 +2849,6 @@ MonoBehaviour:
   mesaMaterial: {fileID: 2100000, guid: e0e4124a859de9a418c7ec7846030cd2, type: 2}
   mesarota: {fileID: 8675580195704243905, guid: 4d76f363f01cc674bab60ace1f307ed2,
     type: 3}
-  camaraMaterial: {fileID: 0}
-  camaraRota: {fileID: 235852054939958066, guid: 2976879e4e6ad254fad29aee630944b0,
-    type: 3}
-  camefade: {fileID: 0}
   fadeDuration: 2
 --- !u!65 &1646900242
 BoxCollider:
@@ -2830,6 +2898,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1646900246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4af54c4cbe5001a408b9f0d3fc1b11ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 451330386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1887863103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: b495cfeb5dc63324380153db58dd9cfc,
@@ -3192,6 +3266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.291
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576882636313575499, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

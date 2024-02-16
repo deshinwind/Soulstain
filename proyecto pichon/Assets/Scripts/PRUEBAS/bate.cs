@@ -12,12 +12,12 @@ public class bate : MonoBehaviour
     public GameObject mesarota;
 
     [Header("Camara")]
-    public Material camaraMaterial;
-    public GameObject camaraRota;
-    public cameraFade camefade;
+    //public Material camaraMaterial;
+    //public GameObject camaraRota;
+   // public cameraFade camefade;
 
     [Header("Fade")]
-    public float fadeDuration = 2f; // Duración de la animación de desvanecimiento
+    public float fadeDuration = 5f; // Duración de la animación de desvanecimiento
     private float fadeTimer = 0f;
     private bool isBroken = false;
 
@@ -52,10 +52,10 @@ public class bate : MonoBehaviour
             // Establece la transparencia en el material
             Color 
             color = mesaMaterial.color;
-            color = camaraMaterial.color;
+            //color = camaraMaterial.color;
             color.a = alpha;
             mesaMaterial.color = color;
-            camaraMaterial.color = color;
+            //camaraMaterial.color = color;
         }
     }
 
@@ -66,17 +66,17 @@ public class bate : MonoBehaviour
         {
             isBroken = true;
             mesarota = Instantiate(mesarota, collision.transform.position, mesarota.transform.rotation);
-            Destroy(mesarota, fadeDuration-1);
+            Destroy(mesarota, fadeDuration-0.5f);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("camara") && isgrab)
+        /*if (collision.gameObject.CompareTag("camara") && isgrab)
         {
             isBroken = true;
             camaraRota = Instantiate(camaraRota, collision.transform.position, camaraRota.transform.rotation);
             Destroy(camaraRota, 5f);
             Destroy(collision.gameObject);
             camefade.Update();
-        }
+        }*/
     }
 
 }

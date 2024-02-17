@@ -294,6 +294,7 @@ public class Partida : MonoBehaviour
 
     public void TamañoParedes()
     {
+        Debug.Log("Victorias: " + controladroBJ.victorias + " Derrotas: " + controladroBJ.derrotas);
         if (numeroRonda != 0)
         {
             if (jugadorGana)
@@ -315,7 +316,7 @@ public class Partida : MonoBehaviour
             }
             else
             {
-                switch (controladroBJ.victorias)
+                switch (controladroBJ.derrotas)
                 {
                     case 1:
                         mov = 1.9f;
@@ -353,9 +354,10 @@ public class Partida : MonoBehaviour
 
         //HACER LA ANIMACION DE CAMBIO DE ESCENA, MOSTRANDO LA CONVERSACION PERTINENTE
         //if (mov >= 2.8 || mov <= 0f)
-            //SceneManager.LoadScene("Plato");
+        //SceneManager.LoadScene("Plato");
         //else
-            //IniciarRonda();
+        //IniciarRonda();
+        controladroBJ.iniciarRonda = true;
     }
 
     public void OtraCarta()

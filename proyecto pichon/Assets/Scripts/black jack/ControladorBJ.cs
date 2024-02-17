@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -14,13 +15,13 @@ public class ControladorBJ : MonoBehaviour
 
     public DialogueController dialogueController;
 
-    public int ronda = 0;
-
     public Vector3 alphaPanelBlack = new Vector3(1f, 1f, 1f);
 
     public bool fundidoNegro = true;
     public bool tutorial = false;
     public bool finDeTutorial = false;
+
+    public bool iniciarRonda = false;
 
     public float wait = 1.5f;
 
@@ -82,7 +83,55 @@ public class ControladorBJ : MonoBehaviour
                 finDeTutorial = true;
             }
         }
-        else if (victorias == 3)
+        else if (iniciarRonda)
+        {
+            if (partida.numeroRonda == 1)
+            {
+                dialogueController.StartDialogue(dialogoPrimeraRonda, wait);
+                Invoke("IniciarRonda", 3f);
+            }
+            else if (partida.jugadorGana)
+            {
+                if (victorias == 3)
+                {
+                    dialogueController.StartDialogue(tercerDialogoVictoria, wait);
+                    //*******HACER LA TRANSICION AL PLATO********
+                    Invoke("EscenaPlato", 5F);
+                }
+                else if (victorias == 1)
+                {
+                    dialogueController.StartDialogue(primerDialogoVictoria, wait);
+                    Invoke("IniciarRonda", 3f);
+                }
+                else
+                {
+                    dialogueController.StartDialogue(segundoDialogoVictoria, wait);
+                    Invoke("IniciarRonda", 3f);
+                }
+            }
+            else
+            {
+                if (derrotas == 3)
+                {
+                    dialogueController.StartDialogue(tercerDialogoDerrota, wait);
+                    //*******HACER LA TRANSICION AL PLATO********
+                    Invoke("EscenaPlato", 5F);
+                }
+                else if (derrotas == 1)
+                {
+                    dialogueController.StartDialogue(primerDialogoDerrota, wait);
+                    Invoke("IniciarRonda", 3f);
+                }
+                else
+                {
+                    dialogueController.StartDialogue(segundoDialogoDerrota, wait);
+                    Invoke("IniciarRonda", 3f);
+                }
+            }
+            iniciarRonda = false;
+        }
+        
+        /*else if (victorias == 3)
         {
             dialogueController.StartDialogue(tercerDialogoVictoria, wait);
         }
@@ -120,7 +169,7 @@ public class ControladorBJ : MonoBehaviour
                 }
             }
             Invoke("IniciarRonda", 3f);
-        }
+        }*/
     }
 
     private void LateUpdate()
@@ -136,6 +185,11 @@ public class ControladorBJ : MonoBehaviour
         {
             panelSolido.gameObject.SetActive(false);
         }
+    }
+
+    public void EscenaPlato()
+    {
+        SceneManager.LoadScene("Plato");
     }
 
     public void IniciarRonda()

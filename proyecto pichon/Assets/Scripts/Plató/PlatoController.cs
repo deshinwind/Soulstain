@@ -17,6 +17,9 @@ public class PlatoController : MonoBehaviour
     public bool latiendo;
     public AudioClip latido;
 
+    public GameObject sillon;
+    public GameObject miedo2;
+
     public float speed;
 
     public bool salaPequeña = false;
@@ -159,8 +162,12 @@ public class PlatoController : MonoBehaviour
         //SI HAS GANADO TERMINA EL FUNDIDO A BLANCO
         //SI HAS PERDIDO TERMINA EL FUNDIDO A NEGRO
         //EL SILLON DE INVITADOS NO ESTÁ
+        sillon.SetActive(false);
+
         //LUZ MAS TENUE DEL SALON
         //TE PUEDES MOVER POR EL ESCENARIO (SOLO POR LA PARTE DEL PLATO)
+        player.GetComponent<ContinuousMoveProviderBase>().enabled = true;
+        player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
         //CUANDO MIRAS AL PATIO DE BUTACAS SE ACTIVAN VOCES DE FONTO Y SE PROYECTA UNA SOMBRA DEL MIEDO EN UNA BUTACA
         //QUE APAREZCA EL MIEDO SENTADO EN EL SOFA
         //QUE EL MIEDO SIGA CON LA MIRADA AL PERSONAJE

@@ -22,12 +22,13 @@ public class DialogueController : MonoBehaviour
 
     private string currentText;
 
-    private bool isShowingText = false;
+    public bool isShowingText = false;
     private bool isWaiting = false;
     public bool pause = false;
 
     public void StartDialogue(List<string> dialogs, float pauseDuration)
     {
+        isShowingText = true; //nuevo
         dialogList = dialogs;
         currentDialog = 0;
         pauseBetween = pauseDuration;

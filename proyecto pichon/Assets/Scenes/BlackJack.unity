@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &561177288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,7 +2818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1220009846
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4162,6 +4162,7 @@ MonoBehaviour:
   controladroBJ: {fileID: 1983425434}
   puntosJugador: 0
   puntosDealer: 0
+  numeroRonda: 0
   speedCartas: 0.01
   speedParedes: 0.1
   angulo: 19093
@@ -4215,11 +4216,11 @@ MonoBehaviour:
   panelSolido: {fileID: 1495219594}
   partida: {fileID: 1983425432}
   dialogueController: {fileID: 1983425435}
-  ronda: 0
   alphaPanelBlack: {x: 1, y: 1, z: 1}
   fundidoNegro: 1
   tutorial: 0
   finDeTutorial: 0
+  iniciarRonda: 0
   wait: 1.5
   dialogoTutorial:
   - Parrafo 1
@@ -4274,6 +4275,7 @@ MonoBehaviour:
   delay: 0.05
   panelDialogo: {fileID: 324761171}
   player: {fileID: 561177287}
+  isShowingText: 0
   pause: 0
 --- !u!1 &2000820825
 GameObject:
@@ -4344,7 +4346,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1220009847}
+  m_Camera: {fileID: 694044328}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

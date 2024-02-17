@@ -867,6 +867,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1391405773}
   m_SourcePrefab: {fileID: 100100000, guid: 9c672ad3339b28248bea24f7ce8f70ab, type: 3}
+--- !u!1 &959576687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 36428255624780553, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 959576686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &973805422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1216,7 @@ MonoBehaviour:
   letras: 1
   latiendo: 0
   latido: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  sillon: {fileID: 959576687}
   speed: 0.00005
   "salaPeque\xF1a": 0
   alphaPanelWhite: {x: 1, y: 1, z: 1}
@@ -1271,6 +1278,7 @@ MonoBehaviour:
   delay: 0.05
   panelDialogo: {fileID: 1607442111}
   player: {fileID: 1570251848}
+  isShowingText: 0
   pause: 0
 --- !u!1 &1553173847
 GameObject:

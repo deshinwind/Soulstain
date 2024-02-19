@@ -15,6 +15,8 @@ public class ControladorBJ : MonoBehaviour
 
     public DialogueController dialogueController;
 
+    public DontDestroyOnLoad dontDestroy;
+
     public Vector3 alphaPanelBlack = new Vector3(1f, 1f, 1f);
 
     public bool fundidoNegro = true;
@@ -48,6 +50,8 @@ public class ControladorBJ : MonoBehaviour
 
     private void Start()
     {
+        dontDestroy = GameObject.Find("DontDestroy").GetComponent<DontDestroyOnLoad>();
+
         partida.puntosJugador = 0;
         Invoke("ActivarRotacionPersonaje", 2f);
         Invoke("IniciarDialogos", 7f);
@@ -189,6 +193,7 @@ public class ControladorBJ : MonoBehaviour
 
     public void EscenaPlato()
     {
+        dontDestroy.controlador++;
         SceneManager.LoadScene("Plato");
     }
 
@@ -199,7 +204,7 @@ public class ControladorBJ : MonoBehaviour
 
     public void ActivarRotacionPersonaje()
     {
-        player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         fundidoNegro = false;
     }
 

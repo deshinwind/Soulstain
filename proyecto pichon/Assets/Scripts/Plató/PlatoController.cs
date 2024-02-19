@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class PlatoController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlatoController : MonoBehaviour
     public GameObject sillon;
     public GameObject miedo2;
     public GameObject sombra;
+
+    public GameObject[] camara;
 
     public float speed;
 
@@ -38,8 +41,11 @@ public class PlatoController : MonoBehaviour
     public List<string> segundoDialogo = new List<string>();
     public List<string> tercerDialogo = new List<string>();
 
+    public float timer = 0f;
+
     private void Start()
     {
+        dontDestroy = GameObject.Find("DontDestroy");
 
         switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
         {
@@ -76,7 +82,7 @@ public class PlatoController : MonoBehaviour
     {
         if (!claustrofobia.activeSelf)
         {
-            alphaPanelWhite = Vector3.Lerp(alphaPanelWhite, new Vector3(0f, 0f, 0f), 0.05f);
+            alphaPanelWhite = Vector3.Lerp(alphaPanelWhite, new Vector3(0f, 0f, 0f), 0.03f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelWhite.x);
         }
     }
@@ -85,7 +91,7 @@ public class PlatoController : MonoBehaviour
     {
         platoDialogo.panelDialogo.SetActive(true);
         platoDialogo.StartDialogue(primerDialogo, wait);
-        player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         panelSolido.SetActive(false);
         //SEGUIR EL BLOC DE NOTAS DE SOULSTAIN
     }
@@ -120,7 +126,7 @@ public class PlatoController : MonoBehaviour
             else if (rayCast.hit.transform.gameObject.name.Equals("Claustrofobia") && letras)
             {
                 panelLetras.SetActive(true);
-                Invoke("DesactivarLetras", 2f);
+                Invoke("DesactivarLetras", 3f);
 
                 //QUITAR COMENTARIO CUANDO PONGA AUDIO
                 //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
@@ -143,7 +149,7 @@ public class PlatoController : MonoBehaviour
                 Invoke("PrimeraTransicion", 3f);
             }
             //PONER EL EFECTO DE POSPROCESADO PARA QUE PAREZCA QUE ESTÁ CERRANDO LOS OJOS EL JUGADOR
-            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.01f);
+            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.07f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelBlack.x);
         }
     }
@@ -219,11 +225,45 @@ public class PlatoController : MonoBehaviour
 
     public void TerceraVezEnPlato()
     {
-
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;    //PREGUNTARLE A JUANAN SI ES ESTE O EL CONINUOUSTURNPROVIDER
+        player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;    //PREGUNTARLE A JAVI SI PUEDE MOVERSE EN ESTA PARTE DEL JUEGO
     }
 
     public void TerceraComprobacion()
     {
+        foreach (GameObject item in camara)
+        {
+            item.transform.LookAt(player.transform, Vector3.left);
+        }
+
         rayCast.CastRay();
+
+        if (player.GetComponent<ActionBasedContinuousTurnProvider>().enabled)
+        {
+            if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+            {
+                Debug.Log(rayCast.hit.transform.gameObject.name);
+                if (rayCast.hit.transform.gameObject.CompareTag("Camara"))
+                {
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    timer = 0f;
+                }
+            }
+            else
+            {
+                timer = 0f;
+            }
+        }
+
+        if (timer >= 1f)
+        {
+            player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            //HACER EL EFECTO DE LA CAMARA Y LA TRANSICION
+            SceneManager.LoadScene("PASILLO");
+        }
     }
 }

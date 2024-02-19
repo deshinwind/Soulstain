@@ -19,6 +19,7 @@ public class PlatoController : MonoBehaviour
 
     public GameObject sillon;
     public GameObject miedo2;
+    public GameObject sombra;
 
     public float speed;
 
@@ -46,6 +47,7 @@ public class PlatoController : MonoBehaviour
                 Invoke("PrimeraVezEnPlato", 5f);
                 break;
             case 1:
+                //BAJAR LA LUZ EN ESTA ESCENA
                 Invoke("SegundaVezEnPlato", 5f);
                 break;
             case 2:
@@ -97,6 +99,7 @@ public class PlatoController : MonoBehaviour
         //SUBIR EL VOLUMEN DEL AUDIOSOURCE
         //latido.volume += 0.1f;
         //}
+
         if (Physics.Raycast(rayCast.ray, out rayCast.hit))
         {
             Debug.Log(rayCast.hit.transform.gameObject.name.Equals("Claustrofobia"));
@@ -161,26 +164,57 @@ public class PlatoController : MonoBehaviour
     {
         //SI HAS GANADO TERMINA EL FUNDIDO A BLANCO
         //SI HAS PERDIDO TERMINA EL FUNDIDO A NEGRO
-        //EL SILLON DE INVITADOS NO ESTÁ
+        panelSolido.SetActive(false);
+        //EL SILLON DE INVITADOS NO ESTA
         sillon.SetActive(false);
 
         //LUZ MAS TENUE DEL SALON
         //TE PUEDES MOVER POR EL ESCENARIO (SOLO POR LA PARTE DEL PLATO)
         player.GetComponent<ContinuousMoveProviderBase>().enabled = true;
         player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+        player.transform.rotation = Quaternion.Euler(0f, 285.432f, 0f);
         //CUANDO MIRAS AL PATIO DE BUTACAS SE ACTIVAN VOCES DE FONTO Y SE PROYECTA UNA SOMBRA DEL MIEDO EN UNA BUTACA
         //QUE APAREZCA EL MIEDO SENTADO EN EL SOFA
         //QUE EL MIEDO SIGA CON LA MIRADA AL PERSONAJE
         //CUANDO EL JUGADOR SE ACERCA LO SUFICIENTE AL MIEDO, CAMBIAS DE REPENTE (SIN TRANSICION) A LA ESCENA DE LA BOLERA
         //EL JUGADOR APAREZCA EN LA BOLERA MIRANDO LA PANTALLA EN LA QUE ESTÁ EL MIEDO
-
-        //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
-        dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
     }
 
     public void SegundaComprobacion()
     {
         rayCast.CastRay();
+
+        Debug.Log(Physics.Raycast(rayCast.ray, out rayCast.hit));
+
+        if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+        {
+            Debug.Log(rayCast.hit.transform.gameObject.name);
+            if (rayCast.hit.transform.gameObject.name.Equals("Butacas"))
+            {
+                sombra.SetActive(true);
+                //ENCENDER EL FOCO DE LA SOMBRA
+                miedo2.SetActive(true);
+            }
+        }
+
+        if (miedo2.activeSelf)
+        {
+            miedo2.transform.LookAt(player.transform);
+
+            //AUMENTAR LA DISTANCIA
+
+            if (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), new Vector2(miedo2.transform.position.x, miedo2.transform.position.y)) <= 1f)
+            {
+                SegundaTransicion();
+            }
+        }
+    }
+
+    public void SegundaTransicion()
+    {
+        //AÑADIMOS UNO AL CONTROLADOR ANTES DE CAMBIAR DE ESCENA
+        dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
+        SceneManager.LoadScene("Bolera");
     }
 
     public void TerceraVezEnPlato()

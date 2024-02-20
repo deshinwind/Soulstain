@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         if (abrirPuerta)
         {
             puerta.transform.rotation = Quaternion.Euler(Vector3.Lerp(puerta.transform.rotation.eulerAngles, rotacion, 0.0025f));
-            alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(1f, 0f, 0f), 0.01f);
+            alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(1f, 0f, 0f), 0.05f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanel.x);
         }
     }

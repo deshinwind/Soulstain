@@ -689,8 +689,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.81, y: 1, z: 1.7}
-  m_Center: {x: -1.45, y: 1.21, z: 1.84}
+  m_Size: {x: 3.571616, y: 3.764736, z: 2.5561295}
+  m_Center: {x: -1.2513539, y: 0.21929991, z: 1.9274167}
 --- !u!114 &386592310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1314,7 @@ Transform:
   m_GameObject: {fileID: 561177287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00026947257}
-  m_LocalPosition: {x: -0.05, y: 1.14, z: 1.21}
+  m_LocalPosition: {x: -0.05, y: 0.7, z: 0.774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3289,8 +3289,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.81, y: 1, z: 1.7}
-  m_Center: {x: 1.1, y: 1.21, z: 1.84}
+  m_Size: {x: 3.2270565, y: 2.9757135, z: 3.438169}
+  m_Center: {x: 0.923482, y: 0.46420157, z: 1.6966711}
 --- !u!114 &1617968732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4216,6 +4216,7 @@ MonoBehaviour:
   panelSolido: {fileID: 1495219594}
   partida: {fileID: 1983425432}
   dialogueController: {fileID: 1983425435}
+  dontDestroy: {fileID: 0}
   alphaPanelBlack: {x: 1, y: 1, z: 1}
   fundidoNegro: 1
   tutorial: 0

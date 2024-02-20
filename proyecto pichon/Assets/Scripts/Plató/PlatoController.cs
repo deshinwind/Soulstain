@@ -162,7 +162,7 @@ public class PlatoController : MonoBehaviour
 
     public void PrimeraTransicion()
     {
-        dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
+        //dontDestroy.GetComponent<DontDestroyOnLoad>().controlador++;
         SceneManager.LoadScene("BlackJack");
     }
 
@@ -209,7 +209,10 @@ public class PlatoController : MonoBehaviour
 
             //AUMENTAR LA DISTANCIA
 
-            if (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), new Vector2(miedo2.transform.position.x, miedo2.transform.position.y)) <= 1f)
+            Debug.Log(Vector3.Distance(player.transform.position, miedo2.transform.position));
+
+            if (Vector3.Distance(player.transform.position, miedo2.transform.position) <= 2f)
+            //    if (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), new Vector2(miedo2.transform.position.x, miedo2.transform.position.y)) <= 1f)
             {
                 SegundaTransicion();
             }

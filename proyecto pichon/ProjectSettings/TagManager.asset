@@ -9,6 +9,7 @@ TagManager:
   - Bate
   - Carta
   - AreaCamara
+  - Camara
   layers:
   - Default
   - TransparentFX

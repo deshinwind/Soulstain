@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class PlatoController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlatoController : MonoBehaviour
     public GameObject miedo2;
     public GameObject sombra;
 
+    public GameObject[] camara;
+
     public float speed;
 
     public bool salaPequeña = false;
@@ -37,6 +40,8 @@ public class PlatoController : MonoBehaviour
     public List<string> primerDialogo = new List<string>();
     public List<string> segundoDialogo = new List<string>();
     public List<string> tercerDialogo = new List<string>();
+
+    public float timer = 0f;
 
     private void Start()
     {
@@ -219,11 +224,45 @@ public class PlatoController : MonoBehaviour
 
     public void TerceraVezEnPlato()
     {
-
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;    //PREGUNTARLE A JUANAN SI ES ESTE O EL CONINUOUSTURNPROVIDER
+        player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;    //PREGUNTARLE A JAVI SI PUEDE MOVERSE EN ESTA PARTE DEL JUEGO
     }
 
     public void TerceraComprobacion()
     {
+        foreach (GameObject item in camara)
+        {
+            item.transform.LookAt(player.transform, Vector3.left);
+        }
+
         rayCast.CastRay();
+
+        if (player.GetComponent<ActionBasedContinuousTurnProvider>().enabled)
+        {
+            if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+            {
+                Debug.Log(rayCast.hit.transform.gameObject.name);
+                if (rayCast.hit.transform.gameObject.CompareTag("Camara"))
+                {
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    timer = 0f;
+                }
+            }
+            else
+            {
+                timer = 0f;
+            }
+        }
+
+        if (timer >= 1f)
+        {
+            player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            //HACER EL EFECTO DE LA CAMARA Y LA TRANSICION
+            SceneManager.LoadScene("PASILLO");
+        }
     }
 }

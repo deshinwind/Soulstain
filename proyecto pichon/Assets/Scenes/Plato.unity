@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baae67f91d1b6434db39a0b9783d068c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlador: 1
+  controlador: 2
 --- !u!4 &443681977
 Transform:
   m_ObjectHideFlags: 0
@@ -896,6 +896,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2566867791204692953, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9c672ad3339b28248bea24f7ce8f70ab,
         type: 3}
       propertyPath: m_Name
@@ -911,6 +916,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Techo
       objectReference: {fileID: 0}
+    - target: {fileID: 6933650675702894898, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454049717202964628, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -923,6 +938,24 @@ PrefabInstance:
 --- !u!1 &959576687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 36428255624780553, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 959576686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &959576688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2566867791204692953, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 959576686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &959576689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6933650675702894898, guid: 9c672ad3339b28248bea24f7ce8f70ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 959576686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &959576690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7454049717202964628, guid: 9c672ad3339b28248bea24f7ce8f70ab,
     type: 3}
   m_PrefabInstance: {fileID: 959576686}
   m_PrefabAsset: {fileID: 0}
@@ -1329,7 +1362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1435077838}
   - component: {fileID: 1435077839}
-  - component: {fileID: 1435077841}
   - component: {fileID: 1435077842}
   m_Layer: 0
   m_Name: GameManager
@@ -1377,6 +1409,10 @@ MonoBehaviour:
   sillon: {fileID: 959576687}
   miedo2: {fileID: 1810656499}
   sombra: {fileID: 1181885760}
+  camara:
+  - {fileID: 959576690}
+  - {fileID: 959576689}
+  - {fileID: 959576688}
   speed: 0.00005
   "salaPeque\xF1a": 0
   alphaPanelWhite: {x: 1, y: 1, z: 1}
@@ -1405,23 +1441,6 @@ MonoBehaviour:
   - Este es el dialogo de la tercera vez
   - Si es tu tercera vez
   - Enhorabuena por tercera vez
---- !u!114 &1435077841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435077835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25f4b37c67c4624d9acf0f112e5a8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogText: {fileID: 421965609}
-  delay: 0.05
-  panelDialogo: {fileID: 1607442111}
-  player: {fileID: 1570251848}
-  pause: 0
 --- !u!114 &1435077842
 MonoBehaviour:
   m_ObjectHideFlags: 0

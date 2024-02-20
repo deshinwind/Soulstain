@@ -176,8 +176,8 @@ public class PlatoController : MonoBehaviour
 
         //LUZ MAS TENUE DEL SALON
         //TE PUEDES MOVER POR EL ESCENARIO (SOLO POR LA PARTE DEL PLATO)
-        player.GetComponent<ContinuousMoveProviderBase>().enabled = true;
-        player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+        player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         player.transform.rotation = Quaternion.Euler(0f, 285.432f, 0f);
         //CUANDO MIRAS AL PATIO DE BUTACAS SE ACTIVAN VOCES DE FONTO Y SE PROYECTA UNA SOMBRA DEL MIEDO EN UNA BUTACA
         //QUE APAREZCA EL MIEDO SENTADO EN EL SOFA
@@ -236,7 +236,7 @@ public class PlatoController : MonoBehaviour
     {
         foreach (GameObject item in camara)
         {
-            item.transform.LookAt(player.transform, Vector3.left);
+            item.transform.LookAt(player.transform);
         }
 
         rayCast.CastRay();

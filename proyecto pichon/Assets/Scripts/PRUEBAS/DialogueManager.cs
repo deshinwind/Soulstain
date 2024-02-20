@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public Vector3 alphaPanel;
     
     public GameObject panelSolido;
+    public GameObject panelDialogos;
 
     public GameObject player;
 
@@ -69,6 +70,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             isShowingText = false;
+            panelDialogos.SetActive(false);
             //dialogText.gameObject.SetActive(false);
         }
     }

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject panelSolido;
     public GameObject panelDialogos;
 
+    public GameObject player;
+
     public bool abrirPuerta;
 
     public Vector3 alphaPanel = new Vector3(0, 0, 0);
@@ -34,6 +36,10 @@ public class GameManager : MonoBehaviour
             puerta.transform.rotation = Quaternion.Euler(Vector3.Lerp(puerta.transform.rotation.eulerAngles, rotacion, 0.0025f));
             alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(1f, 0f, 0f), 0.05f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanel.x);
+        }
+        if (panelSolido.activeSelf && !abrirPuerta)
+        {
+            player.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
         }
     }
     public void AbrirPuerta()

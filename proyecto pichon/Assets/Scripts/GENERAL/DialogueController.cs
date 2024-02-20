@@ -37,6 +37,8 @@ public class DialogueController : MonoBehaviour
 
     public void ShowNextDialogue()
     {
+        Debug.Log("currentDialog: " + currentDialog + " dialogList.Count: " + dialogList.Count);
+
         if (currentDialog < dialogList.Count)
         {
             /*if (dialogList[currentDialog].Equals(""))
@@ -57,7 +59,8 @@ public class DialogueController : MonoBehaviour
         else
         {
             isShowingText = false;
-            //dialogText.gameObject.SetActive(false);
+            //panelDialogo.SetActive(false);  //NUEVO
+            dialogText.gameObject.SetActive(false);
         }
     }
 
@@ -69,6 +72,7 @@ public class DialogueController : MonoBehaviour
             {
                 if (!currentText.Equals(""))
                 {
+                    panelDialogo.SetActive(true);
                     if (isShowingText)
                     {
                         timer += Time.deltaTime;
@@ -96,6 +100,7 @@ public class DialogueController : MonoBehaviour
                 }
                 else
                 {
+                    panelDialogo.SetActive(false);
                     timer += Time.deltaTime;
                     if (timer >= pauseBetween)
                     {

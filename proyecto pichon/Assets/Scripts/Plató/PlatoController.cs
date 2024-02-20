@@ -45,6 +45,7 @@ public class PlatoController : MonoBehaviour
 
     private void Start()
     {
+        dontDestroy = GameObject.Find("DontDestroy");
 
         switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
         {
@@ -81,7 +82,7 @@ public class PlatoController : MonoBehaviour
     {
         if (!claustrofobia.activeSelf)
         {
-            alphaPanelWhite = Vector3.Lerp(alphaPanelWhite, new Vector3(0f, 0f, 0f), 0.05f);
+            alphaPanelWhite = Vector3.Lerp(alphaPanelWhite, new Vector3(0f, 0f, 0f), 0.03f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelWhite.x);
         }
     }
@@ -90,7 +91,7 @@ public class PlatoController : MonoBehaviour
     {
         platoDialogo.panelDialogo.SetActive(true);
         platoDialogo.StartDialogue(primerDialogo, wait);
-        player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+        player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         panelSolido.SetActive(false);
         //SEGUIR EL BLOC DE NOTAS DE SOULSTAIN
     }
@@ -125,7 +126,7 @@ public class PlatoController : MonoBehaviour
             else if (rayCast.hit.transform.gameObject.name.Equals("Claustrofobia") && letras)
             {
                 panelLetras.SetActive(true);
-                Invoke("DesactivarLetras", 2f);
+                Invoke("DesactivarLetras", 3f);
 
                 //QUITAR COMENTARIO CUANDO PONGA AUDIO
                 //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
@@ -148,7 +149,7 @@ public class PlatoController : MonoBehaviour
                 Invoke("PrimeraTransicion", 3f);
             }
             //PONER EL EFECTO DE POSPROCESADO PARA QUE PAREZCA QUE ESTÁ CERRANDO LOS OJOS EL JUGADOR
-            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.01f);
+            alphaPanelBlack = Vector3.Lerp(alphaPanelBlack, new Vector3(1f, 0f, 0f), 0.07f);
             panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanelBlack.x);
         }
     }

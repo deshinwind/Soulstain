@@ -54,8 +54,8 @@ public class DialogueManager : MonoBehaviour
             {
                 encenderLuz = true;
                 Invoke("DesactivarPanel", 2f);
-                player.GetComponent<ContinuousMoveProviderBase>().enabled = true;
-                player.GetComponent<ContinuousTurnProviderBase>().enabled = true;
+                player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+                player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
                 //A PARTIR DE AQUI EL JUGADOR PUEDE MOVERSE
             }
                 

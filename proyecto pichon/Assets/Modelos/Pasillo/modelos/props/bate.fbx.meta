@@ -3,7 +3,12 @@ guid: 4af54c4cbe5001a408b9f0d3fc1b11ca
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madera bate
+    second: {fileID: 2100000, guid: 89bc12281f6e1c04784f6a51a986f5cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1864,18 +1864,29 @@ MonoBehaviour:
   rayCast: {fileID: 649266365}
   wait: 2
   primerDialogo:
-  - Ey 234234
+  - Y para el show de esta noche,
+  - Presentamos a nuestro invitado
+  - "Que desde el anonimato se hace llamar \"el \xE1mbito\","
   - 
-  - BJ
-  - Enhorabuena por primera vez
-  - "Es bueno que haya gente por aqu\xED"
-  - "Hace que este sitio no se sienta tan vac\xEDo"
-  - Hay que ver lo que hace uno por amor
-  - Y todo para que al final
-  - Volvamos a estar solos...
-  - Tu y yo...
-  - Por la eterniada...
+  - No pensaba aparecer en el programa de esta noche,
+  - Pero parece que necesitas a tu mejor invitado.
   - 
+  - Bienvenido al programa.
+  - Es la primera vez esta semana,
+  - "Pensaba que te olvidabas de m\xED."
+  - Aunque quisiera no.
+  - No con todo lo que hemos pasado.
+  - "\xBFTienes alguna identidad secreta?"
+  - Por supuesto que la tengo.
+  - Todos nosotros la tenemos.
+  - Somos lo que quieres,
+  - Lo que sientas que puedes controlar.
+  - "\xBFDices poder ser algo diferente?"
+  - Podemos ser muchas cosas,
+  - Todo cuanto TU quieras.
+  - "Eres el que dibuja los l\xEDmites."
+  - "\xBFD\xF3nde est\xE1n tus l\xEDmites?"
+  - "\xBFQu\xE9 los marca?"
   segundoDialogo:
   - Este es el dialogo de la segunda vez
   - Si es tu segunda vez

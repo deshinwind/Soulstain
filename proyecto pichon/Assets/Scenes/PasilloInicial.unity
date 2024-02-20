@@ -2011,19 +2011,17 @@ MonoBehaviour:
   alphaPanel: {x: 0, y: 0, z: 0}
   rotacion: {x: 0, y: -133, z: 0}
   dialogs:
-  - En un lugar de la mancha
-  - De cuyo nombre no quiero acordarme
-  - "No me acuerdo de m\xE1s"
-  - "As\xED que paso de seguir"
-  - "\xBFC\xF3mo te va la vida?"
-  - "Veo que eres nuevo por aqu\xED"
+  - "\xBFRecuerdas como te miraba?"
+  - Ansia, deseo, firmeza.
+  - Desde el momento en el que te vi,
+  - "Supe que eras el que quer\xEDa."
+  - "Quer\xEDa comerte, tenerte, abrazarta"
+  - Y convertirnos en uno solo.
+  - Siempre juntos...
   - 
-  - "Est\xE1s en Cesur"
-  - "El mejor centro FP del sur de Espa\xF1a"
-  - "No te r\xEDas hombre"
-  - Un poco de respero
-  - "\xBFNo te lo crees?"
-  - Deja que te lo muestre
+  - Ya basta de hablar de mi,
+  - "dejemos este infinito que nos ba\xF1a"
+  - y pasemos a lo que realmente importa.
   dialogueManager: {fileID: 2093831330}
   wait: 1.5
 --- !u!1001 &2098959982

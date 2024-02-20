@@ -4224,40 +4224,138 @@ MonoBehaviour:
   iniciarRonda: 0
   wait: 1.5
   dialogoTutorial:
-  - Parrafo 1
-  - Parrafo 2
+  - "\xBFTe resulta familiar?"
+  - Riesgo y seguridad,
+  - Victorias y derrotas,
+  - Todo o nada.
+  - Apuestas.
+  - Toda entrevista tiene una pregunta inicial y una final.
+  - "\xBFCu\xE1l ser\xE1 hoy?"
   - 
-  - Parrafo 3
-  - (Se reparten las cartas del jugador)
+  - "Como autor, he estado sumergido en la creaci\xF3n de una historia."
+  - '"El hombre sin voz".'
+  - Un buzo sin rumbo al que los peces susurran.
   - 
-  - Parrafo4
-  - (Se reparten las cartas del dealer)
-  - Parrafo 5
-  - Parrafo 6
+  - "\xBFD\xF3nde estoy? \xBFEs esto real?"
+  - "\xBFRecuerdo tan siquiera como se hablaba?"
+  - "\xBFQu\xE9 estamos haciendo?"
+  - "El buzo se detuvo, hipnotizado por la conversaci\xF3n entre dos peces."
+  - "\"Tienes que llegar a un valor pr\xF3ximo a 21, pero no puedes pasarte de ese
+    n\xFAmero\""
+  - dijo uno de los peces.
+  - '"Pero que hace el repartidor" dijo el otro.'
+  - '"El repartidor es el crupier, reparte las cartas."'
+  - "\"\xA1Oh!\" y juega contra ti."
+  - "Est\xE1 obligado a pedir carta siempre que su puntuaci\xF3n sume 16 o menos."
+  - ", y a plantarse si suma 17 o m\xE1s\" dijo el primero."
+  - '"Ahora lo entiendo, vamos a probar" dijo el segundo'
   - 
-  - Parrafo 7
-  - (Empieza la ronda del tutorial)
+  - "El hombre sigui\xF3 su camino,"
+  - "Encontr\xF3 una cueva, vac\xEDa, enorme,"
+  - "Iluminada por peque\xF1as motas de luz que laten."
+  - Las dudas no fueron un problema,
+  - Era valiente, seguro, decidido.
   dialogoPrimeraRonda:
-  - Parrafo 1
-  - Parrafo 2
-  - Parrafo 3
-  - Parrafo 4
+  - "Sigui\xF3 sumergi\xE9ndose, la oscuridad lo envolvi\xF3,"
+  - "El coraz\xF3n dejaba de latir."
+  - Tras un rato buceando en la calma de la oscuridad, una luz se divisaba al fondo,
+  - "Hab\xEDa llegado al final. Ten\xEDa que serlo."
+  - "Algo imped\xEDa el paso,"
+  - "Cogi\xF3 carrera para DERRUMBAR el obst\xE1culo, pero se mantuvo firme."
+  - Cegado por la necesidad de salir,
+  - "Volvi\xF3 a intentarlo,"
+  - Pero no pudo,
+  - "Tras \xE9 hab\xEDa un bloqueo."
+  - "Algo le hab\xEDa tocado \xBFel hombro? \xBFel pie?"
+  - "La bombona de ox\xEDgeno empezaba a fallar."
+  - "La sala era cada vez m\xE1s estrecha,"
+  - "Hab\xEDa algo all\xED, estaba seguro."
+  - "Una luz pas\xF3 frente a \xE9l antes de ser devorado por la presencia que le
+    acompa\xF1aba"
   primerDialogoDerrota:
-  - Primera parte de la derrota
+  - El hedor del alcohol le hizo volver a la realidad.
+  - "Se sent\xEDa raro, diferente."
+  - "\xBFD\xF3nde estaba? \xBFQu\xE9 hab\xEDa pasado? \xBFY el oc\xE9ano?"
+  - "Recordaba el mar con peces, pero no pod\xEDa recorda quien era \xE9l."
+  - "Quiz\xE1 alguien que huy\xF3,"
+  - "Quiz\xE1..."
+  - Un perdedor.
+  - "Sent\xEDa su cuerpo por primera vez en mucho tiempo,"
+  - "Volv\xEDa a sentir su cara, sus pies en el suelo,"
+  - Todo era normal en un mundo que nunca lo fue.
   segundoDialogoDerrota:
-  - Segunda parte de la derrota
+  - "Su mirada se desvi\xF3,"
+  - "El ruido atrajo su atenci\xF3n."
+  - "No hab\xEDa muebles en la sala,"
+  - Solo paredes, ventanas cerradas, botellas, camas...
+  - Miraba las paredes, no contaban ninguna historia.
+  - "Las botellas, vac\xEDas, se\xF1alaban una ventana concreta."
+  - "Abri\xF3 la ventana. La habitaci\xF3n cambi\xF3."
+  - Las botellas desaparecieron,
+  - "La linterna que lo iluminaba pintaba su silueta del color de la habitaci\xF3n
+    en la que antes resid\xEDa."
   tercerDialogoDerrota:
-  - Tercera parte de la derrota
+  - Escuchaba el silencio,
+  - "Sus pasos no emit\xEDan ruido,"
+  - "Solo su coraz\xF3n."
+  - "La presi\xF3n que la sala ejerce."
+  - La sala disminuye,
+  - Las voces le abandonan,
+  - "La luz de la linterna le enga\xF1a,"
+  - Le abandona a su suerte.
+  - Los peces nadan por la sala,
+  - "Le falta aire, todo se vuelve borroso, extra\xF1o."
+  - Estaba perdido y abandonado.
+  - Sus propios miedos le devoraron.
   primerDialogoVictoria:
-  - Primera parte de la victoria
+  - El silencio adornaba su alrededor.
+  - Estaba solo, olvidado, cautivo de sus acciones.
+  - Su mirada estaba fija en una puerta,
+  - "Peque\xF1a, cerrada, sin pomo."
+  - "Era atractiva, sugerente, hipn\xF3tica."
+  - "No pod\xEDa moverse,"
+  - "Los peces le advert\xEDan."
+  - Las luces le aconsejaban.
+  - "Su ego se lo prohib\xEDa."
   segundoDialogoVictoria:
-  - Segunda parte de la victoria
+  - "\"\xA1El armario! \xA1El armario!\" Le gritaban los peces."
+  - Miraba a su alrededor, buscando, percibiendo, analizando.
+  - "La uni\xF3n de los puntos que le rodeaban constitu\xEDan un armario."
+  - El mismo que le encerraba,
+  - "El mismo que no le dejaba ver m\xE1s all\xE1."
+  - "Un peque\xF1o foco de luz ilumin\xF3 su cara."
+  - El origen de la fuente se encontraba al fondo de la sala,
+  - "Creaba una interrogaci\xF3n en su frente."
+  - Las preguntas que le trajeron hasta este punto.
+  - "\"Te est\xE1n llamando, ve\" le susurraban los puntos."
   tercerDialogoVictoria:
-  - Tercera parte de la victoria
+  - Una presencia le guiaba,
+  - Su camino era claro, directo.
+  - Ese foco que pintaba la duda en su cara se tornaba borrosa,
+  - "Se desdibujaba la interrogaci\xF3n."
+  - Los golpes de la madera se escondieron,
+  - "Sab\xEDan que eran buscados,"
+  - "Que llegar\xEDa el momento donde el que sus quej\xEDos y lamentos se detuviesen,"
+  - Que ese momento estaba cerca.
+  - "La oscuridad se alej\xF3 del buzo, no quer\xEDa ser explorada por su decisi\xF3n,"
+  - "Ella quer\xEDa el protagonismo de una historia que no pod\xEDa tener."
   derrotaFIN:
-  - DERROTA
+  - Todos nos adentramos en la historia con esperanza de encontrar una respueta.
+  - A veces es mejor dejar esa historia
+  - Con la esperanza de encontrar otra.
+  - 
+  - "Las historias tienen muchas caras y nunca sabes cu\xE1l est\xE1 escrita."
+  - Esta historia...
+  - Es un monstruo...
+  - Y los monstuos...
+  - Te devoran.
   victoriaFIN:
-  - VICTORIA
+  - "\xBFQu\xE9 hay al otro lado?"
+  - "Solo t\xFA y tu tranquilidad."
+  - Ha sido entretenido conocernos,
+  - Pero las preguntas se acaban esta noche.
+  - Es el momento de cerrar el programa
+  - Y escribir nuevas preguntas.
   victorias: 0
   derrotas: 0
 --- !u!114 &1983425435

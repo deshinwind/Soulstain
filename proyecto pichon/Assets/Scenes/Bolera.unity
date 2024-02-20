@@ -5884,47 +5884,58 @@ MonoBehaviour:
   wait: 2
   numeroDialogo: 0
   dialogoInicial:
-  - Parrafo 1
+  - "Todos los ojos est\xE1n puestos en ti,"
+  - Murmullo, murmullo, murmullo.
+  - "Desde ese d\xEDa las pesadillas se suceden"
+  - "noche y d\xEDa"
   - 
-  - Parrafo 2
+  - Lanza. Los bolos te observan.
   dialogoRonda2:
-  - Parrafo 1
-  - Parrafo 2
-  - Parrafo 3
-  - Parrafo 4
-  - Parrafo 5
-  - Parrafo 6
-  - Parrafo 7
+  - "\xBFPor qu\xE9?"
+  - "\xBFPor qu\xE9 est\xE1s aqu\xED? No hay nadie en las butacas."
+  - "\xBFA qu\xE9 te refieres? No hab\xEDa nadie la primera vez que aparecimos."
+  - "\xBFDecides t\xFA cuando tener miedo?"
+  - "S\xED."
+  - Supongo...
+  - "No s\xE9..."
   dialogoRonda5:
-  - Parrafo 1
-  - Parrafo 2
-  - Parrafo 3
-  - Parrafo 4
-  - Parrafo 5
-  - Parrafo 6
-  - Parrafo 7
-  - Parrafo 8
-  - Parrafo 9
-  - Parrafo 10
+  - "\xBFLo escuchas? Hablan sobre ti."
+  - Te critican.
+  - "\xA1No! \xA1Te juzgan!"
+  - "\xA1In\xFAtil! \xA1Incompetente! \xA1Imb\xE9cil!"
+  - "\xA1Callaos! No hab\xEDa nadie..."
+  - "\xBFTe vas a esconder bajo la cama?"
+  - "Te est\xE1n criticando por inepto, PRE-SEN-TA-DOR."
+  - Alcohol. Relajante. Lo necesito.
+  - "\xBFNo era esto una entrevista?"
+  - "\xBFY las preguntas? \xBFLas has olvidado?"
+  - Lo necesito. Calma... Lagunas. Olvido.
   dialogoRonda8:
-  - Parrafo 1
-  - Parrafo 2
-  - Parrafo 3
-  - Parrafo 4
-  - Parrafo 5
-  - Parrafo 6
-  - Parrafo 7
-  - Parrafo 8
-  - Parrafo 9
-  - Parrafo 10
+  - "En qu\xE9 momento... No, no recuerdo... \xBFCu\xE1ndo nos conocimos?"
+  - Un escenario.
+  - "Miedo a hacer lo que eres. \xA1RID\xCDCULO!"
+  - Gotas que caen por tu frente.
+  - Escucha los murmullos, son tuyos, los has invitado al programa.
+  - "No hay nadie y escuchas las voces, tu invitaci\xF3n. Por eso estamos aqu\xED."
+  - "No he... Yo no... Yo... Yo... Yo... \xBFPor qu\xE9 yo?"
+  - "T\xFA... T\xFA... T\xFA... T\xFA... T\xFA..."
+  - "\xBFPor qu\xE9 t\xFA? \xBFTodo gira entorno a ti? Nada lo hace. Solo lo crees."
+  - No luchas, huyes, te acomodas a pensar que todo te pasa a ti.
+  - "Acepta la culpa, ac\xE9ptanos y deja de huir."
   dialogoVictoria:
-  - Parrafo 1
+  - Las has callado. Tu ignorancia, ha sido tu virtud.
+  - Has callado las malas lenguas, no has dejado que te devoren.
   - 
-  - Parrafo 2
+  - "He experimentado con diferentes voces. \xA1Obligado a cambiarte a ti! \xA1obligado
+    a cambiarme a m\xED!"
+  - "Mi interpretaci\xF3n, \xFAnica, fracasada."
+  - "La pregunta... la opci\xF3n..."
   dialogoDerrota:
-  - Parrafo 1
+  - "Tu EGO no te deja pensar, tu orgullo es tu perdici\xF3n,"
+  - No has encontrado la pregunta que te permite cerrar tu programa esta noche.
+  - Solo encuentras preguntas para seguir.
   - 
-  - Parrafo 2
+  - Mis voces, tus cuerdas, tu control, me pertenecen. No luches.
 --- !u!4 &1426535074
 Transform:
   m_ObjectHideFlags: 0

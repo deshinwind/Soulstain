@@ -28,6 +28,11 @@ public class DialogueController : MonoBehaviour
     private bool isWaiting = false;
     public bool pause = false;
 
+    public AudioSource audioDialogos;
+
+    public AudioClip[] voces;
+
+
     public void StartDialogue(List<string> dialogs, float pauseDuration)
     {
         isShowingText = true; //nuevo
@@ -74,6 +79,17 @@ public class DialogueController : MonoBehaviour
             {
                 if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Equals("Pánico escénico") || currentText.Equals("Enoclofobia"))
                 {
+                    switch (currentText)
+                    {
+                        case "El Ámbito":
+                            break;
+                        case "Pelko":
+                            break;
+                        case "Pánico escénico":
+                            break;
+                        case "Enoclofobia":
+                            break;
+                    }
                     panelDialogo.SetActive(true);
                     nombre.text = currentText;
                     ShowNextDialogue();
@@ -86,6 +102,10 @@ public class DialogueController : MonoBehaviour
                         timer += Time.deltaTime;
                         if (timer > delay)
                         {
+                            if (!audioDialogos.GetComponent<AudioSource>().isPlaying)
+                            {
+                                audioDialogos.Play();
+                            }
                             dialogText.text += currentText[currentLetterIndex];
                             currentLetterIndex++;
                             if (currentLetterIndex >= currentText.Length)
@@ -98,6 +118,7 @@ public class DialogueController : MonoBehaviour
                     }
                     else if (isWaiting)
                     {
+                        audioDialogos.Stop();
                         timer += Time.deltaTime;
                         if (timer >= pauseBetween)
                         {

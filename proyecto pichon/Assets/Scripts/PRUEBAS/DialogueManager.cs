@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     private bool isShowingText = false;
     private bool isWaiting = false;
 
+    public AudioSource audioDialogos;
+
+    public AudioClip vozClaustrofobia;
+
     private void Start()
     {
         alphaPanel = new Vector3 (1, 0, 0);
@@ -89,6 +93,10 @@ public class DialogueManager : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer > delay)
                 {
+                    if (!audioDialogos.GetComponent<AudioSource>().isPlaying)
+                    {
+                        audioDialogos.Play();
+                    }
                     dialogText.text += currentText[currentLetterIndex];
                     currentLetterIndex++;
                     if (currentLetterIndex >= currentText.Length)
@@ -101,6 +109,7 @@ public class DialogueManager : MonoBehaviour
             }
             else if (isWaiting)
             {
+                audioDialogos.Stop();
                 timer += Time.deltaTime;
                 if (timer >= pauseBetween)
                 {

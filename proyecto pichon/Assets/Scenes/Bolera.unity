@@ -5884,45 +5884,59 @@ MonoBehaviour:
   wait: 2
   numeroDialogo: 0
   dialogoInicial:
+  - "P\xE1nico esc\xE9nico"
   - "Todos los ojos est\xE1n puestos en ti,"
   - Murmullo, murmullo, murmullo.
-  - "Desde ese d\xEDa las pesadillas se suceden"
-  - "noche y d\xEDa"
+  - "Desde ese d\xEDa las pesadillas se suceden noche y d\xEDa"
   - 
   - Lanza. Los bolos te observan.
   dialogoRonda2:
+  - Pelko
   - "\xBFPor qu\xE9?"
   - "\xBFPor qu\xE9 est\xE1s aqu\xED? No hay nadie en las butacas."
+  - "P\xE1nico esc\xE9nico"
   - "\xBFA qu\xE9 te refieres? No hab\xEDa nadie la primera vez que aparecimos."
   - "\xBFDecides t\xFA cuando tener miedo?"
+  - Pelko
   - "S\xED."
   - Supongo...
   - "No s\xE9..."
   dialogoRonda5:
+  - "P\xE1nico esc\xE9nico"
   - "\xBFLo escuchas? Hablan sobre ti."
   - Te critican.
   - "\xA1No! \xA1Te juzgan!"
   - "\xA1In\xFAtil! \xA1Incompetente! \xA1Imb\xE9cil!"
+  - Pelko
   - "\xA1Callaos! No hab\xEDa nadie..."
+  - "P\xE1nico esc\xE9nico"
   - "\xBFTe vas a esconder bajo la cama?"
   - "Te est\xE1n criticando por inepto, PRE-SEN-TA-DOR."
+  - Pelko
   - Alcohol. Relajante. Lo necesito.
+  - "P\xE1nico esc\xE9nico"
   - "\xBFNo era esto una entrevista?"
   - "\xBFY las preguntas? \xBFLas has olvidado?"
+  - Pelko
   - Lo necesito. Calma... Lagunas. Olvido.
   dialogoRonda8:
+  - Pelko
   - "En qu\xE9 momento... No, no recuerdo... \xBFCu\xE1ndo nos conocimos?"
+  - "P\xE1nico esc\xE9nico"
   - Un escenario.
   - "Miedo a hacer lo que eres. \xA1RID\xCDCULO!"
   - Gotas que caen por tu frente.
   - Escucha los murmullos, son tuyos, los has invitado al programa.
   - "No hay nadie y escuchas las voces, tu invitaci\xF3n. Por eso estamos aqu\xED."
+  - Pelko
   - "No he... Yo no... Yo... Yo... Yo... \xBFPor qu\xE9 yo?"
+  - "P\xE1nico esc\xE9nico"
   - "T\xFA... T\xFA... T\xFA... T\xFA... T\xFA..."
   - "\xBFPor qu\xE9 t\xFA? \xBFTodo gira entorno a ti? Nada lo hace. Solo lo crees."
   - No luchas, huyes, te acomodas a pensar que todo te pasa a ti.
   - "Acepta la culpa, ac\xE9ptanos y deja de huir."
   dialogoVictoria:
+  - "P\xE1nico esc\xE9nico"
   - Las has callado. Tu ignorancia, ha sido tu virtud.
   - Has callado las malas lenguas, no has dejado que te devoren.
   - 
@@ -5931,6 +5945,7 @@ MonoBehaviour:
   - "Mi interpretaci\xF3n, \xFAnica, fracasada."
   - "La pregunta... la opci\xF3n..."
   dialogoDerrota:
+  - "P\xE1nico esc\xE9nico"
   - "Tu EGO no te deja pensar, tu orgullo es tu perdici\xF3n,"
   - No has encontrado la pregunta que te permite cerrar tu programa esta noche.
   - Solo encuentras preguntas para seguir.
@@ -6010,6 +6025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 220658870}
+  nombre: {fileID: 0}
   delay: 0.1
   panelDialogo: {fileID: 1861053781}
   player: {fileID: 1850958743}

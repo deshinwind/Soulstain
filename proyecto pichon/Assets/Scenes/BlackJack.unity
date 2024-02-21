@@ -4224,11 +4224,9 @@ MonoBehaviour:
   iniciarRonda: 0
   wait: 1.5
   dialogoTutorial:
-  - "\xBFTe resulta familiar?"
-  - Riesgo y seguridad,
-  - Victorias y derrotas,
-  - Todo o nada.
-  - Apuestas.
+  - "El \xC1mbito"
+  - "\xBFTe resulta familiar? Riesgo y seguridad, victorias y derrotas, todo o nada.
+    Apuestas."
   - Toda entrevista tiene una pregunta inicial y una final.
   - "\xBFCu\xE1l ser\xE1 hoy?"
   - 
@@ -4247,7 +4245,7 @@ MonoBehaviour:
   - '"El repartidor es el crupier, reparte las cartas."'
   - "\"\xA1Oh!\" y juega contra ti."
   - "Est\xE1 obligado a pedir carta siempre que su puntuaci\xF3n sume 16 o menos."
-  - ", y a plantarse si suma 17 o m\xE1s\" dijo el primero."
+  - "y a plantarse si suma 17 o m\xE1s\" dijo el primero."
   - '"Ahora lo entiendo, vamos a probar" dijo el segundo'
   - 
   - "El hombre sigui\xF3 su camino,"
@@ -4262,10 +4260,8 @@ MonoBehaviour:
   - "Hab\xEDa llegado al final. Ten\xEDa que serlo."
   - "Algo imped\xEDa el paso,"
   - "Cogi\xF3 carrera para DERRUMBAR el obst\xE1culo, pero se mantuvo firme."
-  - Cegado por la necesidad de salir,
-  - "Volvi\xF3 a intentarlo,"
-  - Pero no pudo,
-  - "Tras \xE9 hab\xEDa un bloqueo."
+  - "Cegado por la necesidad de salir, volvi\xF3 a intentarlo,"
+  - "Pero no pudo, tras \xE9l hab\xEDa un bloqueo."
   - "Algo le hab\xEDa tocado \xBFel hombro? \xBFel pie?"
   - "La bombona de ox\xEDgeno empezaba a fallar."
   - "La sala era cada vez m\xE1s estrecha,"
@@ -4284,10 +4280,8 @@ MonoBehaviour:
   - "Volv\xEDa a sentir su cara, sus pies en el suelo,"
   - Todo era normal en un mundo que nunca lo fue.
   segundoDialogoDerrota:
-  - "Su mirada se desvi\xF3,"
-  - "El ruido atrajo su atenci\xF3n."
-  - "No hab\xEDa muebles en la sala,"
-  - Solo paredes, ventanas cerradas, botellas, camas...
+  - "Su mirada se desvi\xF3, el ruido atrajo su atenci\xF3n."
+  - "No hab\xEDa muebles en la sala, solo paredes, ventanas cerradas, botellas, camas..."
   - Miraba las paredes, no contaban ninguna historia.
   - "Las botellas, vac\xEDas, se\xF1alaban una ventana concreta."
   - "Abri\xF3 la ventana. La habitaci\xF3n cambi\xF3."
@@ -4295,14 +4289,10 @@ MonoBehaviour:
   - "La linterna que lo iluminaba pintaba su silueta del color de la habitaci\xF3n
     en la que antes resid\xEDa."
   tercerDialogoDerrota:
-  - Escuchaba el silencio,
-  - "Sus pasos no emit\xEDan ruido,"
-  - "Solo su coraz\xF3n."
+  - "Escuchaba el silencio, sus pasos no emit\xEDan ruido, solo su coraz\xF3n."
   - "La presi\xF3n que la sala ejerce."
-  - La sala disminuye,
-  - Las voces le abandonan,
-  - "La luz de la linterna le enga\xF1a,"
-  - Le abandona a su suerte.
+  - La sala disminuye, las voces le abandonan,
+  - "La luz de la linterna le enga\xF1a, le abandona a su suerte."
   - Los peces nadan por la sala,
   - "Le falta aire, todo se vuelve borroso, extra\xF1o."
   - Estaba perdido y abandonado.
@@ -4371,6 +4361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1112941106}
+  nombre: {fileID: 0}
   delay: 0.05
   panelDialogo: {fileID: 324761171}
   player: {fileID: 561177287}

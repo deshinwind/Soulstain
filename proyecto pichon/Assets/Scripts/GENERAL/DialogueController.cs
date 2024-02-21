@@ -7,6 +7,8 @@ public class DialogueController : MonoBehaviour
 {
     public TMP_Text dialogText;
 
+    public TMP_Text nombre;
+
     public float delay = 0.1f;
 
     public GameObject panelDialogo;
@@ -70,7 +72,13 @@ public class DialogueController : MonoBehaviour
         {
             if (currentText != null)
             {
-                if (!currentText.Equals(""))
+                if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Equals("Pánico escénico") || currentText.Equals("Enoclofobia"))
+                {
+                    panelDialogo.SetActive(true);
+                    nombre.text = currentText;
+                    ShowNextDialogue();
+                }
+                else if (!currentText.Equals(""))
                 {
                     panelDialogo.SetActive(true);
                     if (isShowingText)

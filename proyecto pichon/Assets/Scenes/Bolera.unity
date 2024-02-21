@@ -2953,9 +2953,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.000002503395, y: -4.62, z: -0.0000009536743}
 --- !u!65 &490302167
 BoxCollider:
@@ -2974,9 +2974,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.000002503395, y: -4.62, z: -0.0000009536743}
 --- !u!65 &515974653
 BoxCollider:
@@ -4270,9 +4270,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.000002503395, y: -4.62, z: -0.0000009536743}
 --- !u!1 &845335299
 GameObject:
@@ -4386,6 +4386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 875116306}
   - component: {fileID: 875116307}
+  - component: {fileID: 875116308}
   m_Layer: 0
   m_Name: AudioDialogos
   m_TagString: Untagged
@@ -4423,6 +4424,102 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &875116308
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875116305}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5102,6 +5199,124 @@ MonoBehaviour:
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!1 &1050386955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050386958}
+  - component: {fileID: 1050386957}
+  - component: {fileID: 1050386956}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1050386956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050386955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &1050386957
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050386955}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1050386958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050386955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2992561, y: 0.63995475, z: -0.2984157, w: 0.6417569}
+  m_LocalPosition: {x: 8.575182, y: 3.98, z: 8.417871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 89.839, z: 0}
 --- !u!1 &1125760337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,9 +5501,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.000002503395, y: -4.62, z: -0.0000009536743}
 --- !u!1 &1179499325
 GameObject:
@@ -5764,9 +5979,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.0000023841858, y: -4.62, z: -0.0000011920929}
 --- !u!1 &1319364106
 GameObject:
@@ -5960,9 +6175,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.0000023841858, y: -4.62, z: -0.0000009536743}
 --- !u!1 &1426535072
 GameObject:
@@ -6012,7 +6227,7 @@ MonoBehaviour:
   wait: 2
   numeroDialogo: 0
   dialogoInicial:
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - "Todos los ojos est\xE1n puestos en ti,"
   - Murmullo, murmullo, murmullo.
   - "Desde ese d\xEDa las pesadillas se suceden noche y d\xEDa"
@@ -6022,7 +6237,7 @@ MonoBehaviour:
   - Pelko
   - "\xBFPor qu\xE9?"
   - "\xBFPor qu\xE9 est\xE1s aqu\xED? No hay nadie en las butacas."
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico I"
   - "\xBFA qu\xE9 te refieres? No hab\xEDa nadie la primera vez que aparecimos."
   - "\xBFDecides t\xFA cuando tener miedo?"
   - Pelko
@@ -6030,41 +6245,50 @@ MonoBehaviour:
   - Supongo...
   - "No s\xE9..."
   dialogoRonda5:
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico T"
   - "\xBFLo escuchas? Hablan sobre ti."
+  - "P\xE1nico esc\xE9nico D"
   - Te critican.
+  - "P\xE1nico esc\xE9nico A"
   - "\xA1No! \xA1Te juzgan!"
+  - "P\xE1nico esc\xE9nico N"
   - "\xA1In\xFAtil! \xA1Incompetente! \xA1Imb\xE9cil!"
   - Pelko
   - "\xA1Callaos! No hab\xEDa nadie..."
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - "\xBFTe vas a esconder bajo la cama?"
   - "Te est\xE1n criticando por inepto, PRE-SEN-TA-DOR."
   - Pelko
   - Alcohol. Relajante. Lo necesito.
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico T"
   - "\xBFNo era esto una entrevista?"
+  - "P\xE1nico esc\xE9nico P"
   - "\xBFY las preguntas? \xBFLas has olvidado?"
   - Pelko
   - Lo necesito. Calma... Lagunas. Olvido.
   dialogoRonda8:
   - Pelko
   - "En qu\xE9 momento... No, no recuerdo... \xBFCu\xE1ndo nos conocimos?"
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - Un escenario.
+  - "P\xE1nico esc\xE9nico P"
   - "Miedo a hacer lo que eres. \xA1RID\xCDCULO!"
+  - "P\xE1nico esc\xE9nico N"
   - Gotas que caen por tu frente.
+  - "P\xE1nico esc\xE9nico D"
   - Escucha los murmullos, son tuyos, los has invitado al programa.
+  - "P\xE1nico esc\xE9nico A"
   - "No hay nadie y escuchas las voces, tu invitaci\xF3n. Por eso estamos aqu\xED."
   - Pelko
   - "No he... Yo no... Yo... Yo... Yo... \xBFPor qu\xE9 yo?"
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - "T\xFA... T\xFA... T\xFA... T\xFA... T\xFA..."
+  - "P\xE1nico esc\xE9nico N"
   - "\xBFPor qu\xE9 t\xFA? \xBFTodo gira entorno a ti? Nada lo hace. Solo lo crees."
   - No luchas, huyes, te acomodas a pensar que todo te pasa a ti.
   - "Acepta la culpa, ac\xE9ptanos y deja de huir."
   dialogoVictoria:
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - Las has callado. Tu ignorancia, ha sido tu virtud.
   - Has callado las malas lenguas, no has dejado que te devoren.
   - 
@@ -6073,11 +6297,12 @@ MonoBehaviour:
   - "Mi interpretaci\xF3n, \xFAnica, fracasada."
   - "La pregunta... la opci\xF3n..."
   dialogoDerrota:
-  - "P\xE1nico esc\xE9nico"
+  - "P\xE1nico esc\xE9nico N"
   - "Tu EGO no te deja pensar, tu orgullo es tu perdici\xF3n,"
   - No has encontrado la pregunta que te permite cerrar tu programa esta noche.
   - Solo encuentras preguntas para seguir.
   - 
+  - "P\xE1nico esc\xE9nico N"
   - Mis voces, tus cuerdas, tu control, me pertenecen. No luches.
 --- !u!4 &1426535074
 Transform:
@@ -6154,11 +6379,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 220658870}
   nombre: {fileID: 1694455109}
-  delay: 0.1
+  delay: 0.05
   panelDialogo: {fileID: 1861053781}
   player: {fileID: 1850958743}
   isShowingText: 0
   pause: 0
+  audioDialogos: {fileID: 875116307}
+  voces:
+  - {fileID: 8300000, guid: 80ce2ab66f219824089880f2873b4dfc, type: 3}
+  - {fileID: 8300000, guid: 3c8dbd6871c4b204f9a70846f13c99cc, type: 3}
+  - {fileID: 8300000, guid: b25474d7f31097e48ba8a2c2ee41fe7a, type: 3}
+  - {fileID: 8300000, guid: 490eaa30557fb9f4b8b55c28c4c3b2c5, type: 3}
+  - {fileID: 8300000, guid: ff3f202d7f1f9af4fbcc4fa00d0bbe85, type: 3}
+  - {fileID: 8300000, guid: ec031b6612bcd754b82e3787f8c517cd, type: 3}
+  - {fileID: 8300000, guid: f70344ae8ba33cd4daec49d19649eabd, type: 3}
+  - {fileID: 8300000, guid: f9194214b9dbb174697f245305a1a170, type: 3}
+  - {fileID: 8300000, guid: b996e5c08dd3c2c4c8924b74116e7d32, type: 3}
 --- !u!114 &1499846582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6238,9 +6474,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.0000023841858, y: -4.62, z: -0.0000011920929}
 --- !u!65 &1540455220
 BoxCollider:
@@ -6259,9 +6495,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.000002503395, y: -4.62, z: -0.0000009536743}
 --- !u!65 &1582065007
 BoxCollider:
@@ -7096,9 +7332,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.0000023841858, y: -4.62, z: -0.0000009536743}
 --- !u!1 &1850958743
 GameObject:
@@ -7371,7 +7607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1861053782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7597,7 +7833,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7710,9 +7946,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.77, z: 1}
+  m_Size: {x: 0.7, y: 0.77, z: 0.7}
   m_Center: {x: -0.0000023841858, y: -4.62, z: -0.0000011920929}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -7731,3 +7967,4 @@ SceneRoots:
   - {fileID: 489668849}
   - {fileID: 1968802297}
   - {fileID: 1125760341}
+  - {fileID: 1050386958}

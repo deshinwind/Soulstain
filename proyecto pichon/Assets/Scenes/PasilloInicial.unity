@@ -2121,7 +2121,7 @@ MonoBehaviour:
   panelDialogos: {fileID: 1124591834}
   player: {fileID: 207099207}
   audioDialogos: {fileID: 276531699}
-  vozClaustrofobia: {fileID: 0}
+  vozClaustrofobia: {fileID: 8300000, guid: 80ce2ab66f219824089880f2873b4dfc, type: 3}
 --- !u!114 &2093831331
 MonoBehaviour:
   m_ObjectHideFlags: 0

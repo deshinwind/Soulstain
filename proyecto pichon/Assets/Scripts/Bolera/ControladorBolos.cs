@@ -170,14 +170,16 @@ public class ControladorBolos : MonoBehaviour
     {
         if (bola != null)
             Destroy(bola);
+        if (!(controlador.ronda == 10))
+        {
+            //INSTANCIAR EL PREFAV DE LA BOLA
+            int n = Random.Range(0, 1);
 
-        //INSTANCIAR EL PREFAV DE LA BOLA
-        int n = Random.Range(0, 1);
-
-        bola = Instantiate(prefabBola[n]);
-        bola.transform.position = prefabBola[n].transform.position;
-        bola.transform.rotation = prefabBola[n].transform.rotation;
-        bola.transform.localScale = prefabBola[n].transform.localScale;
+            bola = Instantiate(prefabBola[n]);
+            bola.transform.position = prefabBola[n].transform.position;
+            bola.transform.rotation = prefabBola[n].transform.rotation;
+            bola.transform.localScale = prefabBola[n].transform.localScale;
+        }
     }
 
     private void ColocarBolos()
@@ -232,7 +234,10 @@ public class ControladorBolos : MonoBehaviour
 
         bolaLanzada = false;
 
-        bola.GetComponent<XRGrabInteractable>().enabled = true;
+        if (!(controlador.ronda == 10))
+        {
+            bola.GetComponent<XRGrabInteractable>().enabled = true;
+        }
         //ACTIVAR LA ANIMACOIN DE SUBIR EL BRAZO PARA QUE SE PUEDAN COLOCAR LOS BOLOS Y VOLVER A JUGAR
     }
 }

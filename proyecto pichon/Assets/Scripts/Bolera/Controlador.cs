@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Controlador : MonoBehaviour
 {
@@ -114,6 +115,8 @@ public class Controlador : MonoBehaviour
             controladorBolos.bola.transform.position = controladorBolos.prefabBola[n].transform.position;
             controladorBolos.bola.transform.rotation = controladorBolos.prefabBola[n].transform.rotation;
             controladorBolos.bola.transform.localScale = controladorBolos.prefabBola[n].transform.localScale;
+            controladorBolos.bola.GetComponent<XRGrabInteractable>().enabled = true;
+
             dialogueController.pause = false;
             numeroDialogo++;
         }

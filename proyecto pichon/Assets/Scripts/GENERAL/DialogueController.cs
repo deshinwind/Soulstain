@@ -77,21 +77,80 @@ public class DialogueController : MonoBehaviour
         {
             if (currentText != null)
             {
-                if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Equals("Pánico escénico") || currentText.Equals("Enoclofobia"))
+                if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Contains("Pánico escénico") || currentText.Equals("Enoclofobia") || currentText.Equals("Voz Anónima"))
                 {
                     switch (currentText)
                     {
                         case "El Ámbito":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[0])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[0];
+                            }
                             break;
                         case "Pelko":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[1])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[1];
+                            }
                             break;
-                        case "Pánico escénico":
+                        case "Pánico escénico A":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[2])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[2];
+                            }
+                            break;
+                        case "Pánico escénico D":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[3])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[3];
+                            }
+                            break;
+                        case "Pánico escénico I":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[4])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[4];
+                            }
+                            break;
+                        case "Pánico escénico N":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[5])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[5];
+                            }
+                            break;
+                        case "Pánico escénico T":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[6])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[6];
+                            }
                             break;
                         case "Enoclofobia":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[7])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[7];
+                            }
+                            break;
+                        case "Voz anónima":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[8])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[8];
+                            }
+                            break;
+                        case "Pánico escénico P":
+                            if (audioDialogos.GetComponent<AudioSource>().clip != voces[1])
+                            {
+                                audioDialogos.GetComponent<AudioSource>().clip = voces[1];
+                            }
                             break;
                     }
                     panelDialogo.SetActive(true);
-                    nombre.text = currentText;
+                    if (currentText.Contains("Pánico escénico"))
+                    {
+                        nombre.text = "Pánico escénico";
+                    }
+                    else
+                    {
+                        nombre.text = currentText;
+                    }
                     ShowNextDialogue();
                 }
                 else if (!currentText.Equals(""))

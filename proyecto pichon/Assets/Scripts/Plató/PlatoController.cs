@@ -137,7 +137,7 @@ public class PlatoController : MonoBehaviour
 
         if (salaPequeña && claustrofobia.activeSelf)
         {
-            techo.transform.position = Vector3.Lerp(techo.transform.position, new Vector3(techo.transform.position.x, 3f, techo.transform.position.z), speed);
+            techo.transform.position = Vector3.Lerp(techo.transform.position, new Vector3(techo.transform.position.x, 2f, techo.transform.position.z), speed);
         }
 
         if (platoDialogo.pause && claustrofobia.activeSelf)

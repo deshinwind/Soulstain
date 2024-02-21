@@ -2050,6 +2050,17 @@ MonoBehaviour:
   player: {fileID: 1570251848}
   isShowingText: 0
   pause: 0
+  audioDialogos: {fileID: 1955386833}
+  voces:
+  - {fileID: 8300000, guid: 80ce2ab66f219824089880f2873b4dfc, type: 3}
+  - {fileID: 8300000, guid: 3c8dbd6871c4b204f9a70846f13c99cc, type: 3}
+  - {fileID: 8300000, guid: b25474d7f31097e48ba8a2c2ee41fe7a, type: 3}
+  - {fileID: 8300000, guid: 490eaa30557fb9f4b8b55c28c4c3b2c5, type: 3}
+  - {fileID: 8300000, guid: ff3f202d7f1f9af4fbcc4fa00d0bbe85, type: 3}
+  - {fileID: 8300000, guid: ec031b6612bcd754b82e3787f8c517cd, type: 3}
+  - {fileID: 8300000, guid: f70344ae8ba33cd4daec49d19649eabd, type: 3}
+  - {fileID: 8300000, guid: f9194214b9dbb174697f245305a1a170, type: 3}
+  - {fileID: 8300000, guid: b996e5c08dd3c2c4c8924b74116e7d32, type: 3}
 --- !u!1 &1526093825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4403544536768301438, guid: 9c672ad3339b28248bea24f7ce8f70ab,

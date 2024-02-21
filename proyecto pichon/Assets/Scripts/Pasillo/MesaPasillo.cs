@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mesa : MonoBehaviour
+public class MesaPasillo : MonoBehaviour
 {
-    private bate Bate;
+    private Bate bate;
 
     [Header("Mesa")]
     public Material mesaMaterial;
@@ -19,7 +19,7 @@ public class mesa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Bate = FindAnyObjectByType<bate>();
+        bate = FindAnyObjectByType<Bate>();
         Color colormesa = mesaMaterial.color;
         colormesa.a = 1;
         mesaMaterial.color = colormesa;
@@ -43,7 +43,7 @@ public class mesa : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bate") && Bate.isgrab)
+        if (collision.gameObject.CompareTag("Bate") && bate.isgrab)
         {
             isBroken = true;
             mesarota = Instantiate(mesarota, collision.transform.position, mesarota.transform.rotation);
@@ -55,3 +55,4 @@ public class mesa : MonoBehaviour
 
     }
 }
+

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamaraPH : MonoBehaviour
+public class CamaraControlador : MonoBehaviour
 {
     [Header("Camara")]
     public List<Material> materials;
@@ -13,12 +13,14 @@ public class CamaraPH : MonoBehaviour
     private float fadeTimer = 0f;
     private bool isBroken = false;
 
-    private bate Bate;
+    private Bate bate;
+
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        Bate = FindAnyObjectByType<bate>();
+        bate = FindAnyObjectByType<Bate>();
         foreach (Material mat in materials)
         {
             Color colorcamara = mat.color;
@@ -31,6 +33,9 @@ public class CamaraPH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
+
         if (fadeTimer < fadeDuration && isBroken)
         {
             fadeTimer += Time.deltaTime;
@@ -41,12 +46,11 @@ public class CamaraPH : MonoBehaviour
                 color.a = alpha;
                 mat.color = color;
             }
-                       
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bate") && Bate.isgrab)
+        if (collision.gameObject.CompareTag("Bate") && bate.isgrab)
         {
             isBroken = true;
             camaraRota = Instantiate(camaraRota, collision.transform.position, camaraRota.transform.rotation);

@@ -66,8 +66,8 @@ public class DialogueController : MonoBehaviour
         else
         {
             isShowingText = false;
-            //panelDialogo.SetActive(false);  //NUEVO
-            dialogText.gameObject.SetActive(false);
+            panelDialogo.SetActive(false);  //NUEVO
+            //dialogText.gameObject.SetActive(false);
         }
     }
 

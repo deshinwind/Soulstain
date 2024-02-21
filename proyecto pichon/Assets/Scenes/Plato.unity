@@ -1990,7 +1990,7 @@ MonoBehaviour:
   - {fileID: 467303957}
   - {fileID: 998469532}
   - {fileID: 949370828}
-  speed: 0.0002
+  speed: 0.0007
   "salaPeque\xF1a": 0
   alphaPanelWhite: {x: 1, y: 1, z: 1}
   alphaPanelBlack: {x: 0, y: 0, z: 0}

@@ -346,17 +346,8 @@ public class Partida : MonoBehaviour
         VaciarMano(manoDealer);
         VaciarMano(manoJugador);
 
-        //HACER MAS PEQUEÑA O MAS GRANDE LA HABITACION DEPENDIENDO DE SI EL JUGADOR GANA O PIERDE
-        //INICIAR SIGUIENTE RONDA
-
         Debug.Log("Puntos jugador: " + puntosJugador + " Puntos dealer: " + puntosDealer);
 
-
-        //HACER LA ANIMACION DE CAMBIO DE ESCENA, MOSTRANDO LA CONVERSACION PERTINENTE
-        //if (mov >= 2.8 || mov <= 0f)
-        //SceneManager.LoadScene("Plato");
-        //else
-        //IniciarRonda();
         controladroBJ.iniciarRonda = true;
     }
 

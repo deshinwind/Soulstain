@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,14 +19,17 @@ public class PlatoController : MonoBehaviour
     public bool latiendo;
     public AudioClip latido;
 
+    public TMP_Text letrasPanelLetras;
+
     public GameObject sillon;
-    public GameObject miedo2;
+    public GameObject panicoEscenico;
     public GameObject sombra;
 
     public GameObject[] camara;
 
     public float speed;
 
+    public bool camaraGolpeada = false;
     public bool salaPequeña = false;
 
     public Vector3 alphaPanelWhite = new Vector3(1f, 1f, 1f);
@@ -192,26 +196,69 @@ public class PlatoController : MonoBehaviour
 
         Debug.Log(Physics.Raycast(rayCast.ray, out rayCast.hit));
 
-        if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+        if (!panicoEscenico.activeSelf)
+        {
+            rayCast.hits = Physics.RaycastAll(rayCast.ray);
+
+            foreach (RaycastHit hit in rayCast.hits)
+            {
+                if (hit.transform.gameObject.name.Equals("Butacas"))
+                {
+                    sombra.SetActive(true);
+                    //ENCENDER EL FOCO DE LA SOMBRA
+                    panicoEscenico.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            if (Physics.Raycast(rayCast.ray, out rayCast.hit))
+            {
+                if (rayCast.hit.transform.gameObject.name.Equals("PanicoEscenico") && letras)
+                {
+                    letrasPanelLetras.text = "MIRADA";
+                    panelLetras.SetActive(true);
+                    Invoke("DesactivarLetras", 3f);
+
+                    //QUITAR COMENTARIO CUANDO PONGA AUDIO
+                    //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
+                    //latiendo = true;
+                    //latido.Play();
+                }
+            }
+        }
+
+        /*if (Physics.Raycast(rayCast.ray, out rayCast.hit))
         {
             Debug.Log(rayCast.hit.transform.gameObject.name);
             if (rayCast.hit.transform.gameObject.name.Equals("Butacas"))
             {
                 sombra.SetActive(true);
                 //ENCENDER EL FOCO DE LA SOMBRA
-                miedo2.SetActive(true);
+                panicoEscenico.SetActive(true);
             }
-        }
+            else if (rayCast.hit.transform.gameObject.name.Equals("PanicoEscenico") && letras)
+            {
+                letrasPanelLetras.text = "MIRADA";
+                panelLetras.SetActive(true);
+                Invoke("DesactivarLetras", 3f);
 
-        if (miedo2.activeSelf)
+                //QUITAR COMENTARIO CUANDO PONGA AUDIO
+                //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
+                //latiendo = true;
+                //latido.Play();
+            }
+        }*/
+
+        if (panicoEscenico.activeSelf)
         {
-            miedo2.transform.LookAt(player.transform);
+            panicoEscenico.transform.LookAt(player.transform);
 
             //AUMENTAR LA DISTANCIA
 
-            Debug.Log(Vector3.Distance(player.transform.position, miedo2.transform.position));
+            Debug.Log(Vector3.Distance(player.transform.position, panicoEscenico.transform.position));
 
-            if (Vector3.Distance(player.transform.position, miedo2.transform.position) <= 2f)
+            if (Vector3.Distance(player.transform.position, panicoEscenico.transform.position) <= 2f)
             //    if (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), new Vector2(miedo2.transform.position.x, miedo2.transform.position.y)) <= 1f)
             {
                 SegundaTransicion();
@@ -241,7 +288,30 @@ public class PlatoController : MonoBehaviour
 
         rayCast.CastRay();
 
+
         if (player.GetComponent<ActionBasedContinuousTurnProvider>().enabled)
+        {
+            camaraGolpeada = false;
+            rayCast.hits = Physics.RaycastAll(rayCast.ray);
+
+            foreach (RaycastHit hit in rayCast.hits)
+            {
+                if (hit.transform.gameObject.CompareTag("Camara"))
+                {
+                    camaraGolpeada = true;
+                }
+            }
+            if (camaraGolpeada)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                timer = 0f;
+            }
+        }
+
+        /*if (player.GetComponent<ActionBasedContinuousTurnProvider>().enabled)
         {
             if (Physics.Raycast(rayCast.ray, out rayCast.hit))
             {
@@ -259,7 +329,7 @@ public class PlatoController : MonoBehaviour
             {
                 timer = 0f;
             }
-        }
+        }*/
 
         if (timer >= 1f)
         {

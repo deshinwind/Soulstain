@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,11 +21,17 @@ public class Controlador : MonoBehaviour
     public RayCastPlayer playerRayCast;
 
     public GameObject panelLetras;
-    public GameObject panicoEscenico;
+    public GameObject[] panicoEscenico;
 
     public bool letrasBolera = true;
 
-    public bool derrotaMostrada = false;
+    public bool dialogoFinalMostrado = false;
+
+    public bool dialogoInicalMostrado = false;
+    public bool dialogoRonda2Mostrado = false;
+    public bool dialogoRonda5Mostrado = false;
+    public bool dialogoRonda8Mostrado = false;
+    
 
     public float timer;
 
@@ -55,28 +62,30 @@ public class Controlador : MonoBehaviour
             CastRay();
         }
 
-        if (ronda > 10 || bolosMaxPosibles < 75)
+        if (bolosMaxPosibles < 75)
         {
             //FIN DE LA PARTIDA
             DialogoDerrota();
         }
-
-        switch (numeroDialogo)
+        else if (ronda > 10)
         {
-            case 0:
+            //FIN DE PARTIDA
+            DialogoVictoria();
+        }
+
+        switch (ronda)
+        {
+            case 1:
                 DialogoInicial();
                 break;
-            case 1:
+            case 2:
                 DialogoRonda2();
                 break;
-            case 2:
+            case 5:
                 DialogoRonda5();
                 break;
-            case 3:
+            case 8:
                 DialogoRonda8();
-                break;
-            case 4:
-                DialogoVictoria();
                 break;
             default:
                 break;
@@ -107,80 +116,101 @@ public class Controlador : MonoBehaviour
 
     public void DialogoInicial()
     {
-        if (dialogueController.pause)
+        if (!dialogoInicalMostrado)
         {
-            int n = Random.Range(0, 1);
+            if (dialogueController.pause)
+            {
+                int n = Random.Range(0, 1);
 
-            controladorBolos.bola = Instantiate(controladorBolos.prefabBola[n]);
-            controladorBolos.bola.transform.position = controladorBolos.prefabBola[n].transform.position;
-            controladorBolos.bola.transform.rotation = controladorBolos.prefabBola[n].transform.rotation;
-            controladorBolos.bola.transform.localScale = controladorBolos.prefabBola[n].transform.localScale;
-            controladorBolos.bola.GetComponent<XRGrabInteractable>().enabled = true;
+                controladorBolos.bola = Instantiate(controladorBolos.prefabBola[n]);
+                controladorBolos.bola.transform.position = controladorBolos.prefabBola[n].transform.position;
+                controladorBolos.bola.transform.rotation = controladorBolos.prefabBola[n].transform.rotation;
+                controladorBolos.bola.transform.localScale = controladorBolos.prefabBola[n].transform.localScale;
+                controladorBolos.bola.GetComponent<XRGrabInteractable>().enabled = true;
 
-            dialogueController.pause = false;
-            numeroDialogo++;
+                dialogueController.pause = false;
+                dialogoInicalMostrado = true;
+            }
         }
     }
 
     public void DialogoRonda2()
     {
-        if (ronda == 2 && !dialogueController.isShowingText)
+        if (!dialogoRonda2Mostrado)
         {
-            dialogueController.StartDialogue(dialogoRonda2, wait);
-            numeroDialogo++;
+            if (ronda == 2)
+            {
+                dialogueController.StartDialogue(dialogoRonda2, wait);
+                dialogoRonda2Mostrado = true;
+            }
         }
+        
     }
 
     public void DialogoRonda5()
     {
-        if (ronda == 5 && !dialogueController.isShowingText)
+        if (!dialogoRonda5Mostrado)
         {
-            dialogueController.StartDialogue(dialogoRonda5, wait);
-            numeroDialogo++;
+            if (ronda == 5)
+            {
+                dialogueController.StartDialogue(dialogoRonda5, wait);
+                dialogoRonda5Mostrado = true;
+            }
         }
     }
 
     public void DialogoRonda8()
     {
-        if (ronda == 8 && !dialogueController.isShowingText)
+        if (!dialogoRonda8Mostrado)
         {
-            dialogueController.StartDialogue(dialogoRonda8, wait);
-            numeroDialogo++;
+            if (ronda == 8)
+            {
+                dialogueController.StartDialogue(dialogoRonda8, wait);
+                dialogoRonda8Mostrado = true;
+            }
         }
     }
 
     public void DialogoVictoria()
     {
-        //SE ENCIENDE EL FOCO DEL FINAL DE LA BOLERA. NO ENTIENDO CUAL ES
-        //EL JUGADOR SE VA A ACERCAR?? EN TRINCIPIO VA A HABAR UN COLLIDER PARA QUE NO PUEDA METERSE EN LA PISTA
-
         //HACER LAS COMPROBACIONES DE SI ESTA MOSTRANDO TEXTO MIRANDO SI ESTA ACTIVO EL PANEL DE DIALOGOS
-        if (!dialogueController.isShowingText)
+        if (!dialogoFinalMostrado)
         {
             dialogueController.StartDialogue(dialogoVictoria, wait);
-            numeroDialogo++;
+            dialogoFinalMostrado = true;
+        }
+        else if (dialogueController.pause)
+        {
+            //TRANSICION AL PLATO
+            SceneManager.LoadScene("Plato");
         }
     }
 
     public void DialogoDerrota()
     {
         //SE APAGA LA LUZ QUE ILUMINA LA CALLE DE LOS BOLOS
-        if (!derrotaMostrada)
+        if (!dialogoFinalMostrado)
         {
-            if (!dialogueController.isShowingText)
+            dialogoFinalMostrado = true;
+            dialogueController.StartDialogue(dialogoDerrota, wait);
+
+            foreach (GameObject miedo in panicoEscenico)
             {
-                derrotaMostrada = true;
-                dialogueController.StartDialogue(dialogoDerrota, wait);
+                miedo.SetActive(true);
             }
         }
-        else if (!panicoEscenico.activeSelf)
+        else if (panicoEscenico[1].activeSelf)
         {
             if (dialogueController.pause)
             {
-                panicoEscenico.SetActive(true);
+                for (int i = 1; i < panicoEscenico.Length; i++)
+                {
+                    panicoEscenico[i].SetActive(false);
+                }
+                dialogueController.pause = false;
             }
         }
-        else if (!dialogueController.isShowingText)
+        else if (dialogueController.pause)
         {
             //SE QUEDA TODO A OSCURAS
             //TRANSICION A EL PLATO

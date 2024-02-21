@@ -39,6 +39,7 @@ public class DialogueController : MonoBehaviour
         dialogList = dialogs;
         currentDialog = 0;
         pauseBetween = pauseDuration;
+        pause = false;
         ShowNextDialogue();
     }
 
@@ -145,7 +146,7 @@ public class DialogueController : MonoBehaviour
                     panelDialogo.SetActive(true);
                     if (currentText.Contains("Pánico escénico"))
                     {
-                        nombre.text = "Pánico escénico";
+                        nombre.text = "Mirada";
                     }
                     else
                     {

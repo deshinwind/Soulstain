@@ -25,7 +25,9 @@ public class PlatoRayCast : MonoBehaviour
     public bool latiendo = false;
     public bool salaPequeña = false;
     */
+
     public RaycastHit hit;
+    public RaycastHit[] hits;
     public Ray ray;
     
     /*private void Update()

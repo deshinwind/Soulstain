@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,9 @@ public class ControladorBJ : MonoBehaviour
 {
     public GameObject player;
     public GameObject panelSolido;
+    public GameObject panelLetras;
+    public GameObject panelNumeros;
+
 
     public Partida partida;
 
@@ -25,7 +29,7 @@ public class ControladorBJ : MonoBehaviour
 
     public bool iniciarRonda = false;
 
-    public float wait = 1.5f;
+    public float wait = 1f;
 
     public List<string> dialogoTutorial = new List<string>();
     public List<string> dialogoPrimeraRonda = new List<string>();
@@ -87,10 +91,12 @@ public class ControladorBJ : MonoBehaviour
                 finDeTutorial = true;
             }
         }
-        else if (iniciarRonda)
+        else if (iniciarRonda && dialogueController.pause)
         {
             if (partida.numeroRonda == 1)
             {
+                panelNumeros.SetActive(true);
+                Invoke("DesactivarNumeros", 3f);
                 dialogueController.StartDialogue(dialogoPrimeraRonda, wait);
                 Invoke("IniciarRonda", 3f);
             }
@@ -100,7 +106,7 @@ public class ControladorBJ : MonoBehaviour
                 {
                     dialogueController.StartDialogue(tercerDialogoVictoria, wait);
                     //*******HACER LA TRANSICION AL PLATO********
-                    Invoke("EscenaPlato", 5F);
+                    Invoke("EscenaPlato", 35f);
                 }
                 else if (victorias == 1)
                 {
@@ -119,7 +125,7 @@ public class ControladorBJ : MonoBehaviour
                 {
                     dialogueController.StartDialogue(tercerDialogoDerrota, wait);
                     //*******HACER LA TRANSICION AL PLATO********
-                    Invoke("EscenaPlato", 5F);
+                    Invoke("EscenaPlato", 35f);
                 }
                 else if (derrotas == 1)
                 {
@@ -190,6 +196,16 @@ public class ControladorBJ : MonoBehaviour
             panelSolido.gameObject.SetActive(false);
         }
     }
+    
+    public void DesactivarLetras()
+    {
+        panelLetras.SetActive(false);
+    }
+
+    public void DesactivarNumeros()
+    {
+        panelNumeros.SetActive(false);
+    }
 
     public void EscenaPlato()
     {
@@ -204,6 +220,8 @@ public class ControladorBJ : MonoBehaviour
 
     public void ActivarRotacionPersonaje()
     {
+        panelLetras.SetActive(true);
+        Invoke("DesactivarLetras", 3f);
         player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         fundidoNegro = false;
     }

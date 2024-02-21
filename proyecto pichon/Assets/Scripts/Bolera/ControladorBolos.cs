@@ -170,7 +170,7 @@ public class ControladorBolos : MonoBehaviour
     {
         if (bola != null)
             Destroy(bola);
-        if (!(controlador.ronda == 10))
+        if (!(controlador.ronda > 10 || controlador.bolosMaxPosibles < 75))
         {
             //INSTANCIAR EL PREFAV DE LA BOLA
             int n = Random.Range(0, 1);
@@ -234,7 +234,7 @@ public class ControladorBolos : MonoBehaviour
 
         bolaLanzada = false;
 
-        if (!(controlador.ronda == 10))
+        if (!(controlador.ronda > 10 || controlador.bolosMaxPosibles < 75))
         {
             bola.GetComponent<XRGrabInteractable>().enabled = true;
         }

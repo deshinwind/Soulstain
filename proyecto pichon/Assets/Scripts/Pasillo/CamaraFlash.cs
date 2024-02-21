@@ -31,7 +31,7 @@ public class CamaraFlash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.LookAt(player.transform);
+        //gameObject.transform.LookAt(player.transform);
         if (Vector3.Distance(transform.position, player.position) <= distance)
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, movimientoZ), speed * Time.deltaTime);
@@ -47,7 +47,7 @@ public class CamaraFlash : MonoBehaviour
     public void Flash()
     {
         animator.SetTrigger("Flash");
-       if(DañoTemp > 2.8)
+        if (DañoTemp > 2.8)
         {
             DañoTemp = 0;
             flashContador.sumarpuntos();

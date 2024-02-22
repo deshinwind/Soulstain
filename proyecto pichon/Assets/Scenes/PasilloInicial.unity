@@ -1152,7 +1152,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117365704}
   m_SourcePrefab: {fileID: 100100000, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
 --- !u!4 &1117365702 stripped
 Transform:
@@ -1160,6 +1164,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1117365701}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117365703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117365701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1117365704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117365703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de32c8a96b3456f45b2521d914a0071e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinchanimation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pinchanimation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f582b910-4af8-47f2-85d4-cd4863cd6bb3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  gripanimation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Gripanimation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2d1b9d19-72ae-48d7-b5ec-47d8249454d6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  handanimator: {fileID: 0}
 --- !u!1 &1124591834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1721,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1970788740}
   m_SourcePrefab: {fileID: 100100000, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
 --- !u!4 &1970788738 stripped
 Transform:
@@ -1680,6 +1733,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1970788737}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1970788739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+    type: 3}
+  m_PrefabInstance: {fileID: 1970788737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1970788740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970788739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de32c8a96b3456f45b2521d914a0071e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinchanimation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pinchanimation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f582b910-4af8-47f2-85d4-cd4863cd6bb3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  gripanimation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Gripanimation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2d1b9d19-72ae-48d7-b5ec-47d8249454d6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  handanimator: {fileID: 0}
 --- !u!1 &1983160188
 GameObject:
   m_ObjectHideFlags: 0

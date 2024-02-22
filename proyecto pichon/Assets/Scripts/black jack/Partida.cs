@@ -44,6 +44,8 @@ public class Partida : MonoBehaviour
 
     public bool rondaEnJuego = false;
 
+    public bool finDeRonda = false;
+
     public Vector3 rotacion;
 
     //BOTONES DEFINITIVOS
@@ -337,6 +339,7 @@ public class Partida : MonoBehaviour
 
     public void FinDeRonda()
     {
+        finDeRonda = true;
         rondaEnJuego = false;
         giroJugador = 0;
         giroDealer = 0;
@@ -353,6 +356,8 @@ public class Partida : MonoBehaviour
 
     public void OtraCarta()
     {
+        finDeRonda = false;
+
         otraCarta.SetActive(false);
         plantarse.SetActive(false);
 

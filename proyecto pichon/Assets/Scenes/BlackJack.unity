@@ -2755,7 +2755,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 694044328}
-  m_PlaneDistance: 0.65
+  m_PlaneDistance: 0.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4730,8 +4730,8 @@ MonoBehaviour:
   jugadorGana: 0
   desvelar: 0
   primeraVez: 0
-  finDeRonda: 0
   rondaEnJuego: 0
+  finDeRonda: 0
   rotacion: {x: 0, y: 0, z: 0}
   botonOtra: {fileID: 1617968729}
   botonPlantarse: {fileID: 386592307}

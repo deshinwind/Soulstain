@@ -16,8 +16,11 @@ public class PlatoController : MonoBehaviour
     public GameObject claustrofobia;
     public GameObject techo;
     public bool letras = true;
-    public bool latiendo;
+    public bool latiendo = false;
+
+    public AudioClip focoApagado;
     public AudioClip latido;
+    public AudioSource audioSource;
 
     public TMP_Text letrasPanelLetras;
 
@@ -103,12 +106,11 @@ public class PlatoController : MonoBehaviour
     public void PrimeraComprobacion()
     {
         rayCast.CastRay();
-        //QUITAR COMENTARIO CUANDO PONGA AUDIO
-        //if (latiendo)
-        //{
-        //SUBIR EL VOLUMEN DEL AUDIOSOURCE
-        //latido.volume += 0.1f;
-        //}
+
+        if (latiendo && audioSource.volume < 0.8f)
+        {
+            audioSource.volume += 0.00012f;
+        }
 
         if (Physics.Raycast(rayCast.ray, out rayCast.hit))
         {
@@ -132,10 +134,12 @@ public class PlatoController : MonoBehaviour
                 panelLetras.SetActive(true);
                 Invoke("DesactivarLetras", 3f);
 
-                //QUITAR COMENTARIO CUANDO PONGA AUDIO
                 //A PARTIR DE AQUI TIENE QUE EMPEZAR A SONAR EL LATIDO DEL CORAZON CADA VEZ MAS FUERTE
-                //latiendo = true;
-                //latido.Play();
+                latiendo = true;
+                audioSource.volume = 0f;
+                audioSource.clip = latido;
+                audioSource.loop = true;
+                audioSource.Play();
             }
         }
 
@@ -150,6 +154,10 @@ public class PlatoController : MonoBehaviour
             {
                 panelSolido.GetComponent<Image>().color = Color.black;
                 panelSolido.gameObject.SetActive(true);
+
+                audioSource.clip = focoApagado;
+                audioSource.Play();
+
                 Invoke("PrimeraTransicion", 3f);
             }
             //PONER EL EFECTO DE POSPROCESADO PARA QUE PAREZCA QUE ESTÁ CERRANDO LOS OJOS EL JUGADOR

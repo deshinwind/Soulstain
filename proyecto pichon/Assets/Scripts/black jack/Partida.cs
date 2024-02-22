@@ -48,6 +48,8 @@ public class Partida : MonoBehaviour
 
     public Vector3 rotacion;
 
+    public AudioClip clipCarta;
+
     //BOTONES DEFINITIVOS
     public GameObject botonOtra;
     public GameObject botonPlantarse;
@@ -80,12 +82,18 @@ public class Partida : MonoBehaviour
 
             if (timer == 0 && giroJugador < manoJugador.Count)
             {
+                dialogueController.audioCartasYFoco.clip = clipCarta;
+                dialogueController.audioCartasYFoco.Play();
                 giroJugador++;
             }
             if (timer == 0 && giroJugador == manoJugador.Count && giroDealer < manoDealer.Count)
             {
                 if (leToca)
+                {
+                    dialogueController.audioCartasYFoco.clip = clipCarta;
+                    dialogueController.audioCartasYFoco.Play();
                     giroDealer++;
+                }
                 else
                     leToca = true;
             }
@@ -96,6 +104,14 @@ public class Partida : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (finDeRonda)
+        {
+            foreach (GameObject carta in GameObject.FindGameObjectsWithTag("Carta"))
+            {
+                carta.transform.position = Vector3.Lerp(carta.transform.position, new Vector3(0.8f, 1.0427f, -0.5303f), speedCartas);
+            }
+        }
+
         //EL NUMERO MAXIMO DE CARTAS QUE PUEDE TENER UNA PERSONA ES DE 12 (4 AS, 4 2 Y 3 3)
         if (rondaEnJuego)
         {
@@ -346,8 +362,7 @@ public class Partida : MonoBehaviour
         leToca = false;
         numeroRonda++;
 
-        VaciarMano(manoDealer);
-        VaciarMano(manoJugador);
+        Invoke("VaciarMano", 2f);
 
         Debug.Log("Puntos jugador: " + puntosJugador + " Puntos dealer: " + puntosDealer);
 
@@ -356,8 +371,6 @@ public class Partida : MonoBehaviour
 
     public void OtraCarta()
     {
-        finDeRonda = false;
-
         otraCarta.SetActive(false);
         plantarse.SetActive(false);
 
@@ -369,14 +382,22 @@ public class Partida : MonoBehaviour
         ComprobarPuntosJugador();
     }
 
-    public void VaciarMano(List<GameObject> mano)
+    public void VaciarMano()
     {
+        finDeRonda = false;
+
         //DESTRUIMOS LAS CARTAS ANTES DE VACIAR LAS MANOS
-        foreach (GameObject carta in mano)
+        foreach (GameObject carta in manoDealer)
         {
             Destroy(carta);
         }
 
-        mano.Clear();
+        foreach (GameObject carta in manoJugador)
+        {
+            Destroy(carta);
+        }
+
+        manoDealer.Clear();
+        manoJugador.Clear();
     }
 }

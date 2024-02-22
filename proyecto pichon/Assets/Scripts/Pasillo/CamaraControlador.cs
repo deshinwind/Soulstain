@@ -54,7 +54,8 @@ public class CamaraControlador : MonoBehaviour
             Destroy(camaraRota, fadeDuration - 0.5f);
             gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            Destroy(this.gameObject, fadeDuration - 0.5f);
+            //Destroy(this.gameObject, fadeDuration - 0.5f);
+            this.gameObject.SetActive(false);
         }
 
     }

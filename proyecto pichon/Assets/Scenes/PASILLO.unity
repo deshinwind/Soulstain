@@ -1080,7 +1080,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292565584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.4552e-11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1088,8 +1088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 0.000030518, y: -0.002533}
+  m_SizeDelta: {x: 719, y: 404.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &292565586
 MonoBehaviour:
@@ -6970,7 +6970,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1925663462}
   m_CameraFloorOffsetObject: {fileID: 1237382843}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 1.8
+  m_CameraYOffset: 0.8
 --- !u!4 &1925663471
 Transform:
   m_ObjectHideFlags: 0
@@ -7055,9 +7055,9 @@ Canvas:
   m_GameObject: {fileID: 1979855799}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 697924352}
+  m_PlaneDistance: 0.65
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -7416,11 +7416,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 750957895}
     - target: {fileID: 8244393954610047967, guid: c373d7996a97d884c8a54299b6bbb915,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 750957895}
+    - target: {fileID: 8244393954610047967, guid: c373d7996a97d884c8a54299b6bbb915,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: noagarrao
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244393954610047967, guid: c373d7996a97d884c8a54299b6bbb915,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: agarrao
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244393954610047967, guid: c373d7996a97d884c8a54299b6bbb915,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bate, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244393954610047967, guid: c373d7996a97d884c8a54299b6bbb915,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bate, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2485453482366318495, guid: c373d7996a97d884c8a54299b6bbb915, type: 3}

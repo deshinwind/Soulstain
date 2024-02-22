@@ -12,6 +12,7 @@ public class CamaraFlash : MonoBehaviour
     private float movimientoZ;
     private Animator animator;
     private FlashContador flashContador;
+    private Ceguera ceguera;
     public float DañoTemp = 0;
   
     
@@ -24,6 +25,7 @@ public class CamaraFlash : MonoBehaviour
         movimientoZ = Random.Range(bounds.min.z, bounds.max.z);
         animator = gameObject.GetComponent<Animator>();
         flashContador = gameObject.GetComponent<FlashContador>();
+        ceguera = GameObject.Find("imagenciego").gameObject.GetComponent<Ceguera>();
 
 
     }
@@ -47,10 +49,12 @@ public class CamaraFlash : MonoBehaviour
     public void Flash()
     {
         animator.SetTrigger("Flash");
+        ceguera.Cieguisimo();
         if (DañoTemp > 2.8)
         {
             DañoTemp = 0;
             flashContador.sumarpuntos();
+           
         }
 
     }

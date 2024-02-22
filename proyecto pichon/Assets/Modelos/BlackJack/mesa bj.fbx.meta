@@ -1,69 +1,9 @@
 fileFormatVersion: 2
-guid: b7ec28fb2a8f0fa418f31da9b3dd4024
+guid: 1a635c8807f182f40bdcf8e0818f3854
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: bombilla
-    second: {fileID: 2100000, guid: d05b7e44d5279cb4887c061905046955, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cable
-    second: {fileID: 2100000, guid: b03ced34e56cc114984fb7acf598f34b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cartel
-    second: {fileID: 2100000, guid: 7bf9209ca690a5346830678493b3aa8e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maquina
-    second: {fileID: 2100000, guid: de49e91a3097b574e8a9dad5e856c0d7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maquina 2
-    second: {fileID: 2100000, guid: 4504afb292487e74bbda156ecd1ed86c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: maquina 3
-    second: {fileID: 2100000, guid: 8886d37c1c517094aa9490aece6de4d7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: marco
-    second: {fileID: 2100000, guid: 9b8161921f0a1ef419f10bb99e9cb558, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mesa
-    second: {fileID: 2100000, guid: 2ae2924cb825def44a2582c98869ea53, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: metal
-    second: {fileID: 2100000, guid: 7af67582ab801544caeea157ca44704a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pared
-    second: {fileID: 2100000, guid: 6a28054a9d5319f499742f96d7cb7322, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: suelo
-    second: {fileID: 2100000, guid: 29dcbe13d01d3ab4e9604c396af015b3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: techo
-    second: {fileID: 2100000, guid: 87d377a014ca82c40801a6705a453308, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

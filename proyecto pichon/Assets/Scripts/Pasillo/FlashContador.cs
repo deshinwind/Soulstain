@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlashContador : MonoBehaviour
 {
-    private float puntos;
+    public int puntos;
     public GameObject ciegoUI;
     private void Start()
     {
@@ -15,12 +15,5 @@ public class FlashContador : MonoBehaviour
     {
         puntos += 1;
         ciegoUI.SetActive(true);
-    }
-    private void Update()
-    {
-        if (puntos > 3)
-        {
-            Debug.Log("has perdido");
-        }
     }
 }

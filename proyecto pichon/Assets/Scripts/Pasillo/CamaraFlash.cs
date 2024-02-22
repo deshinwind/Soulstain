@@ -11,11 +11,11 @@ public class CamaraFlash : MonoBehaviour
     private Bounds bounds;
     private float movimientoZ;
     private Animator animator;
-    private FlashContador flashContador;
+    private ControladorPasillo controladorPasillo;
     private Ceguera ceguera;
     public float DañoTemp = 0;
-  
-    
+
+    public bool camaraActiva = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class CamaraFlash : MonoBehaviour
         bounds = GameObject.FindWithTag("AreaCamara").GetComponent<BoxCollider>().bounds;
         movimientoZ = Random.Range(bounds.min.z, bounds.max.z);
         animator = gameObject.GetComponent<Animator>();
-        flashContador = gameObject.GetComponent<FlashContador>();
+        controladorPasillo = GameObject.Find("GameManager").gameObject.GetComponent<ControladorPasillo>();
         ceguera = GameObject.Find("imagenciego").gameObject.GetComponent<Ceguera>();
 
 
@@ -36,6 +36,7 @@ public class CamaraFlash : MonoBehaviour
         //gameObject.transform.LookAt(player.transform);
         if (Vector3.Distance(transform.position, player.position) <= distance)
         {
+            camaraActiva = true;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, movimientoZ), speed * Time.deltaTime);
             animator.enabled = true;
             DañoTemp += Time.deltaTime;
@@ -53,7 +54,7 @@ public class CamaraFlash : MonoBehaviour
         if (DañoTemp > 2.8)
         {
             DañoTemp = 0;
-            flashContador.sumarpuntos();
+            controladorPasillo.sumarpuntos();
            
         }
 

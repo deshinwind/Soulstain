@@ -33,9 +33,6 @@ public class CamaraControlador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       
-
         if (fadeTimer < fadeDuration && isBroken)
         {
             fadeTimer += Time.deltaTime;

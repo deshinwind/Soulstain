@@ -12,6 +12,7 @@ public class ControladorPasillo : MonoBehaviour
     public GameObject bate;
     public GameObject camara2;
     public GameObject ciegoUI;
+    public GameObject creditos;
 
     public GameObject panelLetras;
     public GameObject panelSolido;
@@ -35,6 +36,7 @@ public class ControladorPasillo : MonoBehaviour
     private bool dialogoCercaPuertaMostrado = false;
     private bool dialogoVictoriaMostrado = false;
     private bool dialogoFinalMostrado = false;
+    private bool mostrarCreditos = false;
 
     public bool cercaDePuerta = false;
     public bool abrirPuerta = false;
@@ -69,8 +71,8 @@ public class ControladorPasillo : MonoBehaviour
             letrasMostradas = true;
             panelLetras.SetActive(true);
             Invoke("DesactivarLetras", 3f);
-            Invoke("IniciarDialogos", 4f);
-            Invoke("MostrarLetras", 6f);
+            Invoke("IniciarDialogos", 5f);
+            Invoke("MostrarLetras", 7f);
         }
 
         if (dialogueController.pause && camara2.GetComponent<CamaraFlash>().camaraActiva && !dialogoSegundaCamaraMostrado)
@@ -85,14 +87,40 @@ public class ControladorPasillo : MonoBehaviour
         }
         else if (dialogueController.pause && panelBlanco && !dialogoVictoriaMostrado)
         {
-            dialogoVictoriaMostrado = true;
+            foreach (GameObject camara in GameObject.FindGameObjectsWithTag("Camara"))
+            {
+                camara.SetActive(false);
+            }
+
             dialogueController.StartDialogue(dialogoVictoria, wait);
+            dialogoVictoriaMostrado = true;
         }
-        else if ((puntos >= 7 && !dialogoFinalMostrado) || (dialogoVictoriaMostrado && dialogueController.pause && !dialogoFinalMostrado))
+        else if ((puntos >= 22 && !dialogoFinalMostrado) || (dialogoVictoriaMostrado && dialogueController.pause && !dialogoFinalMostrado))
         {
+            panelSolido.GetComponent<Image>().color = Color.black;
+            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, 0f);
+            alphaPanel = new Vector3(0, 0, 0);
+            panelSolido.SetActive(true);
             dialogueController.pause = true;
+
+            panelDialogos.SetActive(false);
+            dialogueController.audioDialogos.Stop();
+
             dialogoFinalMostrado = true;
-            dialogueController.StartDialogue(dialogoFinal, wait);
+            Invoke("DialogoFinal", 3f);
+
+            player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+
+            foreach (GameObject camara in GameObject.FindGameObjectsWithTag("Camara"))
+            {
+                camara.SetActive(false);
+            }
+        }
+        else if (dialogueController.pause && mostrarCreditos)
+        {
+            creditos.SetActive(true);
+            creditos.GetComponent<VideoPlayer>().Play();
         }
     }
 
@@ -106,6 +134,19 @@ public class ControladorPasillo : MonoBehaviour
 
             Invoke("PanelBlanco", 3f);
         }
+
+        if (dialogoFinalMostrado)
+        {
+            alphaPanel = Vector3.Lerp(alphaPanel, new Vector3(1f, 0f, 0f), 0.05f);
+            panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, alphaPanel.x);
+        }
+    }
+
+    public void DialogoFinal()
+    {
+        panelSolido.GetComponent<Image>().color = new Color(panelSolido.GetComponent<Image>().color.r, panelSolido.GetComponent<Image>().color.g, panelSolido.GetComponent<Image>().color.b, 1f);
+        dialogueController.StartDialogue(dialogoFinal, wait);
+        mostrarCreditos = true;
     }
 
     public void PanelBlanco()
@@ -115,6 +156,16 @@ public class ControladorPasillo : MonoBehaviour
 
         player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
         player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+
+        foreach (GameObject objeto in GameObject.FindGameObjectsWithTag("QuitarMesh"))
+        {
+            objeto.SetActive(false);
+        }
+
+        foreach (GameObject camara in GameObject.FindGameObjectsWithTag("Camara"))
+        {
+            camara.SetActive(false);
+        }
     }
 
     public void AbrirPuerta()
@@ -125,7 +176,7 @@ public class ControladorPasillo : MonoBehaviour
         abrirPuerta = true;
     }
 
-        public void DesactivarLetras()
+    public void DesactivarLetras()
     {
         panelLetras.SetActive(false);
     }
@@ -139,7 +190,7 @@ public class ControladorPasillo : MonoBehaviour
     {
         letras.text = "MULTITUD";
         panelLetras.SetActive(true);
-        Invoke("IniciarDialogos", 3f);
+        Invoke("DesactivarLetras", 3f);
     }
 
     public void sumarpuntos()

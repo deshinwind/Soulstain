@@ -19,10 +19,10 @@ public class DialogueController : MonoBehaviour
 
     private List<string> dialogList = new List<string>();
 
-    private int currentLetterIndex = 0;
+    public int currentLetterIndex = 0;
     private int currentDialog = 0;
 
-    private string currentText;
+    public string currentText;
 
     public bool isShowingText = false;
     private bool isWaiting = false;
@@ -80,7 +80,7 @@ public class DialogueController : MonoBehaviour
         {
             if (currentText != null)
             {
-                if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Contains("Pánico escénico") || currentText.Equals("Enoclofobia")
+                if (currentText.Equals("El Ámbito") || currentText.Equals("Pelko") || currentText.Contains("Pánico escénico") || currentText.Equals("Multitud")
                     || currentText.Equals("Voz Anónima") || currentText.Equals("Linterna on") || currentText.Equals("Linterna off") || currentText.Equals("Botellas")
                     || currentText.Equals("Cerradura") || currentText.Equals("Golpe") || currentText.Equals("Lluvia") || currentText.Equals("Pasos")
                     || currentText.Equals("Porrazo") || currentText.Equals("Bosque") || currentText.Equals("Ropa"))
@@ -136,10 +136,10 @@ public class DialogueController : MonoBehaviour
                                 audioDialogos.GetComponent<AudioSource>().clip = voces[6];
                             }
                             break;
-                        case "Enoclofobia":
+                        case "Multitud":
                             if (audioDialogos.GetComponent<AudioSource>().clip != voces[7])
                             {
-                                audioDialogos.GetComponent<AudioSource>().volume = 1f;
+                                audioDialogos.GetComponent<AudioSource>().volume = 0.2f;
                                 audioDialogos.GetComponent<AudioSource>().clip = voces[7];
                             }
                             break;

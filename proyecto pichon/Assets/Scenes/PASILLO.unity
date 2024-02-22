@@ -1283,8 +1283,8 @@ RectTransform:
   m_GameObject: {fileID: 292565584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.4552e-11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1979855803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1692,6 +1692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -1807,6 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &361595139
@@ -1912,7 +1918,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b674d51a20c0a9408d1c9d7c9acd0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorPasillo: {fileID: 0}
+  controladorPasillo: {fileID: 1698369020}
+--- !u!1 &372191827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372191828}
+  - component: {fileID: 372191829}
+  m_Layer: 5
+  m_Name: Creditos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &372191828
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372191827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1979855803}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!328 &372191829
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372191827}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 03de27a0556907743a25607d2c0dc2ad, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 697924352}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &471883170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -2219,6 +2300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &492608666
@@ -2358,6 +2440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -2473,6 +2560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &564724827
@@ -2890,6 +2978,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: puerta
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55bd1ec9db1e76b4db090af5455c7bcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55bd1ec9db1e76b4db090af5455c7bcd,
+        type: 3}
+      propertyPath: m_TagString
+      value: QuitarMesh
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2967,6 +3065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: camara de fotos (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
       objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
@@ -3083,6 +3186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &744977081
@@ -3612,6 +3716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -3727,6 +3836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &851386815
@@ -4088,6 +4198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -4203,6 +4318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1040119724
@@ -5521,6 +5637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -5636,6 +5757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1358297831
@@ -5981,6 +6103,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -6096,6 +6223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1427410345
@@ -6659,6 +6787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1641473261
@@ -6780,6 +6909,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pasillo
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+        type: 3}
+      propertyPath: m_TagString
+      value: QuitarMesh
       objectReference: {fileID: 0}
     - target: {fileID: 2924364805000323334, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
         type: 3}
@@ -6959,7 +7098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e39f95b70aa3c4eb73f65a3dc38d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorPasillo: {fileID: 0}
+  controladorPasillo: {fileID: 1698369020}
 --- !u!1 &1698369019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,6 +7133,7 @@ MonoBehaviour:
   bate: {fileID: 750957887}
   camara2: {fileID: 1040119720}
   ciegoUI: {fileID: 292565584}
+  creditos: {fileID: 372191827}
   panelLetras: {fileID: 936116093}
   panelSolido: {fileID: 1040779188}
   panelDialogos: {fileID: 1456552452}
@@ -7008,11 +7148,79 @@ MonoBehaviour:
   panelBlanco: 0
   alphaPanel: {x: 0, y: 0, z: 0}
   rotacion: {x: 0, y: -133, z: 0}
-  dialogoInicial: []
-  dialogoSegundaCamara: []
-  dialogoCercaDeLaPuerta: []
-  dialogoVictoria: []
-  dialogoFinal: []
+  dialogoInicial:
+  - Multitud
+  - "Est\xE1s atrapado, afina el o\xEDdo, siente el ambiente."
+  - Pelko
+  - "\xA1\xBFQui\xE9n eres...?! Tu voz me... me resultas familiar."
+  - Multitud
+  - "Soy tu decisi\xF3n. Amigo... enemigo..."
+  - "son solo interpretaciones, el \xFAltimo invitado del programa."
+  - Pelko
+  - "Tu voz... el plat\xF3... \xBFC\xF3mo has conseguido la invitaci\xF3n?"
+  - Multitud
+  - "Las c\xE1maras me han invitado, tu miedo a la fama, a las multitudes que hablan
+    y murmullan."
+  - "T\xFA me has escrito entre tus invitados, en tu historia."
+  - 
+  dialogoSegundaCamara:
+  - Pelko
+  - "Las luces de las c\xE1maras... crean sombras, se proyectan, te hablan, te juzgan."
+  - "\xBFQu\xE9 hablasteis aquella noche? La noche de la habitaci\xF3n."
+  - Multitud
+  - "Qu\xE9, te preguntas... qu\xE9. \xBFSabes qu\xE9 es lo terrible de tu entrevista?"
+  - "Las preguntas. Dime, \xBFqu\xE9 quiere un entrevistador como tu en una situaci\xF3n
+    como esta?"
+  - Pelko
+  - Yo...
+  - Multitud
+  - "\xBFCu\xE1nto tiempo llevamos con estas entrevistas? \xBFUn d\xEDa? \xBF2 a\xF1os?
+    \xBFuna d\xE9cada...?"
+  - Preguntas, lo intentas, te paralizas, no piensas.
+  - Tientas a la suerte, juegas con ella.
+  - "Esperando a que est\xE9 de tu lado sin forzar el cambio."
+  - Pelko
+  - Lejos... Fuera...
+  - Multitud
+  - Ni ahora eres capaz. Ni antes lo fuiste con los otros.
+  - Vestido de negro ruan andas buscando el dintel de la puerta.
+  - "\xBFAl encuentro de que te diriges? \xBFRespuestas? \xBFSilencios? \xBFOlvidos?"
+  - Pelko
+  - En mis recuerdos... Debo andar, de frente, olvidar, reconstruir.
+  - "Encontrar la \xFAltima pregunta."
+  - 
+  dialogoCercaDeLaPuerta:
+  - Pelko
+  - No hablaban... pasaban, sin fijarse, sin tener presencia.
+  - "Me escond\xED bajo las s\xE1banas, llorando, acelerado, las voces no eran tuyas."
+  - "Eran m\xEDas. Te cree... No me obligabais, me deten\xEDa."
+  - Multitud
+  - De rotas promesas has roto silencio.
+  - "Encuentras algo para agarrarte, l\xE1nzalo, huele su aroma y b\xFAscalo."
+  - 
+  dialogoVictoria:
+  - Multitud
+  - Has pasado el dintel
+  - "\xBFQu\xE9 has encontrado a este lado?"
+  - "\xBFNuestro abandono?"
+  - "\xBFTu rescate?"
+  - "Tu p\xFAblico te espera, tus miedos te odian."
+  - Acaba y empieza,
+  - un nuevo mundo despierta en ti...
+  - 
+  dialogoFinal:
+  - Pelko
+  - "Unas luces, puedo o\xEDrlas."
+  - Unas voces, puedo verlas.
+  - Nuevas preguntas, diferentes.
+  - Algo que cambie el curso...
+  - "Miedo \xBFEs una herramienta?"
+  - No, eso no funciona.
+  - "Um... \xBFY s\xED?..."
+  - Creo que lo tengo.
+  - "Voz an\xF3nima"
+  - "Se\xF1or Pelko, salimos en antena en 7 minutos, prep\xE1rese."
+  - 
 --- !u!4 &1698369021
 Transform:
   m_ObjectHideFlags: 0
@@ -7042,9 +7250,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 38406183}
   nombre: {fileID: 1282763093}
-  delay: 0.1
+  delay: 0.05
   panelDialogo: {fileID: 1456552452}
   player: {fileID: 1925663462}
+  currentLetterIndex: 0
+  currentText: 
   isShowingText: 0
   pause: 0
   audioDialogos: {fileID: 1088313161}
@@ -7142,6 +7352,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pasillo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+        type: 3}
+      propertyPath: m_TagString
+      value: QuitarMesh
       objectReference: {fileID: 0}
     - target: {fileID: 2924364805000323334, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
         type: 3}
@@ -7328,6 +7548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -7443,6 +7668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1780551990
@@ -7554,6 +7780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: camara de fotos (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
       objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
@@ -7670,6 +7901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1792035422
@@ -8034,6 +8266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: camara de fotos (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
+      objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
       propertyPath: m_Enabled
@@ -8149,6 +8386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &1816928745
@@ -8565,6 +8803,7 @@ RectTransform:
   m_Children:
   - {fileID: 292565585}
   - {fileID: 1673990127}
+  - {fileID: 372191828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8644,6 +8883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: camara de fotos (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
       objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}
@@ -8760,6 +9004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   speed: 7
+  controladorPasillo: {fileID: 1698369020}
   "Da\xF1oTemp": 0
   camaraActiva: 0
 --- !u!114 &2129926957
@@ -8826,6 +9071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768507733951572007, guid: c373d7996a97d884c8a54299b6bbb915,
+        type: 3}
+      propertyPath: m_TagString
+      value: QuitarMesh
       objectReference: {fileID: 0}
     - target: {fileID: 5289183266846454429, guid: c373d7996a97d884c8a54299b6bbb915,
         type: 3}
@@ -9082,6 +9332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: camara de fotos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511114852804472761, guid: 2dbd4685e9ce1ce45b50366461bcb121,
+        type: 3}
+      propertyPath: m_TagString
+      value: Camara
       objectReference: {fileID: 0}
     - target: {fileID: 6603208552665217049, guid: 2dbd4685e9ce1ce45b50366461bcb121,
         type: 3}

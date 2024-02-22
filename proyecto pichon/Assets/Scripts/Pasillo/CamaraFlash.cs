@@ -11,7 +11,7 @@ public class CamaraFlash : MonoBehaviour
     private Bounds bounds;
     private float movimientoZ;
     private Animator animator;
-    private ControladorPasillo controladorPasillo;
+    public ControladorPasillo controladorPasillo;
     private Ceguera ceguera;
     public float DañoTemp = 0;
 
@@ -24,7 +24,6 @@ public class CamaraFlash : MonoBehaviour
         bounds = GameObject.FindWithTag("AreaCamara").GetComponent<BoxCollider>().bounds;
         movimientoZ = Random.Range(bounds.min.z, bounds.max.z);
         animator = gameObject.GetComponent<Animator>();
-        controladorPasillo = GameObject.Find("GameManager").gameObject.GetComponent<ControladorPasillo>();
         ceguera = GameObject.Find("imagenciego").gameObject.GetComponent<Ceguera>();
 
 
@@ -43,7 +42,6 @@ public class CamaraFlash : MonoBehaviour
             Invoke("Flash", 2.25f);
 
         }
-
     }
 
 
@@ -55,7 +53,6 @@ public class CamaraFlash : MonoBehaviour
         {
             DañoTemp = 0;
             controladorPasillo.sumarpuntos();
-           
         }
 
     }

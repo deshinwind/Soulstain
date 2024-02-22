@@ -3,7 +3,27 @@ guid: e9e5defd10de0f548ac92ac4a1ee2764
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Encolofobia alto
+    second: {fileID: 2100000, guid: fc7cc272426ad3b40bef71e4bd396ef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Encolofobia bajo
+    second: {fileID: 2100000, guid: 057512962bcdf474ab62e4c95e0a2d46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ojos
+    second: {fileID: 2100000, guid: 9b3afe41e0ccdef4184542d3558074b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pupilas
+    second: {fileID: 2100000, guid: 7412b7ca8baed97408e2150ffccd347b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

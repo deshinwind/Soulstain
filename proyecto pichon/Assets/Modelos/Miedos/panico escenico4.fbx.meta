@@ -3,7 +3,17 @@ guid: 0bce70c0c9c714a479048950e8fd2603
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material def
+    second: {fileID: 2100000, guid: 1d3c511406a67b744aef8a72d47b5891, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ojo
+    second: {fileID: 2100000, guid: 7bc7a4490f7a88845bb8e564c2699608, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

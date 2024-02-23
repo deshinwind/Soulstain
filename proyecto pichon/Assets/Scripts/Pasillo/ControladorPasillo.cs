@@ -53,6 +53,11 @@ public class ControladorPasillo : MonoBehaviour
 
     public List<string> dialogoFinal = new List<string>();
 
+    private void Start()
+    {
+        player.transform.position = new Vector3(-10.913f, 3.04f, 0.426f);
+    }
+
     void Update()
     {
         if (video.GetComponent<VideoPlayer>().isPlaying)

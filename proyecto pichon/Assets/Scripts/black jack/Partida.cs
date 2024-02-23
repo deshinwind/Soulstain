@@ -54,10 +54,6 @@ public class Partida : MonoBehaviour
     public GameObject botonOtra;
     public GameObject botonPlantarse;
 
-    //BOTONES TEMPORALES
-    public GameObject otraCarta;
-    public GameObject plantarse;
-
     private void Start()
     {
         almacen.mazo = new List<(int, string, GameObject)>();
@@ -246,9 +242,6 @@ public class Partida : MonoBehaviour
 
     public void ActivarBotones()
     {
-        otraCarta.SetActive(true);
-        plantarse.SetActive(true);
-
         botonOtra.GetComponent<XRSimpleInteractable>().enabled = true;
         botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = true;
     }
@@ -257,11 +250,8 @@ public class Partida : MonoBehaviour
     {
         desvelar = true;
 
-        if (otraCarta.activeSelf)
+        if (botonOtra.GetComponent<XRSimpleInteractable>().enabled)
         {
-            otraCarta.SetActive(false);
-            plantarse.SetActive(false);
-
             botonOtra.GetComponent<XRSimpleInteractable>().enabled = false;
             botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = false;
         }
@@ -371,9 +361,6 @@ public class Partida : MonoBehaviour
 
     public void OtraCarta()
     {
-        otraCarta.SetActive(false);
-        plantarse.SetActive(false);
-
         botonOtra.GetComponent<XRSimpleInteractable>().enabled = false;
         botonPlantarse.GetComponent<XRSimpleInteractable>().enabled = false;
 

@@ -6397,7 +6397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 131, y: 45}
+  m_AnchoredPosition: {x: 131, y: -23.299988}
   m_SizeDelta: {x: 0, y: 126.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456552454
@@ -7041,6 +7041,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 150122463}
+    - targetCorrespondingSourceObject: {fileID: 7344669759857201713, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653628369}
     - targetCorrespondingSourceObject: {fileID: -4009480758835484168, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
         type: 3}
       insertIndex: -1
@@ -7054,6 +7058,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1018222789}
   m_SourcePrefab: {fileID: 100100000, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074, type: 3}
+--- !u!1 &1653628368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7344669759857201713, guid: 3ded3cdbdf0ad1f4cb8e3523d131f074,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653628367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1653628369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653628368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3084278, y: 5.7522264, z: 5.9084024}
+  m_Center: {x: -11.289221, y: 2.4851506, z: -0.27255428}
 --- !u!1 &1673990126
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,7 +7347,7 @@ MonoBehaviour:
   - No, eso no funciona.
   - "Um... \xBFY s\xED?..."
   - Creo que lo tengo.
-  - "Voz an\xF3nima"
+  - "Voz An\xF3nima"
   - "Se\xF1or Pelko, salimos en antena en 7 minutos, prep\xE1rese."
   - 
 --- !u!4 &1698369021
@@ -8065,7 +8096,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793578261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 300}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8787,7 +8818,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1925663462}
   m_CameraFloorOffsetObject: {fileID: 1237382843}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 0.8
+  m_CameraYOffset: 1
 --- !u!4 &1925663471
 Transform:
   m_ObjectHideFlags: 0
@@ -8797,7 +8828,7 @@ Transform:
   m_GameObject: {fileID: 1925663462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -11.39, y: 3.04, z: 0.426}
+  m_LocalPosition: {x: -10.913, y: 3.04, z: 0.426}
   m_LocalScale: {x: 1.5798, y: 1.5798, z: 1.5798}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8875,7 +8906,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 697924352}
-  m_PlaneDistance: 0.65
+  m_PlaneDistance: 0.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -9173,7 +9204,7 @@ PrefabInstance:
     - target: {fileID: 4768507733951572007, guid: c373d7996a97d884c8a54299b6bbb915,
         type: 3}
       propertyPath: m_TagString
-      value: QuitarMesh
+      value: Bate
       objectReference: {fileID: 0}
     - target: {fileID: 5289183266846454429, guid: c373d7996a97d884c8a54299b6bbb915,
         type: 3}

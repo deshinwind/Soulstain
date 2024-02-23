@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        player.transform.position = new Vector3(25.597f, 4.715f, -8.34f);
         dialogueManager.StartDialogue(dialogs, wait);
     }
 

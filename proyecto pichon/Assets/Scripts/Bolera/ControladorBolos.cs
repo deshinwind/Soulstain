@@ -17,7 +17,7 @@ public class ControladorBolos : MonoBehaviour
     //public AudioClip voces;
     //public List<AudioClip> grupoVoces;
 
-    public GameObject voces;
+    public GameObject[] voces;
 
     public List<GameObject> grupoVoces;
 
@@ -159,10 +159,12 @@ public class ControladorBolos : MonoBehaviour
         //AÑADIR UNA VOZ ALEATORIA POR CADA BOLO QUE HAYA QUEDADO EN PIE
         for (int i = 0; i < controlador.bolosEnPie; i++)
         {
-            grupoVoces.Add(Instantiate(voces, Camera.main.transform));
-            grupoVoces[grupoVoces.Count - 1].transform.position = new Vector3(Camera.main.transform.position.x * Random.Range(-2f, 2f), Camera.main.transform.position.y * Random.Range(0f, 2f), Camera.main.transform.position.z * Random.Range(-2f, 2f));
-            grupoVoces[grupoVoces.Count - 1].GetComponent<AudioSource>().volume = Random.Range(0.5f, 1f);
-            grupoVoces[grupoVoces.Count - 1].GetComponent<AudioSource>().pitch = Random.Range(0.1f, 1.5f);
+            int n = Random.Range(0, 5);
+
+            grupoVoces.Add(Instantiate(voces[n], Camera.main.transform));
+            //grupoVoces[grupoVoces.Count - 1].transform.position = new Vector3(Camera.main.transform.position.x * Random.Range(-2f, 2f), Camera.main.transform.position.y * Random.Range(0f, 2f), Camera.main.transform.position.z * Random.Range(-2f, 2f));
+            //grupoVoces[grupoVoces.Count - 1].GetComponent<AudioSource>().volume = Random.Range(0.3f, 0.8f);
+            grupoVoces[grupoVoces.Count - 1].GetComponent<AudioSource>().pitch = Random.Range(0.3f, 0.7f);
         }
     }
 

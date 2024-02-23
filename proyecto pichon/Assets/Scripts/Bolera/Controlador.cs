@@ -23,6 +23,8 @@ public class Controlador : MonoBehaviour
     public GameObject panelLetras;
     public GameObject[] panicoEscenico;
 
+    public GameObject player;
+
     public bool letrasBolera = true;
 
     public bool dialogoFinalMostrado = false;
@@ -48,6 +50,8 @@ public class Controlador : MonoBehaviour
 
     void Start()
     {
+        player.transform.position = new Vector3(-1.290162f, 1.550513f, 2.52f);
+
         numeroDialogo = 0;
         timer = 0f;
         ronda = 1;
@@ -116,20 +120,23 @@ public class Controlador : MonoBehaviour
 
     public void DialogoInicial()
     {
-        if (!dialogoInicalMostrado)
+        if (!panelLetras.activeSelf && !letrasBolera)
         {
-            if (dialogueController.pause)
+            if (!dialogoInicalMostrado)
             {
-                int n = Random.Range(0, 1);
+                if (dialogueController.pause)
+                {
+                    int n = Random.Range(0, 1);
 
-                controladorBolos.bola = Instantiate(controladorBolos.prefabBola[n]);
-                controladorBolos.bola.transform.position = controladorBolos.prefabBola[n].transform.position;
-                controladorBolos.bola.transform.rotation = controladorBolos.prefabBola[n].transform.rotation;
-                controladorBolos.bola.transform.localScale = controladorBolos.prefabBola[n].transform.localScale;
-                controladorBolos.bola.GetComponent<XRGrabInteractable>().enabled = true;
+                    controladorBolos.bola = Instantiate(controladorBolos.prefabBola[n]);
+                    controladorBolos.bola.transform.position = controladorBolos.prefabBola[n].transform.position;
+                    controladorBolos.bola.transform.rotation = controladorBolos.prefabBola[n].transform.rotation;
+                    controladorBolos.bola.transform.localScale = controladorBolos.prefabBola[n].transform.localScale;
+                    controladorBolos.bola.GetComponent<XRGrabInteractable>().enabled = true;
 
-                dialogueController.pause = false;
-                dialogoInicalMostrado = true;
+                    dialogueController.pause = false;
+                    dialogoInicalMostrado = true;
+                }
             }
         }
     }

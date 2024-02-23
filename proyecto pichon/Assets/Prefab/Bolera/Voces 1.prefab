@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4583708571749994877}
   - component: {fileID: 3363996368628560609}
   m_Layer: 0
-  m_Name: Voces
+  m_Name: Voces 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c716a20d7fe244442b4cf5f05053aea3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.3
@@ -88,7 +88,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

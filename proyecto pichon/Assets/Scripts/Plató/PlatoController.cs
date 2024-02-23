@@ -52,6 +52,8 @@ public class PlatoController : MonoBehaviour
 
     private void Start()
     {
+        player.transform.position = new Vector3(3.369f, 1.24f, 9.02f);
+
         dontDestroy = GameObject.Find("DontDestroy");
 
         switch (dontDestroy.GetComponent<DontDestroyOnLoad>().controlador)
@@ -120,7 +122,7 @@ public class PlatoController : MonoBehaviour
             {
                 if (platoDialogo.pause && !claustrofobia.activeSelf)
                 {
-                    rayCast.hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+                    //rayCast.hit.transform.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
                     platoDialogo.pause = false;
                     claustrofobia.SetActive(true);
 
@@ -190,7 +192,6 @@ public class PlatoController : MonoBehaviour
         //TE PUEDES MOVER POR EL ESCENARIO (SOLO POR LA PARTE DEL PLATO)
         player.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
         player.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
-        player.transform.rotation = Quaternion.Euler(0f, 285.432f, 0f);
         //CUANDO MIRAS AL PATIO DE BUTACAS SE ACTIVAN VOCES DE FONTO Y SE PROYECTA UNA SOMBRA DEL MIEDO EN UNA BUTACA
         //QUE APAREZCA EL MIEDO SENTADO EN EL SOFA
         //QUE EL MIEDO SIGA CON LA MIRADA AL PERSONAJE

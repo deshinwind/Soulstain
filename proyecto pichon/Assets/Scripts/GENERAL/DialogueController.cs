@@ -97,7 +97,7 @@ public class DialogueController : MonoBehaviour
                         case "Pelko":
                             if (audioDialogos.GetComponent<AudioSource>().clip != voces[1])
                             {
-                                audioDialogos.GetComponent<AudioSource>().volume = 1f;
+                                audioDialogos.GetComponent<AudioSource>().volume = 0.8f;
                                 audioDialogos.GetComponent<AudioSource>().clip = voces[1];
                             }
                             break;
@@ -125,7 +125,7 @@ public class DialogueController : MonoBehaviour
                         case "Pánico escénico N":
                             if (audioDialogos.GetComponent<AudioSource>().clip != voces[5])
                             {
-                                audioDialogos.GetComponent<AudioSource>().volume = 1f;
+                                audioDialogos.GetComponent<AudioSource>().volume = 0.3f;
                                 audioDialogos.GetComponent<AudioSource>().clip = voces[5];
                             }
                             break;
@@ -143,7 +143,7 @@ public class DialogueController : MonoBehaviour
                                 audioDialogos.GetComponent<AudioSource>().clip = voces[7];
                             }
                             break;
-                        case "Voz anónima":
+                        case "Voz Anónima":
                             if (audioDialogos.GetComponent<AudioSource>().clip != voces[8])
                             {
                                 audioDialogos.GetComponent<AudioSource>().volume = 1f;
@@ -176,7 +176,7 @@ public class DialogueController : MonoBehaviour
                         case "Botellas":
                             if (audioEfectos.GetComponent<AudioSource>().clip != voces[11])
                             {
-                                audioEfectos.GetComponent<AudioSource>().volume = 1f;
+                                audioEfectos.GetComponent<AudioSource>().volume = 0.5f;
                                 audioEfectos.GetComponent<AudioSource>().clip = voces[11];
                                 audioEfectos.Play();
                             }
@@ -184,7 +184,7 @@ public class DialogueController : MonoBehaviour
                         case "Cerradura":
                             if (audioEfectos.GetComponent<AudioSource>().clip != voces[12])
                             {
-                                audioEfectos.GetComponent<AudioSource>().volume = 1f;
+                                audioEfectos.GetComponent<AudioSource>().volume = 0.9f;
                                 audioEfectos.GetComponent<AudioSource>().clip = voces[12];
                                 audioEfectos.Play();
                             }
@@ -192,7 +192,7 @@ public class DialogueController : MonoBehaviour
                         case "Golpe":
                             if (audioEfectos.clip != voces[13])
                             {
-                                audioEfectos.volume = 1f;
+                                audioEfectos.volume = 0.3f;
                                 audioEfectos.clip = voces[13];
                                 audioEfectos.Play();
                             }
@@ -200,7 +200,7 @@ public class DialogueController : MonoBehaviour
                         case "Lluvia":
                             if (audioEfectos.GetComponent<AudioSource>().clip != voces[14])
                             {
-                                audioEfectos.GetComponent<AudioSource>().volume = 1f;
+                                audioEfectos.GetComponent<AudioSource>().volume = 0.6f;
                                 audioEfectos.GetComponent<AudioSource>().clip = voces[14];
                                 audioEfectos.Play();
                             }
@@ -216,7 +216,7 @@ public class DialogueController : MonoBehaviour
                         case "Porrazo":
                             if (audioEfectos.GetComponent<AudioSource>().clip != voces[16])
                             {
-                                audioEfectos.GetComponent<AudioSource>().volume = 1f;
+                                audioEfectos.GetComponent<AudioSource>().volume = 0.3f;
                                 audioEfectos.GetComponent<AudioSource>().clip = voces[16];
                                 audioEfectos.Play();
                             }

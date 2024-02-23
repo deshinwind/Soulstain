@@ -15,13 +15,13 @@ public class RayCastBolos : MonoBehaviour
         {
             if (hite.transform.gameObject.name.Equals("Cielo"))
             {
-                gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+                //gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
                 Debug.Log(hite.transform.gameObject.name);
             }
         }
         else
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            //gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }
     }
 

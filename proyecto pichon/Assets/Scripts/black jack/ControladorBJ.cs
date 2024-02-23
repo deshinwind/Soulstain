@@ -28,6 +28,7 @@ public class ControladorBJ : MonoBehaviour
     public bool finDeTutorial = false;
 
     public bool iniciarRonda = false;
+    public bool dialogosIniciados = false;
 
     public float wait = 1f;
 
@@ -54,6 +55,8 @@ public class ControladorBJ : MonoBehaviour
 
     private void Start()
     {
+        player.transform.position = new Vector3(-0.05f, 0.7f, 0.774f);
+
         dontDestroy = GameObject.Find("DontDestroy").GetComponent<DontDestroyOnLoad>();
 
         partida.puntosJugador = 0;
@@ -63,84 +66,85 @@ public class ControladorBJ : MonoBehaviour
 
     private void Update()
     {
-        //switch para rondas
-        if (!finDeTutorial)
+        if (dialogosIniciados)
         {
-            if (dialogueController.pause && partida.manoJugador.Count == 0)
+            if (!finDeTutorial)
             {
-                partida.rondaEnJuego = true;
-                dialogueController.pause = false;
-                NuevaCartaJugador();
-                Invoke("NuevaCartaJugador", 3f);
-            }
-            if (dialogueController.pause && partida.manoJugador.Count == 2 && partida.manoDealer.Count == 0)
-            {
-                dialogueController.pause = false;
-                NuevaCartaDealer();
-                Invoke("NuevaCartaDealer", 3f);
-            }
-            if (dialogueController.pause && partida.manoDealer.Count == 2)
-            {
-                dialogueController.pause = false;
-                partida.ComprobarPuntosJugador();
+                if (dialogueController.pause && partida.manoJugador.Count == 0)
+                {
+                    partida.rondaEnJuego = true;
+                    dialogueController.pause = false;
+                    NuevaCartaJugador();
+                    Invoke("NuevaCartaJugador", 3f);
+                }
+                if (dialogueController.pause && partida.manoJugador.Count == 2 && partida.manoDealer.Count == 0)
+                {
+                    dialogueController.pause = false;
+                    NuevaCartaDealer();
+                    Invoke("NuevaCartaDealer", 3f);
+                }
+                if (dialogueController.pause && partida.manoDealer.Count == 2)
+                {
+                    dialogueController.pause = false;
+                    partida.ComprobarPuntosJugador();
 
-                //*********************************************//
-                //ESTO A LO MEJOR SE PUEDE QUITAR MAS A DELANTE//
-                //*********************************************//
-                partida.ComprobarPuntosDealer();
-                finDeTutorial = true;
-            }
-        }
-        else if (iniciarRonda && dialogueController.pause)
-        {
-            if (partida.numeroRonda == 1)
-            {
-                panelNumeros.SetActive(true);
-                Invoke("DesactivarNumeros", 3f);
-                dialogueController.StartDialogue(dialogoPrimeraRonda, wait);
-                Invoke("IniciarRonda", 3f);
-            }
-            else if (partida.jugadorGana)
-            {
-                if (victorias == 3)
-                {
-                    dialogueController.StartDialogue(tercerDialogoVictoria, wait);
-                    //*******HACER LA TRANSICION AL PLATO********
-                    Invoke("EscenaPlato", 35f);
+                    //*********************************************//
+                    //ESTO A LO MEJOR SE PUEDE QUITAR MAS A DELANTE//
+                    //*********************************************//
+                    partida.ComprobarPuntosDealer();
+                    finDeTutorial = true;
                 }
-                else if (victorias == 1)
+            }
+            else if (iniciarRonda && dialogueController.pause)
+            {
+                if (partida.numeroRonda == 1)
                 {
-                    dialogueController.StartDialogue(primerDialogoVictoria, wait);
+                    panelNumeros.SetActive(true);
+                    Invoke("DesactivarNumeros", 3f);
+                    dialogueController.StartDialogue(dialogoPrimeraRonda, wait);
                     Invoke("IniciarRonda", 3f);
+                }
+                else if (partida.jugadorGana)
+                {
+                    if (victorias == 3)
+                    {
+                        dialogueController.StartDialogue(tercerDialogoVictoria, wait);
+                        //*******HACER LA TRANSICION AL PLATO********
+                        Invoke("EscenaPlato", 35f);
+                    }
+                    else if (victorias == 1)
+                    {
+                        dialogueController.StartDialogue(primerDialogoVictoria, wait);
+                        Invoke("IniciarRonda", 3f);
+                    }
+                    else
+                    {
+                        dialogueController.StartDialogue(segundoDialogoVictoria, wait);
+                        Invoke("IniciarRonda", 3f);
+                    }
                 }
                 else
                 {
-                    dialogueController.StartDialogue(segundoDialogoVictoria, wait);
-                    Invoke("IniciarRonda", 3f);
+                    if (derrotas == 3)
+                    {
+                        dialogueController.StartDialogue(tercerDialogoDerrota, wait);
+                        //*******HACER LA TRANSICION AL PLATO********
+                        Invoke("EscenaPlato", 35f);
+                    }
+                    else if (derrotas == 1)
+                    {
+                        dialogueController.StartDialogue(primerDialogoDerrota, wait);
+                        Invoke("IniciarRonda", 3f);
+                    }
+                    else
+                    {
+                        dialogueController.StartDialogue(segundoDialogoDerrota, wait);
+                        Invoke("IniciarRonda", 3f);
+                    }
                 }
+                iniciarRonda = false;
             }
-            else
-            {
-                if (derrotas == 3)
-                {
-                    dialogueController.StartDialogue(tercerDialogoDerrota, wait);
-                    //*******HACER LA TRANSICION AL PLATO********
-                    Invoke("EscenaPlato", 35f);
-                }
-                else if (derrotas == 1)
-                {
-                    dialogueController.StartDialogue(primerDialogoDerrota, wait);
-                    Invoke("IniciarRonda", 3f);
-                }
-                else
-                {
-                    dialogueController.StartDialogue(segundoDialogoDerrota, wait);
-                    Invoke("IniciarRonda", 3f);
-                }
-            }
-            iniciarRonda = false;
         }
-        
         /*else if (victorias == 3)
         {
             dialogueController.StartDialogue(tercerDialogoVictoria, wait);
@@ -231,6 +235,7 @@ public class ControladorBJ : MonoBehaviour
         //LINEA DE LA CLAUSTROFOBIA
         dialogueController.panelDialogo.SetActive(true);
         dialogueController.StartDialogue(dialogoTutorial, wait);
+        dialogosIniciados = true;
 
         //TERMINA LA LINEA DE LA CLAUSTROFOBIA Y SE EMPIEZAN A REPARTIR LAS CARTAS
     }
@@ -251,18 +256,4 @@ public class ControladorBJ : MonoBehaviour
     {
         partida.AñadirCarta(partida.manoDealer);
     }
-
-
-    //UNA VEZ TERMINADA LA PARTIDA DE PRUEBA, EMPIEZA LA PRIMERA RONDA (AUN SIN REPARTIR LAS CARTAS)
-    //LINEA DE CLAUSTROFOBIA
-    //SE REPARTEN LAS CARTAS AL TERMINAR LA LINEA
-    //TRES LINEAS MIENTRAS SE JUEGA LA RONDA
-
-    //SI GANA QUE SE MUESTREN UNOS DIALOGOS. SI PIERDE OTROS
-
-    //LA PARTIDA ES AL MEJOR DE 5 RONDAS
-    //PARA CADA VICTORIA / DERROTA LAS PAREDES SE VAN A IR A UNA POSICION CONCRETA, DE MANERA QUE QUEDE MAS PATENTE QUE A CADA RONDA SE ESTÁ LLEGANDO AL FINAL
-    //V1 -> 1.1 // V2 -> 0.6 // V3 -> 0.0   ////    D1 -> 2.0 // D2 -> 2.4 // D3 -> 2.8
-
-    //SI GANAS / PIERDES MOSTRAR DIALOGO DE GANAR / PERDER HACIENDO LA TRANSICION CORRESPONDIENTE AL PLATO
 }

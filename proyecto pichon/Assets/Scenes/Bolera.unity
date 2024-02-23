@@ -4856,26 +4856,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de32c8a96b3456f45b2521d914a0071e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinchanimation:
+  pinchanimationAction:
     m_UseReference: 1
     m_Action:
       m_Name: Pinchanimation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 389beb61-077f-4c2d-be57-841b09c78872
+      m_Id: 1eb75435-71ba-4bf7-9504-2a0e7eb3b6c9
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  gripanimation:
+  gripanimationAction:
     m_UseReference: 1
     m_Action:
       m_Name: Gripanimation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 1d5c4880-c977-4847-82a0-5a638a0289f0
+      m_Id: d0b119a5-4aa2-47a9-92bc-3cc230ec6bae
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -7473,26 +7473,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de32c8a96b3456f45b2521d914a0071e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinchanimation:
+  pinchanimationAction:
     m_UseReference: 1
     m_Action:
       m_Name: Pinchanimation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: c4d7599b-1028-4005-bb15-6e4f932e3429
+      m_Id: a9c65fff-3544-44b5-a443-7dd6678d1f21
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  gripanimation:
+  gripanimationAction:
     m_UseReference: 1
     m_Action:
       m_Name: Gripanimation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 77244fd4-80de-4378-bc6d-3e78b5da441f
+      m_Id: 19e85add-1489-4191-b0a0-20f9d784bfbe
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
